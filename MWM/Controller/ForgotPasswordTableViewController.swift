@@ -87,6 +87,7 @@ func setupBackgroundImage() {
             
             RequestChangePasswordPostService.executeRequest(param!, completionHandler: { (data) in
                 self.navigationController?.popToRootViewController(animated: true)
+                Alert.showAlertWithMessage("Success", message: "Password reset Successfully")
             })
         }
     }

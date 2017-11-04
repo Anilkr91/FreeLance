@@ -18,12 +18,12 @@ struct UserModel: Gloss.Decodable {
     let email: String
     let featureList: String
     let id: Int
-    let latitude: Double
-    let longitude: Double
+    let latitude: Double?
+    let longitude: Double?
     let mobileNo: String
     let name: String
     let profilePicture: String?
-    let sessionActive: Bool
+    let sessionActive: Bool?
     let sessionId: Int?
     let userName: String
     let userRole: String
@@ -36,11 +36,11 @@ struct UserModel: Gloss.Decodable {
             let email: String  = "email" <~~ json,
             let featureList: String  = "featureList" <~~ json,
             let id: Int  = "id" <~~ json,
-            let latitude: Double  = "latitude" <~~ json,
-            let longitude: Double  = "longitude" <~~ json,
+//            let latitude: Double  = "latitude" <~~ json,
+//            let longitude: Double  = "longitude" <~~ json,
             let mobileNo: String  = "mobileNo" <~~ json,
             let name: String  = "name" <~~ json,
-            let sessionActive: Bool  = "sessionActive" <~~ json,
+//            let sessionActive: Bool  = "sessionActive" <~~ json,
             let userName: String  = "userName" <~~ json,
             let userRole: String  = "userRole" <~~ json else { return nil }
         
@@ -51,12 +51,12 @@ struct UserModel: Gloss.Decodable {
         self.email = email
         self.featureList = featureList
         self.id = id
-        self.latitude = latitude
-        self.longitude = longitude
+        self.latitude = "latitude" <~~ json
+        self.longitude = "longitude" <~~ json
         self.mobileNo = mobileNo
         self.name = name
         self.profilePicture = "profilePicture" <~~ json
-        self.sessionActive = sessionActive
+        self.sessionActive = "sessionActive" <~~ json
         self.sessionId = "sessionId" <~~ json
         self.userName = userName
         self.userRole = userRole

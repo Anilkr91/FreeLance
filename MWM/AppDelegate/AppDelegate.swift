@@ -73,8 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = storyboard.instantiateViewController(withIdentifier: "ChangePasswordTableViewController")
         window?.rootViewController = vc
     }
-    
-    
+
     func setHomeUserAsRVC() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -88,13 +87,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = vc
     }
     
-    
     func validateUserToken() {
         if  Defaults[.isLaunched] == false {
             Defaults[.isLaunched] = true
        
         } else {
-            
             let token = LoginUtils.getCurrentUserLogin()
             if let token = token {
                 

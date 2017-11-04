@@ -22,8 +22,7 @@ class ChangePasswordTableViewController: BaseTableViewController {
        setupBackgroundImage()
         tableView.separatorStyle = .none
     }
-    
-    
+
     func setupBackgroundImage() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bg")
@@ -88,10 +87,9 @@ class ChangePasswordTableViewController: BaseTableViewController {
             
         } else {
             let param = ChangePasswordModel(oldPassword: oldPassword, newPassword: newPassword).toJSON()
-            
             ChangePasswordPostService.executeRequest(param! as [String: AnyObject], completionHandler: { (response) in
-                Alert.showAlertWithMessage("Success", message: "Password Changed Successfully")
                 self.navigationController?.popToRootViewController(animated: true)
+                 Alert.showAlertWithMessage("Success", message: "Password Changed Successfully")
             })
         }
     }

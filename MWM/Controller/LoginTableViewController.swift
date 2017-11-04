@@ -83,10 +83,9 @@ class LoginTableViewController: BaseTableViewController {
     }
     
     func loginApiService(userName: String, password: String) {
-        let param = LoginModel(username: userName, password: password /* companyId: "mbk002"*/).toJSON()
+        let param = LoginModel(username: userName, password: password).toJSON()
         
         LoginPostService.executeRequest(param! as [String : AnyObject], completionHandler: { (response) in
-           
             LoginUtils.setCurrentUserLogin(response)
             let application = UIApplication.shared.delegate as! AppDelegate
             application.setHomeUserAsRVC()

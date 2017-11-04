@@ -22,7 +22,6 @@ class LoginPostService {
             
             switch response.result {
             case .success(let value) :
-                
                 guard let data = GlossResponse<UserModelResponse>(json: value as! JSON) else {  return }
                 
                 if data.status == true {

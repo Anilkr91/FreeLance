@@ -19,13 +19,13 @@ class ChangePasswordPostService {
         manager.session.configuration.timeoutIntervalForRequest = 60
     
         let token = LoginUtils.getCurrentUserLogin()
-        let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
+        let headers: HTTPHeaders = ["AUTH-TOKEN": token!,
+                                    "Device-Type": "iOS"]
         
-        manager.request( BaseURL + "user/change-password", method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+       manager.request( BaseURL + "user/change-password", method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
-                
                 if let data = IsSuccessModel(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(data)

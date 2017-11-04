@@ -17,8 +17,10 @@ class RequestChangePasswordPostService {
         
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 60
+        
+        let headers: HTTPHeaders = ["Device-Type": "iOS"]
     
-        manager.request( BaseURL + "user/request-password-reset", method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+        manager.request( BaseURL + "user/request-password-reset", method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :

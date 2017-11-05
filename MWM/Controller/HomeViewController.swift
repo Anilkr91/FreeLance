@@ -21,6 +21,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.hidesBackButton = true 
         cvc = childViewControllers[0] as! HomeTableViewController
         cvc.pvc = self
         setupCoreLocation()

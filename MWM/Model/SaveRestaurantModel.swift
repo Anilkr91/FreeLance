@@ -15,6 +15,7 @@ struct SaveRestaurantModel {
     let companyId: String
     let onBoardStatus: String
     let userId: String
+    let isOffline: Bool
     
     let restaurantName: String
     let contactPerson: String
@@ -43,6 +44,7 @@ struct SaveRestaurantModel {
         self.visitingCard = visitingCard
         self.latitude = latitude
         self.longitude = longitude
+        self.isOffline = false
     }
     
     func toJSON() -> JSON? {
@@ -61,7 +63,8 @@ struct SaveRestaurantModel {
             "restaurantPic" ~~> self.restaurantPic,
             "visitingCard" ~~> self.visitingCard,
             "latitude" ~~> self.latitude,
-            "longitude" ~~> self.longitude
+            "longitude" ~~> self.longitude,
+            "isOffline" ~~> self.isOffline
             ])
     }
 }

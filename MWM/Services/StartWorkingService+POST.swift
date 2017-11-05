@@ -1,16 +1,17 @@
 //
-//  VerifyOTPService+POST.swift
-//  Demo
+//  StartWorkingService+POST.swift
+//  MWM
 //
-//  Created by admin on 28/09/17.
+//  Created by admin on 04/11/17.
 //  Copyright © 2017 Techximum. All rights reserved.
 //
 
 import Alamofire
 import Gloss
 
-class VerifyOTPPostService {
-    static func executeRequest (_ params:[String: AnyObject], completionHandler: @escaping (BaseSucessModel) -> Void) {
+class StartWorkingPostService {
+    
+    static func executeRequest ( completionHandler: @escaping (AttendenceModelResponse) -> Void) {
         
         ProgressBarView.showHUD()
         
@@ -19,12 +20,15 @@ class VerifyOTPPostService {
         
         let BaseURL = Constants.BASE_URL
         
-        manager.request( BaseURL + "user/verify-token", method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        let token = LoginUtils.getCurrentUserLogin()
+        let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
+        
+        let r =  manager.request( BaseURL +  "user-attendance/start", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
                 
-                if let data = BaseSucessModel(json: value as! JSON) {
+                if let data = AttendenceModelResponse(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(data)
                 } else {
@@ -38,5 +42,7 @@ class VerifyOTPPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        
+        debugPrint(r)
     }
 }

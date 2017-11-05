@@ -1,16 +1,16 @@
 //
-//  VerifyOTPService+POST.swift
-//  Demo
+//  EndWorkingService+POST.swift
+//  MWM
 //
-//  Created by admin on 28/09/17.
+//  Created by admin on 04/11/17.
 //  Copyright © 2017 Techximum. All rights reserved.
 //
 
 import Alamofire
 import Gloss
 
-class VerifyOTPPostService {
-    static func executeRequest (_ params:[String: AnyObject], completionHandler: @escaping (BaseSucessModel) -> Void) {
+class EndWorkingPostService {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (BaseSucessModel) -> Void) {
         
         ProgressBarView.showHUD()
         
@@ -18,8 +18,10 @@ class VerifyOTPPostService {
         manager.session.configuration.timeoutIntervalForRequest = 60
         
         let BaseURL = Constants.BASE_URL
+        let token = LoginUtils.getCurrentUserLogin()
+        let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
         
-        manager.request( BaseURL + "user/verify-token", method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+    let r = manager.request(BaseURL + "user-attendance/end", method: .post, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -38,5 +40,6 @@ class VerifyOTPPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        debugPrint(r)
     }
 }

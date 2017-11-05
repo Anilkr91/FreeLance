@@ -1,31 +1,31 @@
 //
-//  IsSuccessModel.swift
-//  Demo
+//  BaseSucessModel.swift
+//  MWM
 //
-//  Created by admin on 14/10/17.
+//  Created by admin on 04/11/17.
 //  Copyright © 2017 Techximum. All rights reserved.
 //
 
 import Gloss
-struct IsSuccessModel {
+struct BaseSucessModel {
     
     let status: Bool
     let message: String?
-    let user: UserModel
+    let data: Bool
     
     init?(json: JSON) {
         guard let  status: Bool  = "status" <~~ json,
-            let user: UserModel = "data" <~~ json else { return nil }
+            let data: Bool = "data" <~~ json else { return nil }
         
         self.status = status
-        self.user = user
+        self.data = data
         self.message = "errorMessage" <~~ json
     }
     
     func toJSON() -> JSON? {
         return jsonify([
             "status" ~~> self.status,
-            "data" ~~> self.user,
+            "data" ~~> self.data,
             "errorMessage" ~~> self.message
             ])
     }

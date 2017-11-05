@@ -12,13 +12,13 @@ class LoginUtils {
     
     class func setCurrentUser(_ user: UserModel?) {
         if let user = user {
-             Defaults[.user] = user.toJSON()
-
+            Defaults[.user] = user.toJSON()
+            
         } else {
             Defaults.remove(.user)
         }
     }
-
+    
     class func setCurrentUserLogin(_ login: UserModelResponse?) {
         if let login = login {
             
@@ -31,7 +31,7 @@ class LoginUtils {
             Defaults.remove(.featureList)
         }
     }
-
+    
     class func getCurrentUser() -> UserModel? {
         if let json = Defaults[.user] {
             return UserModel(json: json)
@@ -39,11 +39,44 @@ class LoginUtils {
         return nil
     }
     
-    
     class func getCurrentUserLogin() -> String? {
         if let token = Defaults[.token] {
-//            return UserModelResponse(json: json)
-           return token
+            //            return UserModelResponse(json: json)
+            return token
+        }
+        return nil
+    }
+    
+    class func setCurrentUserAttendence(_ attendence: AttendenceModel?) {
+        if let attendence = attendence {
+            Defaults[.attendence] = attendence.toJSON()
+            
+            
+        } else {
+            Defaults.remove(.attendence)
+        }
+    }
+    
+    class func getCurrentUserAttendence() -> AttendenceModel? {
+        if let json = Defaults[.attendence] {
+            return AttendenceModel(json: json)
+        }
+        return nil
+    }
+    
+    
+    class func setCurrentUserSession(_ id: Int?) {
+        if let id = id {
+            Defaults[.sessionId] = id
+            
+        } else {
+            Defaults.remove(.sessionId)
+        }
+    }
+    
+    class func getCurrentUserSession() -> Int? {
+        if let id = Defaults[.sessionId] {
+            return id
         }
         return nil
     }

@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        validateUserToken()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -54,8 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationbarAppearance.barStyle = .blackTranslucent
         navigationbarAppearance.tintColor = UIColor.white
         navigationbarAppearance.barTintColor = UIColor(hex: "df6a2d")
-//         navigationbarAppearance.shadowImage = nil
-//        navigationbarAppearance.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Javacom", size: 17.0)!]
+        //         navigationbarAppearance.shadowImage = nil
+        //        navigationbarAppearance.titleTextAttributes = [NSFontAttributeName : UIFont(name: "Javacom", size: 17.0)!]
     }
     func checkLoginState() {
         
@@ -73,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = storyboard.instantiateViewController(withIdentifier: "ChangePasswordTableViewController")
         window?.rootViewController = vc
     }
-
+    
     func setHomeUserAsRVC() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -90,12 +91,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func validateUserToken() {
         if  Defaults[.isLaunched] == false {
             Defaults[.isLaunched] = true
-       
+            
         } else {
             let token = LoginUtils.getCurrentUserLogin()
             if let token = token {
                 
-                ValidateTokenPostService.executeRequest { (data) in }
+                ValidateTokenPostService.executeRequest { (response) in
+                LoginUtils.setCurrentUserSession(response.user.sessionId)
+                }
             } else { return }
         }
     }

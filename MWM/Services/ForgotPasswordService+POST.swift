@@ -20,7 +20,7 @@ class ForgotPasswordPostService {
         
         let headers: HTTPHeaders = ["Device-Type": "iOS"]
         
-        manager.request( BaseURL + "user/forgot-password", method: .put, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+      let r =   manager.request( BaseURL + "user/forgot-password", method: .put, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -41,5 +41,6 @@ class ForgotPasswordPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        debugPrint(r)
     }
 }

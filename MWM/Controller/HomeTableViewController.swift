@@ -22,9 +22,9 @@ class HomeTableViewController: BaseTableViewController {
     @IBOutlet weak var visitingCardImageView: UIImageView!
     @IBOutlet weak var restaurantImageView: UIImageView!
     
-    let natureOfVisitarray = ["Revisit", "New Visit"]
-    let statusArray = ["Hot", "Warm", "Cold", "On Boarding"]
-    let onBoardArray = ["Yes", "No"]
+    let natureOfVisitarray = ["", "Revisit", "New Visit"]
+    let statusArray = ["", "Hot", "Warm", "Cold", "On Boarding"]
+    let onBoardArray = ["", "Yes", "No"]
     
     lazy var naturePicker = UIPickerView()
     lazy var statusPicker = UIPickerView()

@@ -13,6 +13,8 @@ extension DefaultsKeys {
     static let token = DefaultsKey<String?>("token")
     static let featureList = DefaultsKey<String?>("featureList")
     static let user = DefaultsKey<[String: Any]?>("user")
+    static let attendence = DefaultsKey<[String: Any]?>("attendence")
     static let isLaunched = DefaultsKey<Bool>("launch")
+    static let sessionId = DefaultsKey<Int?>("sessionId")
    
 }

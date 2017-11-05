@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class ChangePasswordPostService {
-    static func executeRequest (_ params:[String: AnyObject], completionHandler: @escaping (IsSuccessModel) -> Void) {
+    static func executeRequest (_ params:[String: AnyObject], completionHandler: @escaping (BaseSucessModel) -> Void) {
         
         ProgressBarView.showHUD()
         let BaseURL = Constants.BASE_URL
@@ -26,7 +26,7 @@ class ChangePasswordPostService {
             
             switch response.result {
             case .success(let value) :
-                if let data = IsSuccessModel(json: value as! JSON) {
+                if let data = BaseSucessModel(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(data)
                 } else {

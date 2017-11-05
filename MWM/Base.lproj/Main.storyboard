@@ -316,7 +316,7 @@
                                     <constraint firstAttribute="height" constant="40" id="YHl-nK-zSc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="Add New Feedback">
+                                <state key="normal" title="Add New Entry">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>

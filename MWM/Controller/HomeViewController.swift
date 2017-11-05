@@ -96,9 +96,8 @@ class HomeViewController: BaseViewController {
             
         } else if onBoard.removeAllSpaces().isEmpty {
             Alert.showAlertWithMessage("Error", message: "onBoard Field is Empty")
-        }
-        
-        else if restaurantImageUrl.isEmpty {
+       
+        } else if restaurantImageUrl.isEmpty {
             Alert.showAlertWithMessage("Error", message: "Restaurant Image is Empty")
             
         } else {
@@ -108,26 +107,10 @@ class HomeViewController: BaseViewController {
             let param = SaveRestaurantModel(accountManagerId: "\(user!.accountManagerId)", area: area, companyId: user!.companyId, onBoardStatus: onBoard, userId: "\(user!.id)", restaurantName: restaurantName, contactPerson: contactPerson, contactNumber: contactNo, natureOfVisit: natureOfVisit, status: statusText, restaurantPic: restaurantImageUrl , visitingCard: visitingCardImageUrl, latitude: cordinates.latitude, longitude: cordinates.longitude).toJSON()
             
             SaveRestaurantPostService.executeRequest(param! as [String : AnyObject], completionHandler: { (data) in
+                 self.navigationController?.popToRootViewController(animated: true)
                 Alert.showAlertWithMessage("Success", message: "Data is sent successfully")
-                self.clearData()
             })
         }
-    }
-    
-    func clearData() {
-        
-        self.navigationController?.popToRootViewController(animated: true)
-//        cvc.restaurantNameTextField.text = ""
-//        cvc.contactPersonName.text = ""
-//        cvc.contactNumber.text = ""
-//        cvc.natureOfVisitField.text = ""
-//        cvc.statusTextfield.text = ""
-//        cvc.visitingCardImageView.image = UIImage(named: "placeholder")
-//        cvc.restaurantImageView.image = UIImage(named: "placeholder")
-//        visitingCardImageUrl = ""
-//        restaurantImageUrl = ""
-//        cvc.area.text = ""
-//        cvc.onBoardTextfield.text = ""
     }
 }
 

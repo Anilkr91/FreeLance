@@ -20,8 +20,14 @@ class StartWorkingViewController: BaseViewController {
         super.viewDidLoad()
         setButtonTitle()
         startWorkingButton.addTarget(self, action: #selector(StartWorkingViewController.startWorking), for: .touchUpInside)
+        newEntryButton.addTarget(self, action: #selector(StartWorkingViewController.startNewEntry), for: .touchUpInside)
     }
-    
+
+    func startNewEntry() {
+       self.performSegue(withIdentifier: "showFeedbackSegue", sender: self)
+        
+    }
+
     func setButtonTitle() {
        
         if LoginUtils.getCurrentUserSession() == nil {

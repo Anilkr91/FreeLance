@@ -286,7 +286,7 @@
             </objects>
             <point key="canvasLocation" x="3074" y="-165"/>
         </scene>
-        <!--Start Working View Controller-->
+        <!--Attendence-->
         <scene sceneID="Np5-4m-Vt5">
             <objects>
                 <viewController id="iPl-jk-fay" customClass="StartWorkingViewController" customModule="MWM" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,7 +332,7 @@
                             <constraint firstItem="yAq-cR-grb" firstAttribute="trailing" secondItem="onW-jV-JB6" secondAttribute="trailing" id="hBG-Jx-DVG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="InF-SH-tbs"/>
+                    <navigationItem key="navigationItem" title="Attendence" id="InF-SH-tbs"/>
                     <connections>
                         <outlet property="newEntryButton" destination="yAq-cR-grb" id="ttf-cH-wgl"/>
                         <outlet property="startWorkingButton" destination="onW-jV-JB6" id="8dM-7j-Jnu"/>

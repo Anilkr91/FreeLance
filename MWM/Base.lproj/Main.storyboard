@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -299,10 +298,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onW-jV-JB6">
-                                <rect key="frame" x="24" y="313.5" width="327" height="40"/>
+                                <rect key="frame" x="8" y="470" width="359" height="40"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.27058823529411763" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="778-e4-2lK"/>
+                                    <constraint firstAttribute="height" constant="40" id="9ZJ-7D-Ct8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Start Working">
@@ -310,26 +309,32 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAq-cR-grb">
-                                <rect key="frame" x="24" y="384" width="327" height="40"/>
+                                <rect key="frame" x="8" y="530" width="359" height="40"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.27058823529411763" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="YHl-nK-zSc"/>
+                                    <constraint firstAttribute="height" constant="40" id="blc-0a-k2C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Add New Entry">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attendence" translatesAutoresizingMaskIntoConstraints="NO" id="Px5-A5-v9j">
+                                <rect key="frame" x="8" y="217" width="359" height="233"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="onW-jV-JB6" secondAttribute="trailing" constant="8" id="6VV-0D-yfe"/>
-                            <constraint firstItem="onW-jV-JB6" firstAttribute="centerX" secondItem="gbf-Ij-Aem" secondAttribute="centerX" id="85A-pL-VlK"/>
-                            <constraint firstItem="onW-jV-JB6" firstAttribute="leading" secondItem="gbf-Ij-Aem" secondAttribute="leadingMargin" constant="8" id="8gm-AO-GqD"/>
-                            <constraint firstItem="yAq-cR-grb" firstAttribute="top" secondItem="onW-jV-JB6" secondAttribute="bottom" constant="30" id="EeF-O6-hly"/>
-                            <constraint firstItem="onW-jV-JB6" firstAttribute="centerY" secondItem="gbf-Ij-Aem" secondAttribute="centerY" id="J5F-4k-0rA"/>
-                            <constraint firstItem="yAq-cR-grb" firstAttribute="leading" secondItem="onW-jV-JB6" secondAttribute="leading" id="YTj-g1-ro5"/>
-                            <constraint firstItem="yAq-cR-grb" firstAttribute="trailing" secondItem="onW-jV-JB6" secondAttribute="trailing" id="hBG-Jx-DVG"/>
+                            <constraint firstAttribute="trailing" secondItem="onW-jV-JB6" secondAttribute="trailing" constant="8" id="1i9-to-4oZ"/>
+                            <constraint firstItem="onW-jV-JB6" firstAttribute="leading" secondItem="gbf-Ij-Aem" secondAttribute="leading" constant="8" id="44a-LE-9Mw"/>
+                            <constraint firstItem="yAq-cR-grb" firstAttribute="top" secondItem="onW-jV-JB6" secondAttribute="bottom" constant="20" id="AtZ-qK-joI"/>
+                            <constraint firstItem="Px5-A5-v9j" firstAttribute="centerY" secondItem="gbf-Ij-Aem" secondAttribute="centerY" id="J7J-Pj-an1"/>
+                            <constraint firstItem="yAq-cR-grb" firstAttribute="trailing" secondItem="onW-jV-JB6" secondAttribute="trailing" id="LEE-TW-rhK"/>
+                            <constraint firstItem="onW-jV-JB6" firstAttribute="top" secondItem="Px5-A5-v9j" secondAttribute="bottom" constant="20" id="cj4-Sn-cDK"/>
+                            <constraint firstItem="Px5-A5-v9j" firstAttribute="leading" secondItem="gbf-Ij-Aem" secondAttribute="leading" constant="8" id="g9c-V3-9Wr"/>
+                            <constraint firstItem="Px5-A5-v9j" firstAttribute="centerX" secondItem="gbf-Ij-Aem" secondAttribute="centerX" id="jNt-K1-ney"/>
+                            <constraint firstAttribute="trailing" secondItem="Px5-A5-v9j" secondAttribute="trailing" constant="8" id="qV9-PR-YUo"/>
+                            <constraint firstItem="yAq-cR-grb" firstAttribute="leading" secondItem="onW-jV-JB6" secondAttribute="leading" id="rJ2-GI-dRb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Attendence" id="InF-SH-tbs"/>
@@ -341,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXg-Je-lcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2372" y="-864"/>
+            <point key="canvasLocation" x="2372" y="-864.01799100449784"/>
         </scene>
         <!--Mobikwik Restaurant-->
         <scene sceneID="13q-0Y-b94">
@@ -927,6 +932,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="attendence" width="343" height="233"/>
         <image name="logo-white" width="98" height="52"/>
         <image name="placeholder" width="128" height="92"/>
     </resources>

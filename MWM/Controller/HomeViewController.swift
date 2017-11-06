@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.hidesBackButton = true 
+//        self.navigationItem.hidesBackButton = true 
         cvc = childViewControllers[0] as! HomeTableViewController
         cvc.pvc = self
         setupCoreLocation()
@@ -52,7 +52,7 @@ class HomeViewController: BaseViewController {
         }
         
         let secondAction: UIAlertAction = UIAlertAction(title: "Change Password", style: .default) { action -> Void in
-            self.performSegue(withIdentifier: "showForgotPasswordSegue", sender: self)
+            self.performSegue(withIdentifier: "showChangePasswordSegue", sender: self)
         }
         
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }

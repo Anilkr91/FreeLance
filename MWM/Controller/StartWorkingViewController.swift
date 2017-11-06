@@ -19,6 +19,7 @@ class StartWorkingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonTitle()
+        setupBarButton()
         startWorkingButton.addTarget(self, action: #selector(StartWorkingViewController.startWorking), for: .touchUpInside)
         newEntryButton.addTarget(self, action: #selector(StartWorkingViewController.startNewEntry), for: .touchUpInside)
     }
@@ -70,5 +71,46 @@ class StartWorkingViewController: BaseViewController {
             self.newEntryButton.isHidden = false
             self.performSegue(withIdentifier: "showFeedbackSegue", sender: self)
         }
+    }
+}
+
+extension StartWorkingViewController {
+    
+    func setupBarButton() {
+        let barButton = UIBarButtonItem()
+        barButton.tintColor = UIColor.darkGray
+        barButton.image = UIImage(named: "SettingIcon")
+        barButton.target = self
+        barButton.action = #selector(self.logout(_:))
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    func logout(_ sender: Any) {
+        
+        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        // create an action
+        let firstAction: UIAlertAction = UIAlertAction(title: "Logout", style: .default) { action -> Void in
+            
+            LogoutGetService.executeRequest { (data) in
+                Alert.showAlertWithMessage("Success", message: "User logged out Successfully")
+            }
+            LoginUtils.setCurrentUserLogin(nil)
+            let application = UIApplication.shared.delegate as! AppDelegate
+            application.setHomeGuestAsRVC()
+        }
+        
+        let secondAction: UIAlertAction = UIAlertAction(title: "Change Password", style: .default) { action -> Void in
+            self.performSegue(withIdentifier: "showChangePasswordSegue", sender: self)
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
+        // add actions
+        actionSheetController.addAction(firstAction)
+        actionSheetController.addAction(secondAction)
+        actionSheetController.addAction(cancelAction)
+        
+        // present an actionSheet...
+        actionSheetController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        present(actionSheetController, animated: true, completion: nil)
     }
 }

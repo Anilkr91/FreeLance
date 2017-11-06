@@ -342,6 +342,7 @@
                         <outlet property="newEntryButton" destination="yAq-cR-grb" id="ttf-cH-wgl"/>
                         <outlet property="startWorkingButton" destination="onW-jV-JB6" id="8dM-7j-Jnu"/>
                         <segue destination="SNz-vx-vT2" kind="show" identifier="showFeedbackSegue" id="Oud-U1-tZn"/>
+                        <segue destination="il4-gk-TbB" kind="show" identifier="showChangePasswordSegue" id="mGz-o9-hge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXg-Je-lcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,7 +395,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Mobikwik Restaurant" id="8VK-FR-lgh"/>
                     <connections>
-                        <segue destination="il4-gk-TbB" kind="show" identifier="showForgotPasswordSegue" id="uBk-9V-0PZ"/>
+                        <segue destination="il4-gk-TbB" kind="show" identifier="showChangePasswordSegue" id="uBk-9V-0PZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mag-YU-MJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -819,7 +820,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27Y-DR-RY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3919" y="-864"/>
+            <point key="canvasLocation" x="3018" y="-1719"/>
         </scene>
         <!--Forgot Password-->
         <scene sceneID="ldT-0l-nsB">
@@ -936,4 +937,7 @@
         <image name="logo-white" width="98" height="52"/>
         <image name="placeholder" width="128" height="92"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="uBk-9V-0PZ"/>
+    </inferredMetricsTieBreakers>
 </document>

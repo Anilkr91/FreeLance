@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class SaveRestaurantPostService {
-    static func executeRequest (_ params:[String: AnyObject], completionHandler: @escaping (Bool) -> Void) {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (Bool) -> Void) {
         
         ProgressBarView.showHUD()
         let BaseURL = Constants.BASE_URL
@@ -21,7 +21,7 @@ class SaveRestaurantPostService {
         
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
         
-    manager.request( BaseURL + "restaurant", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+   let r =  manager.request( BaseURL + "restaurant", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -40,5 +40,6 @@ class SaveRestaurantPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        debugPrint(r)
     }
 }

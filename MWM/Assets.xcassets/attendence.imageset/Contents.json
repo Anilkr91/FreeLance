@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Resized-MTKFU.png",
+      "filename" : "img343x233.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Resized-TQFS1.jpg",
+      "filename" : "img686x466.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Resized-V5T2R.png",
+      "filename" : "img1077x731.png",
       "scale" : "3x"
     }
   ],

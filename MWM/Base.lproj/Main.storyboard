@@ -321,6 +321,7 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attendence" translatesAutoresizingMaskIntoConstraints="NO" id="Px5-A5-v9j">
                                 <rect key="frame" x="8" y="217" width="359" height="233"/>
+                                <color key="backgroundColor" red="0.87450980392156863" green="0.41568627450980389" blue="0.1764705882352941" alpha="0.0" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -402,7 +403,7 @@
             </objects>
             <point key="canvasLocation" x="3074" y="-864"/>
         </scene>
-        <!--Sign Up-->
+        <!--Login-->
         <scene sceneID="r17-cN-Tm0">
             <objects>
                 <tableViewController id="KBa-QA-Njm" customClass="LoginTableViewController" customModule="MWM" customModuleProvider="target" sceneMemberID="viewController">
@@ -546,7 +547,7 @@
                             <outlet property="delegate" destination="KBa-QA-Njm" id="KP1-9A-0Wv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sign Up" id="LI1-oP-GVu"/>
+                    <navigationItem key="navigationItem" title="Login" id="LI1-oP-GVu"/>
                     <connections>
                         <outlet property="passwordTextField" destination="Eca-xl-KpH" id="WaB-CN-nx6"/>
                         <outlet property="userNameTextField" destination="3FD-Lx-wR9" id="74A-nF-a7q"/>
@@ -938,6 +939,6 @@
         <image name="placeholder" width="128" height="92"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uBk-9V-0PZ"/>
+        <segue reference="mGz-o9-hge"/>
     </inferredMetricsTieBreakers>
 </document>

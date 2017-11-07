@@ -104,9 +104,9 @@ class HomeViewController: BaseViewController {
             
             let user = LoginUtils.getCurrentUser()
             
-            let param = SaveRestaurantModel(accountManagerId: "\(user!.accountManagerId)", area: area, companyId: user!.companyId, onBoardStatus: onBoard, userId: "\(user!.id)", restaurantName: restaurantName, contactPerson: contactPerson, contactNumber: contactNo, natureOfVisit: natureOfVisit, status: statusText, restaurantPic: restaurantImageUrl , visitingCard: visitingCardImageUrl, latitude: cordinates.latitude, longitude: cordinates.longitude).toJSON()
+            let param = SaveRestaurantModel(accountManagerId: "\(user!.accountManagerId!)", area: area, companyId: user!.companyId, onBoardStatus: onBoard, userId: "\(user!.id)", restaurantName: restaurantName, contactPerson: contactPerson, contactNumber: contactNo, natureOfVisit: natureOfVisit, status: statusText, restaurantPic: restaurantImageUrl , visitingCard: visitingCardImageUrl, latitude: cordinates.latitude, longitude: cordinates.longitude).toJSON()
             
-            SaveRestaurantPostService.executeRequest(param! as [String : AnyObject], completionHandler: { (data) in
+            SaveRestaurantPostService.executeRequest(param!, completionHandler: { (data) in
                  self.navigationController?.popToRootViewController(animated: true)
                 Alert.showAlertWithMessage("Success", message: "Data is sent successfully")
             })

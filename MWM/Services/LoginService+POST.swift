@@ -18,10 +18,11 @@ class LoginPostService {
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 60
         
-        manager.request( URL + "user/login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+       let r =  manager.request( URL + "user/login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
+                
                 guard let data = GlossResponse<UserModelResponse>(json: value as! JSON) else {  return }
                 
                 if data.status == true {
@@ -38,5 +39,7 @@ class LoginPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        
+        debugPrint(r)
     }
 }

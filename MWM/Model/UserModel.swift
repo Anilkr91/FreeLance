@@ -11,16 +11,16 @@ import Gloss
 
 struct UserModel: Gloss.Decodable {
     
-    let accountManagerId: Int
+    let accountManagerId: Int?
     let active: Bool
-    let city: String
+    let city: String?
     let companyId: String
-    let email: String
-    let featureList: String
+    let email: String?
+    let featureList: String?
     let id: Int
     let latitude: Double?
     let longitude: Double?
-    let mobileNo: String
+    let mobileNo: String?
     let name: String
     let profilePicture: String?
     let sessionActive: Bool?
@@ -29,31 +29,23 @@ struct UserModel: Gloss.Decodable {
     let userRole: String
     
     init?(json: JSON) {
-        guard let accountManagerId: Int = "accountManagerId" <~~ json,
-            let active: Bool = "active" <~~ json,
-            let city: String  = "city" <~~ json,
+        guard let active: Bool = "active" <~~ json,
             let companyId: String  = "companyId" <~~ json,
-            let email: String  = "email" <~~ json,
-            let featureList: String  = "featureList" <~~ json,
             let id: Int  = "id" <~~ json,
-//            let latitude: Double  = "latitude" <~~ json,
-//            let longitude: Double  = "longitude" <~~ json,
-            let mobileNo: String  = "mobileNo" <~~ json,
             let name: String  = "name" <~~ json,
-//            let sessionActive: Bool  = "sessionActive" <~~ json,
             let userName: String  = "userName" <~~ json,
             let userRole: String  = "userRole" <~~ json else { return nil }
         
-        self.accountManagerId = accountManagerId
+        self.accountManagerId = "accountManagerId" <~~ json
         self.active = active
-        self.city = city
+        self.city = "city" <~~ json
         self.companyId = companyId
-        self.email = email
-        self.featureList = featureList
+        self.email = "email" <~~ json
+        self.featureList = "featureList" <~~ json
         self.id = id
         self.latitude = "latitude" <~~ json
         self.longitude = "longitude" <~~ json
-        self.mobileNo = mobileNo
+        self.mobileNo = "mobileNo" <~~ json
         self.name = name
         self.profilePicture = "profilePicture" <~~ json
         self.sessionActive = "sessionActive" <~~ json

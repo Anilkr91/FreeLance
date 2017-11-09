@@ -72,10 +72,10 @@ class LoginTableViewController: BaseTableViewController {
         let password = passwordTextField.text!
         
         if username.removeAllSpaces().isEmpty {
-            Alert.showAlertWithMessage("Error", message: "user name is empty")
+            Alert.showAlertWithMessage("Error", message: "User name is empty")
             
         } else if password.removeAllSpaces().isEmpty {
-             Alert.showAlertWithMessage("Error", message: "password is empty")
+             Alert.showAlertWithMessage("Error", message: "Password is empty")
             
         } else {
             loginApiService(userName: username, password: password)

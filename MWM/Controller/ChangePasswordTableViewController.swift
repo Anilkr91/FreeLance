@@ -74,16 +74,16 @@ class ChangePasswordTableViewController: BaseTableViewController {
         let confirmPassword = confirmPasswordTextField.text!
         
         if oldPassword.removeAllSpaces().isEmpty {
-             Alert.showAlertWithMessage("Error", message: "oldPassword password is empty")
+             Alert.showAlertWithMessage("Error", message: "Old Password password is empty")
             
         } else if newPassword.removeAllSpaces().isEmpty {
-            Alert.showAlertWithMessage("Error", message: "new password is empty")
+            Alert.showAlertWithMessage("Error", message: "New password is empty")
             
         } else if confirmPassword.removeAllSpaces().isEmpty {
-            Alert.showAlertWithMessage("Error", message: "confirm password is empty")
+            Alert.showAlertWithMessage("Error", message: "Confirm password is empty")
             
         } else if newPassword != confirmPassword {
-             Alert.showAlertWithMessage("Error", message: "password not matched")
+             Alert.showAlertWithMessage("Error", message: "Password not matched")
             
         } else {
             let param = ChangePasswordModel(oldPassword: oldPassword, newPassword: newPassword).toJSON()

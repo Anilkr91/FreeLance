@@ -77,7 +77,7 @@ class HomeViewController: BaseViewController {
         let onBoard = cvc.onBoardTextfield.text!
         
         if restaurantName.removeAllSpaces().isEmpty {
-            Alert.showAlertWithMessage("Error", message: "Restaurant Field is Empty")
+            Alert.showAlertWithMessage("Error", message: "Restaurant Name Field is Empty")
             
         } else if contactPerson.removeAllSpaces().isEmpty {
             Alert.showAlertWithMessage("Error", message: "ContactPerson Field is Empty")
@@ -95,7 +95,7 @@ class HomeViewController: BaseViewController {
             Alert.showAlertWithMessage("Error", message: "Area Field is Empty")
             
         } else if onBoard.removeAllSpaces().isEmpty {
-            Alert.showAlertWithMessage("Error", message: "onBoard Field is Empty")
+            Alert.showAlertWithMessage("Error", message: "On Board Field is Empty")
        
         } else if restaurantImageUrl.isEmpty {
             Alert.showAlertWithMessage("Error", message: "Restaurant Image is Empty")

@@ -73,13 +73,13 @@ func setupBackgroundImage() {
         let confirmPassword = confirmPasswordTextField.text!
         
         if newPassword.removeAllSpaces().isEmpty {
-              Alert.showAlertWithMessage("Error", message: "new password is empty")
+              Alert.showAlertWithMessage("Error", message: "New password is empty")
             
         } else if confirmPassword.removeAllSpaces().isEmpty {
-              Alert.showAlertWithMessage("Error", message: "confirm password is empty")
+              Alert.showAlertWithMessage("Error", message: "Confirm password is empty")
             
         } else if newPassword != confirmPassword {
-              Alert.showAlertWithMessage("Error", message: "password not matched")
+              Alert.showAlertWithMessage("Error", message: "Password not matched")
             
         } else {
             

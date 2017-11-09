@@ -23,7 +23,7 @@ class ValidateTokenPostService {
         
         let token = LoginUtils.getCurrentUserLogin()
         
-        manager.request( BaseURL + "user/validate-token/\(pathParam)?token=\(token!)", method: .put, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+       let r =  manager.request( BaseURL + "user/validate-token/\(pathParam)?token=\(token!)", method: .put, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -38,7 +38,7 @@ class ValidateTokenPostService {
                     
                     application.setHomeGuestAsRVC()
                     LoginUtils.setCurrentUserLogin(nil)
-                    Alert.showAlertWithMessage("Error", message: error!.errorMessage)
+                    Alert.showAlertWithMessage("Error", message: "Token is invalid")
                     
                 }
             case .failure(let error):
@@ -47,5 +47,6 @@ class ValidateTokenPostService {
             }
         }
         
+        debugPrint(r)
     }
 }

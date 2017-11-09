@@ -154,6 +154,7 @@ extension HomeTableViewController: UIPickerViewDelegate {
 extension HomeTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func handleImageTapGestureRecognizer() {
+        
         let imagePickerMenu = UIAlertController(title: "upload", message: nil, preferredStyle: .actionSheet)
         
         let cameraAction = UIAlertAction(title: "Take photo", style: .default, handler: {
@@ -192,7 +193,6 @@ extension HomeTableViewController: UIImagePickerControllerDelegate, UINavigation
                 } else {
                     self.pvc?.restaurantImageUrl = response.data
                     self.restaurantImageView.image = image
-                    
                 }
             })
         }

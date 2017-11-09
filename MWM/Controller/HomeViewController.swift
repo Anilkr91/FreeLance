@@ -157,6 +157,5 @@ extension HomeViewController: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         
         cordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
-        print(cordinates)
     }
 }

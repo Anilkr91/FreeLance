@@ -23,7 +23,7 @@ class ValidateTokenPostService {
         
         let token = LoginUtils.getCurrentUserLogin()
         
-       let r =  manager.request( BaseURL + "user/validate-token/\(pathParam)?token=\(token!)", method: .put, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+        manager.request( BaseURL + "user/validate-token/\(pathParam)?token=\(token!)", method: .put, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -46,7 +46,5 @@ class ValidateTokenPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
-        
-        debugPrint(r)
     }
 }

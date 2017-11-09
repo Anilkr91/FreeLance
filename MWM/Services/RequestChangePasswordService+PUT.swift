@@ -20,7 +20,7 @@ class RequestChangePasswordPostService {
         
         let headers: HTTPHeaders = ["Device-Type": "iOS"]
     
-      let r =   manager.request( BaseURL + "user/request-password-reset", method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+       manager.request( BaseURL + "user/request-password-reset", method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -37,7 +37,5 @@ class RequestChangePasswordPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
-        
-        debugPrint(r)
     }
 }

@@ -21,7 +21,7 @@ class EndWorkingPostService {
         let token = LoginUtils.getCurrentUserLogin()
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
         
-    let r = manager.request(BaseURL + "user-attendance/end", method: .post, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+     manager.request(BaseURL + "user-attendance/end", method: .post, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -40,6 +40,5 @@ class EndWorkingPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
-        debugPrint(r)
     }
 }

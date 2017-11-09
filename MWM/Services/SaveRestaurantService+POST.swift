@@ -21,7 +21,7 @@ class SaveRestaurantPostService {
         
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
         
-   let r =  manager.request( BaseURL + "restaurant", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+    manager.request( BaseURL + "restaurant", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -40,6 +40,5 @@ class SaveRestaurantPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
-        debugPrint(r)
     }
 }

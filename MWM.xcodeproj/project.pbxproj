@@ -58,6 +58,8 @@
 		84C58B1D1FADCCD000B83DC9 /* EndWorkingService+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C58B1C1FADCCD000B83DC9 /* EndWorkingService+POST.swift */; };
 		84D870071FADAD8300F47702 /* LogoutSucessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870061FADAD8300F47702 /* LogoutSucessModel.swift */; };
 		84DDFEC31FB6E23F00DFCAD1 /* PartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */; };
+		84DDFEC51FB6E86800DFCAD1 /* PartnerService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */; };
+		84DDFEC71FB6F58800DFCAD1 /* CategoryService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */; };
 		D974AAF45F414F3B10BE5C75 /* Pods_MWM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		84C58B1C1FADCCD000B83DC9 /* EndWorkingService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EndWorkingService+POST.swift"; sourceTree = "<group>"; };
 		84D870061FADAD8300F47702 /* LogoutSucessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutSucessModel.swift; sourceTree = "<group>"; };
 		84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerTableViewCell.swift; sourceTree = "<group>"; };
+		84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PartnerService+GET.swift"; sourceTree = "<group>"; };
+		84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryService+GET.swift"; sourceTree = "<group>"; };
 		B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E2AC5CB5AC7A69AF5F2F6A /* Pods-MWM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MWM/Pods-MWM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,6 +250,8 @@
 				8421E1D01F9A20DF0039D49E /* VerifyOTPService+POST.swift */,
 				84C58B161FADC1F800B83DC9 /* StartWorkingService+POST.swift */,
 				84C58B1C1FADCCD000B83DC9 /* EndWorkingService+POST.swift */,
+				84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */,
+				84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				8421E1DF1F9A20DF0039D49E /* ChangePasswordTableViewController.swift in Sources */,
 				8421E1F21F9A20DF0039D49E /* ChangePasswordService+POST.swift in Sources */,
 				84C58B191FADC35B00B83DC9 /* AttendenceModel.swift in Sources */,
+				84DDFEC71FB6F58800DFCAD1 /* CategoryService+GET.swift in Sources */,
 				84D870071FADAD8300F47702 /* LogoutSucessModel.swift in Sources */,
 				8421E2041F9A20DF0039D49E /* UIImageView+Helper.swift in Sources */,
 				8421E1F51F9A20DF0039D49E /* LogoutService+PUT.swift in Sources */,
@@ -459,6 +466,7 @@
 				8421E1F61F9A20DF0039D49E /* RequestChangePasswordService+PUT.swift in Sources */,
 				8421E1FC1F9A20DF0039D49E /* AlertView+Helper.swift in Sources */,
 				8421E2081F9A27ED0039D49E /* ProgressBarView.swift in Sources */,
+				84DDFEC51FB6E86800DFCAD1 /* PartnerService+GET.swift in Sources */,
 				8421E1FF1F9A20DF0039D49E /* DefaultsKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

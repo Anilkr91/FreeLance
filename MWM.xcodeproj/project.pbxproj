@@ -61,6 +61,8 @@
 		84DDFEC51FB6E86800DFCAD1 /* PartnerService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */; };
 		84DDFEC71FB6F58800DFCAD1 /* CategoryService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */; };
 		84DDFEC91FB72C2D00DFCAD1 /* AddPartnerService+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC81FB72C2D00DFCAD1 /* AddPartnerService+POST.swift */; };
+		84DDFECB1FB78F9C00DFCAD1 /* FootPrintService+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFECA1FB78F9C00DFCAD1 /* FootPrintService+POST.swift */; };
+		84DDFECD1FB78FAB00DFCAD1 /* FootPrintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFECC1FB78FAB00DFCAD1 /* FootPrintModel.swift */; };
 		D974AAF45F414F3B10BE5C75 /* Pods_MWM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +124,8 @@
 		84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PartnerService+GET.swift"; sourceTree = "<group>"; };
 		84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryService+GET.swift"; sourceTree = "<group>"; };
 		84DDFEC81FB72C2D00DFCAD1 /* AddPartnerService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AddPartnerService+POST.swift"; sourceTree = "<group>"; };
+		84DDFECA1FB78F9C00DFCAD1 /* FootPrintService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FootPrintService+POST.swift"; sourceTree = "<group>"; };
+		84DDFECC1FB78FAB00DFCAD1 /* FootPrintModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootPrintModel.swift; sourceTree = "<group>"; };
 		B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E2AC5CB5AC7A69AF5F2F6A /* Pods-MWM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MWM/Pods-MWM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +237,7 @@
 				84D870061FADAD8300F47702 /* LogoutSucessModel.swift */,
 				84C58B181FADC35B00B83DC9 /* AttendenceModel.swift */,
 				84C58B1A1FADC6BB00B83DC9 /* AttendenceModelResponse.swift */,
+				84DDFECC1FB78FAB00DFCAD1 /* FootPrintModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */,
 				84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */,
 				84DDFEC81FB72C2D00DFCAD1 /* AddPartnerService+POST.swift */,
+				84DDFECA1FB78F9C00DFCAD1 /* FootPrintService+POST.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				84C58B171FADC1F800B83DC9 /* StartWorkingService+POST.swift in Sources */,
 				8421E1E71F9A20DF0039D49E /* ErrorModel.swift in Sources */,
 				8421E1EC1F9A20DF0039D49E /* SaveRestaurantModel.swift in Sources */,
+				84DDFECD1FB78FAB00DFCAD1 /* FootPrintModel.swift in Sources */,
 				8421E1E21F9A20DF0039D49E /* HomeViewController.swift in Sources */,
 				8421E1E11F9A20DF0039D49E /* HomeTableViewController.swift in Sources */,
 				8421E2001F9A20DF0039D49E /* GlossUtils.swift in Sources */,
@@ -454,6 +461,7 @@
 				8421E1F01F9A20DF0039D49E /* UserModelResponse.swift in Sources */,
 				8421E1FA1F9A20DF0039D49E /* ValidateTokenService+GET.swift in Sources */,
 				8421E2031F9A20DF0039D49E /* StringExtension+Helper.swift in Sources */,
+				84DDFECB1FB78F9C00DFCAD1 /* FootPrintService+POST.swift in Sources */,
 				8421E1F91F9A20DF0039D49E /* UploadImageService+POST.swift in Sources */,
 				8421E1EE1F9A20DF0039D49E /* SucessModel.swift in Sources */,
 				8421E1FE1F9A20DF0039D49E /* Constants.swift in Sources */,

@@ -57,6 +57,7 @@
 		84C58B1B1FADC6BB00B83DC9 /* AttendenceModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C58B1A1FADC6BB00B83DC9 /* AttendenceModelResponse.swift */; };
 		84C58B1D1FADCCD000B83DC9 /* EndWorkingService+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C58B1C1FADCCD000B83DC9 /* EndWorkingService+POST.swift */; };
 		84D870071FADAD8300F47702 /* LogoutSucessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870061FADAD8300F47702 /* LogoutSucessModel.swift */; };
+		84DDFEC31FB6E23F00DFCAD1 /* PartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */; };
 		D974AAF45F414F3B10BE5C75 /* Pods_MWM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		84C58B1A1FADC6BB00B83DC9 /* AttendenceModelResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendenceModelResponse.swift; sourceTree = "<group>"; };
 		84C58B1C1FADCCD000B83DC9 /* EndWorkingService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EndWorkingService+POST.swift"; sourceTree = "<group>"; };
 		84D870061FADAD8300F47702 /* LogoutSucessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutSucessModel.swift; sourceTree = "<group>"; };
+		84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerTableViewCell.swift; sourceTree = "<group>"; };
 		B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E2AC5CB5AC7A69AF5F2F6A /* Pods-MWM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MWM/Pods-MWM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 				8421E1C61F9A20DF0039D49E /* Services */,
 				8421E1D11F9A20DF0039D49E /* Utils */,
 				8421E19B1F9A1FA10039D49E /* Main.storyboard */,
+				84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */,
 				8421E1A01F9A1FA10039D49E /* LaunchScreen.storyboard */,
 				8421E1A31F9A1FA10039D49E /* Info.plist */,
 				8421E2071F9A27ED0039D49E /* ProgressBarView.swift */,
@@ -413,6 +416,7 @@
 			files = (
 				8421E1FB1F9A20DF0039D49E /* VerifyOTPService+POST.swift in Sources */,
 				8421E1F41F9A20DF0039D49E /* LoginService+POST.swift in Sources */,
+				84DDFEC31FB6E23F00DFCAD1 /* PartnerTableViewCell.swift in Sources */,
 				8421E1E81F9A20DF0039D49E /* ImageModel.swift in Sources */,
 				8421E1F71F9A20DF0039D49E /* RetryService+POST.swift in Sources */,
 				84C58B171FADC1F800B83DC9 /* StartWorkingService+POST.swift in Sources */,

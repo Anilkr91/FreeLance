@@ -1,5 +1,5 @@
 //
-//  PartnerModelArray.swift
+//  AddPartnerResponse.swift
 //  MWM
 //
 //  Created by admin on 18/11/17.
@@ -8,16 +8,15 @@
 
 import Gloss
 
-struct PartnerModelArray : Gloss.Decodable{
+struct AddPartnerResponse : Gloss.Decodable{
     
     let status: Bool
-    let data: [PartnerModel]
-    
+    let data: PartnerModel
     
     init?(json: JSON) {
         
         guard  let status: Bool = "status" <~~ json,
-            let data: [PartnerModel] = "data.content" <~~ json else { return nil }
+            let data: PartnerModel = "data" <~~ json else { return nil }
         
         self.status = status
         self.data = data

@@ -15,6 +15,7 @@
 		840BD9001FC03F10007965C9 /* PartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FF1FC03F10007965C9 /* PartnerModel.swift */; };
 		840BD9021FC0480C007965C9 /* PartnerModelArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD9011FC0480C007965C9 /* PartnerModelArray.swift */; };
 		840BD9041FC056E4007965C9 /* AddPartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD9031FC056E4007965C9 /* AddPartnerModel.swift */; };
+		840BD9061FC070BD007965C9 /* AddPartnerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD9051FC070BD007965C9 /* AddPartnerResponse.swift */; };
 		8421E19D1F9A1FA10039D49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E19B1F9A1FA10039D49E /* Main.storyboard */; };
 		8421E1A21F9A1FA10039D49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E1A01F9A1FA10039D49E /* LaunchScreen.storyboard */; };
 		8421E1DB1F9A20DF0039D49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E1AA1F9A20DF0039D49E /* AppDelegate.swift */; };
@@ -84,6 +85,7 @@
 		840BD8FF1FC03F10007965C9 /* PartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerModel.swift; sourceTree = "<group>"; };
 		840BD9011FC0480C007965C9 /* PartnerModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerModelArray.swift; sourceTree = "<group>"; };
 		840BD9031FC056E4007965C9 /* AddPartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerModel.swift; sourceTree = "<group>"; };
+		840BD9051FC070BD007965C9 /* AddPartnerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerResponse.swift; sourceTree = "<group>"; };
 		8421E1941F9A1FA10039D49E /* MWM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421E19C1F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8421E1A11F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				840BD8FF1FC03F10007965C9 /* PartnerModel.swift */,
 				840BD9011FC0480C007965C9 /* PartnerModelArray.swift */,
 				840BD9031FC056E4007965C9 /* AddPartnerModel.swift */,
+				840BD9051FC070BD007965C9 /* AddPartnerResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				8421E1EF1F9A20DF0039D49E /* UserModel.swift in Sources */,
 				8421E2021F9A20DF0039D49E /* LoginUtils.swift in Sources */,
 				8421E1E51F9A20DF0039D49E /* VerifyOTPViewController.swift in Sources */,
+				840BD9061FC070BD007965C9 /* AddPartnerResponse.swift in Sources */,
 				84C58B1B1FADC6BB00B83DC9 /* AttendenceModelResponse.swift in Sources */,
 				8421E1F61F9A20DF0039D49E /* RequestChangePasswordService+PUT.swift in Sources */,
 				8421E1FC1F9A20DF0039D49E /* AlertView+Helper.swift in Sources */,

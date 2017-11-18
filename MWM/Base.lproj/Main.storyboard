@@ -559,8 +559,8 @@
                     <connections>
                         <outlet property="addressTextField" destination="iz4-Rx-Ggg" id="cnm-Xo-3rP"/>
                         <outlet property="areaTextField" destination="vM1-p8-34t" id="suC-Ts-qjz"/>
-                        <outlet property="customerName" destination="AgN-q5-3M4" id="seh-r7-VlY"/>
-                        <outlet property="customerNumber" destination="wIi-qa-xJp" id="sHA-eW-cmf"/>
+                        <outlet property="customerNameTextField" destination="AgN-q5-3M4" id="LkG-KL-j6t"/>
+                        <outlet property="customerNumberTextField" destination="wIi-qa-xJp" id="7s8-1w-HPZ"/>
                         <outlet property="customerRegionTextField" destination="K46-ki-GSB" id="1JX-9D-AAr"/>
                         <outlet property="partnerNameTextField" destination="tWV-ZE-sl2" id="e7C-X8-THb"/>
                     </connections>

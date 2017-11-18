@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class AddPartnerPostService {
-    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (BaseSucessModel) -> Void) {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (PartnerModel) -> Void) {
         
         ProgressBarView.showHUD()
         
@@ -19,14 +19,20 @@ class AddPartnerPostService {
         
         let BaseURL = Constants.BASE_URL
         
-        manager.request( BaseURL + "partner", method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        
+        let token = LoginUtils.getCurrentUserLogin()
+        let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
+        
+       let r =  manager.request( BaseURL + "partner", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
+            
+                print(value)
                 
-                if let data = BaseSucessModel(json: value as! JSON) {
+                if let result = AddPartnerResponse(json: value as! JSON) {
                     ProgressBarView.hideHUD()
-                    completionHandler(data)
+                    completionHandler(result.data)
                 } else {
                     ProgressBarView.hideHUD()
                     let error = ErrorModel(json: value as! JSON)
@@ -38,5 +44,7 @@ class AddPartnerPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        
+        debugPrint(r)
     }
 }

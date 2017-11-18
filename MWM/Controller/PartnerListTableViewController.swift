@@ -13,13 +13,17 @@ class PartnerListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let rightBarButton = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PartnerListTableViewController.addPartnerSegue))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        getCategory()
+//        getPartnerList()
     }
 
+    func addPartnerSegue() {
+        
+        print("add patner segue")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,5 +48,27 @@ class PartnerListTableViewController: UITableViewController {
         // Configure the cell...
 
         return UITableViewCell()
+    }
+    
+    func getCategory() {
+        
+        CategoryGetService.executeRequest { (response) in
+            print(response)
+        }
+        
+    }
+    
+    
+    func getPartnerList() {
+         let user = LoginUtils.getCurrentUser()!
+        
+//        let param = ["partnerName": "", "city": "", "categoryId": "", "brandName": ""]
+        
+        let param = ["city": user.city!]
+        PartnerGetService.executeRequest(param) { (response) in
+            print(response)
+            
+        }
+        
     }
 }

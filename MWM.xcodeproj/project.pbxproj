@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		840BD8F61FC00443007965C9 /* PartnerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */; };
 		840BD8F81FC00451007965C9 /* AddPartnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */; };
+		840BD8FA1FC02D78007965C9 /* CategoryService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */; };
 		8421E19D1F9A1FA10039D49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E19B1F9A1FA10039D49E /* Main.storyboard */; };
 		8421E1A21F9A1FA10039D49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E1A01F9A1FA10039D49E /* LaunchScreen.storyboard */; };
 		8421E1DB1F9A20DF0039D49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E1AA1F9A20DF0039D49E /* AppDelegate.swift */; };
@@ -61,7 +62,6 @@
 		84D870071FADAD8300F47702 /* LogoutSucessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870061FADAD8300F47702 /* LogoutSucessModel.swift */; };
 		84DDFEC31FB6E23F00DFCAD1 /* PartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */; };
 		84DDFEC51FB6E86800DFCAD1 /* PartnerService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */; };
-		84DDFEC71FB6F58800DFCAD1 /* CategoryService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */; };
 		84DDFEC91FB72C2D00DFCAD1 /* AddPartnerService+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC81FB72C2D00DFCAD1 /* AddPartnerService+POST.swift */; };
 		84DDFECB1FB78F9C00DFCAD1 /* FootPrintService+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFECA1FB78F9C00DFCAD1 /* FootPrintService+POST.swift */; };
 		84DDFECD1FB78FAB00DFCAD1 /* FootPrintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFECC1FB78FAB00DFCAD1 /* FootPrintModel.swift */; };
@@ -73,6 +73,7 @@
 		47B5FC654CF90938F5FC2993 /* Pods-MWM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWM.release.xcconfig"; path = "Pods/Target Support Files/Pods-MWM/Pods-MWM.release.xcconfig"; sourceTree = "<group>"; };
 		840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerListTableViewController.swift; sourceTree = "<group>"; };
 		840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerTableViewController.swift; sourceTree = "<group>"; };
+		840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryService+GET.swift"; sourceTree = "<group>"; };
 		8421E1941F9A1FA10039D49E /* MWM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421E19C1F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8421E1A11F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 		84D870061FADAD8300F47702 /* LogoutSucessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutSucessModel.swift; sourceTree = "<group>"; };
 		84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerTableViewCell.swift; sourceTree = "<group>"; };
 		84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PartnerService+GET.swift"; sourceTree = "<group>"; };
-		84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryService+GET.swift"; sourceTree = "<group>"; };
 		84DDFEC81FB72C2D00DFCAD1 /* AddPartnerService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AddPartnerService+POST.swift"; sourceTree = "<group>"; };
 		84DDFECA1FB78F9C00DFCAD1 /* FootPrintService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FootPrintService+POST.swift"; sourceTree = "<group>"; };
 		84DDFECC1FB78FAB00DFCAD1 /* FootPrintModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootPrintModel.swift; sourceTree = "<group>"; };
@@ -267,9 +267,9 @@
 				84C58B161FADC1F800B83DC9 /* StartWorkingService+POST.swift */,
 				84C58B1C1FADCCD000B83DC9 /* EndWorkingService+POST.swift */,
 				84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */,
-				84DDFEC61FB6F58800DFCAD1 /* CategoryService+GET.swift */,
 				84DDFEC81FB72C2D00DFCAD1 /* AddPartnerService+POST.swift */,
 				84DDFECA1FB78F9C00DFCAD1 /* FootPrintService+POST.swift */,
+				840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -455,7 +455,6 @@
 				840BD8F61FC00443007965C9 /* PartnerListTableViewController.swift in Sources */,
 				8421E1F21F9A20DF0039D49E /* ChangePasswordService+POST.swift in Sources */,
 				84C58B191FADC35B00B83DC9 /* AttendenceModel.swift in Sources */,
-				84DDFEC71FB6F58800DFCAD1 /* CategoryService+GET.swift in Sources */,
 				84D870071FADAD8300F47702 /* LogoutSucessModel.swift in Sources */,
 				8421E2041F9A20DF0039D49E /* UIImageView+Helper.swift in Sources */,
 				8421E1F51F9A20DF0039D49E /* LogoutService+PUT.swift in Sources */,
@@ -489,6 +488,7 @@
 				8421E1F61F9A20DF0039D49E /* RequestChangePasswordService+PUT.swift in Sources */,
 				8421E1FC1F9A20DF0039D49E /* AlertView+Helper.swift in Sources */,
 				8421E2081F9A27ED0039D49E /* ProgressBarView.swift in Sources */,
+				840BD8FA1FC02D78007965C9 /* CategoryService+GET.swift in Sources */,
 				84DDFEFD1FBC494F00DFCAD1 /* FootPrintModelArray.swift in Sources */,
 				84DDFEC51FB6E86800DFCAD1 /* PartnerService+GET.swift in Sources */,
 				8421E1FF1F9A20DF0039D49E /* DefaultsKeys.swift in Sources */,

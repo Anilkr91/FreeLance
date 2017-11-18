@@ -31,7 +31,7 @@ class StartWorkingViewController: BaseViewController {
     }
     
     func startNewEntry() {
-        self.performSegue(withIdentifier: "showFeedbackSegue", sender: self)
+        self.performSegue(withIdentifier: "showPartnerListSegue", sender: self)
         
     }
     
@@ -71,6 +71,7 @@ class StartWorkingViewController: BaseViewController {
         
         StartWorkingPostService.executeRequest { (response) in
             
+            print(response.data)
             // sending user location to server
 //            self.sendUserFootPrint(sessionId: response.data.id, userId: response.data.userId)
             
@@ -81,7 +82,7 @@ class StartWorkingViewController: BaseViewController {
             self.newEntryButton.isHidden = false
             
             // Performing segue to go to feedback screen
-            self.performSegue(withIdentifier: "showFeedbackSegue", sender: self)
+            self.performSegue(withIdentifier: "showPartnerListSegue", sender: self)
         }
     }
     
@@ -96,7 +97,7 @@ class StartWorkingViewController: BaseViewController {
 //        FootPrintPostService.executeRequest(param) { (response) in
 //            print(response)
 //        }
-//    }
+    }
 }
 
 extension StartWorkingViewController {

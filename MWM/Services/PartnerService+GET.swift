@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class PartnerGetService {
-    static func executeRequest (completionHandler: @escaping (IsSuccessModel) -> Void) {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (IsSuccessModel) -> Void) {
         
         
         let manager = Alamofire.SessionManager.default
@@ -21,10 +21,13 @@ class PartnerGetService {
         let token = LoginUtils.getCurrentUserLogin()
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
         
-        manager.request( BaseURL + "partner/city-and-brand", method: .put, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+      let r =   manager.request( BaseURL + "partner/city-and-brand", method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
+                
+                print(value)
+                
                 if let data = IsSuccessModel(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(data)
@@ -42,5 +45,7 @@ class PartnerGetService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        
+     debugPrint(r)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PartnerListTableViewController: UITableViewController {
+class PartnerListTableViewController: BaseTableViewController {
     
     
     var array: [PartnerModel] = []
@@ -25,7 +25,7 @@ class PartnerListTableViewController: UITableViewController {
 
     func addPartnerSegue() {
         
-        print("add patner segue")
+        performSegue(withIdentifier: "showAddPartnerSegue", sender: self)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

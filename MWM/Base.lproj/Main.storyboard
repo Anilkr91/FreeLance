@@ -286,7 +286,7 @@
             </objects>
             <point key="canvasLocation" x="4369" y="-201"/>
         </scene>
-        <!--Partner List Table View Controller-->
+        <!--Partner Listing-->
         <scene sceneID="fAq-RB-Fe0">
             <objects>
                 <tableViewController id="TQE-6D-m9L" customClass="PartnerListTableViewController" customModule="MWM" customModuleProvider="target" sceneMemberID="viewController">
@@ -368,6 +368,7 @@
                                     <outlet property="partnerAddressLabel" destination="Bvz-g3-0QH" id="LET-wl-TET"/>
                                     <outlet property="partnerImageView" destination="QqV-H6-DXx" id="i61-oU-zlK"/>
                                     <outlet property="partnerLocalityLabel" destination="gl3-gO-WcI" id="gmT-i7-r6J"/>
+                                    <outlet property="partnerNameLabel" destination="2yR-qg-GP9" id="4xc-kb-gw7"/>
                                     <outlet property="partnerStateLabel" destination="Tj2-VU-H0X" id="epe-QU-Ps1"/>
                                 </connections>
                             </tableViewCell>
@@ -377,6 +378,7 @@
                             <outlet property="delegate" destination="TQE-6D-m9L" id="oVJ-ml-oCW"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Partner Listing" id="zMS-6u-jYd"/>
                     <connections>
                         <segue destination="SNz-vx-vT2" kind="show" identifier="showFeedbackSegue" id="fih-wP-ps1"/>
                         <segue destination="To1-8J-hgd" kind="show" identifier="showAddPartnerSegue" id="uEq-Od-2Qe"/>
@@ -386,10 +388,10 @@
             </objects>
             <point key="canvasLocation" x="3276" y="-884"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Partner Table View Controller-->
         <scene sceneID="paC-Rf-Rcw">
             <objects>
-                <tableViewController id="To1-8J-hgd" sceneMemberID="viewController">
+                <tableViewController id="To1-8J-hgd" customClass="AddPartnerTableViewController" customModule="MWM" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vf2-Qy-KFw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -533,6 +535,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bq-eq-cZQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                     <state key="normal" title="SUBMIT"/>
+                                                    <connections>
+                                                        <action selector="submitButtonTapped:" destination="To1-8J-hgd" eventType="touchUpInside" id="4vv-0s-Fya"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -551,6 +556,14 @@
                             <outlet property="delegate" destination="To1-8J-hgd" id="wkS-98-YKA"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addressTextField" destination="iz4-Rx-Ggg" id="cnm-Xo-3rP"/>
+                        <outlet property="areaTextField" destination="vM1-p8-34t" id="suC-Ts-qjz"/>
+                        <outlet property="customerName" destination="AgN-q5-3M4" id="seh-r7-VlY"/>
+                        <outlet property="customerNumber" destination="wIi-qa-xJp" id="sHA-eW-cmf"/>
+                        <outlet property="customerRegionTextField" destination="K46-ki-GSB" id="1JX-9D-AAr"/>
+                        <outlet property="partnerNameTextField" destination="tWV-ZE-sl2" id="e7C-X8-THb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iop-30-g4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

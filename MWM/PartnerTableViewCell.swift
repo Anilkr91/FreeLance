@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PartnerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var partnerImageView: UIImageView!
+    @IBOutlet weak var partnerNameLabel: UILabel!
     @IBOutlet weak var partnerLocalityLabel: UILabel!
     @IBOutlet weak var partnerStateLabel: UILabel!
     @IBOutlet weak var partnerAddressLabel: UILabel!
@@ -41,7 +43,15 @@ extension PartnerTableViewCell {
     
     func didSetCategory(_ info: PartnerModel) {
         
-//        partnerImageView: UIImageView!
+        let placeholderImage = UIImage(named: "attendence")
+        if let url = info.partnerImageUrl {
+            let imageUrl = URL(string: url)
+            partnerImageView.kf.setImage(with: imageUrl, placeholder: placeholderImage)
+            
+        } else {
+            partnerImageView.image = placeholderImage
+        }
+        partnerNameLabel.text = info.partnerName
         partnerLocalityLabel.text = info.area
         partnerStateLabel.text = info.city
         partnerAddressLabel.text = info.address

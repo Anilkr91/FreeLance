@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,7 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85CBDDF2E02453C9F9EA23C765E1C7B0</key>
+		<key>6F694E18B27985E70F3A9A701722A5AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6F712943B3C5592E82604940D11CE08A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7BE2D5C2D308133CD8D9C0B10DB4418</key>
+		<key>D6540B0CEF5AC2132547700CFBD98C6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

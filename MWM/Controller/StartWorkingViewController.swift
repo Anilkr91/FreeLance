@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import CoreLocation
 import SwiftyUserDefaults
+import Alamofire
 
 class StartWorkingViewController: BaseViewController {
     
     @IBOutlet weak var startWorkingButton: UIButton!
     @IBOutlet weak var newEntryButton: UIButton!
     
+    var cordinates = CLLocationCoordinate2D()
+    lazy var locationManager = CLLocationManager()
+    
     let user = LoginUtils.getCurrentUser()
+    var footPrints = [FootPrintModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +29,14 @@ class StartWorkingViewController: BaseViewController {
         startWorkingButton.addTarget(self, action: #selector(StartWorkingViewController.startWorking), for: .touchUpInside)
         newEntryButton.addTarget(self, action: #selector(StartWorkingViewController.startNewEntry), for: .touchUpInside)
     }
-
+    
     func startNewEntry() {
-       self.performSegue(withIdentifier: "showFeedbackSegue", sender: self)
+        self.performSegue(withIdentifier: "showFeedbackSegue", sender: self)
         
     }
-
+    
     func setButtonTitle() {
-       
+        
         if LoginUtils.getCurrentUserSession() == nil {
             startWorkingButton.setTitle("Start Working", for: .normal)
             newEntryButton.isHidden = true
@@ -64,14 +70,33 @@ class StartWorkingViewController: BaseViewController {
     func startWork() {
         
         StartWorkingPostService.executeRequest { (response) in
+            
+            // sending user location to server
+//            self.sendUserFootPrint(sessionId: response.data.id, userId: response.data.userId)
+            
+            // saving user object to userdefaults
             LoginUtils.setCurrentUserAttendence(response.data)
             LoginUtils.setCurrentUserSession(response.data.id)
-           
             self.startWorkingButton.setTitle("End Working", for: .normal)
             self.newEntryButton.isHidden = false
+            
+            // Performing segue to go to feedback screen
             self.performSegue(withIdentifier: "showFeedbackSegue", sender: self)
         }
     }
+    
+    func sendUserFootPrint(sessionId: Int, userId: Int) {
+
+//        let param = ["userFootprints": [FootPrintModel(latitude: "\(cordinates.latitude)" , longitude: "\(cordinates.longitude)", sessionId: sessionId, userId: userId).toJSON()]]
+//        
+//        for (k,v) in param.enumerated() {
+//            print(k)
+//            print(v.key)
+//        }
+//        FootPrintPostService.executeRequest(param) { (response) in
+//            print(response)
+//        }
+//    }
 }
 
 extension StartWorkingViewController {
@@ -112,5 +137,52 @@ extension StartWorkingViewController {
         // present an actionSheet...
         actionSheetController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
         present(actionSheetController, animated: true, completion: nil)
+    }
+}
+
+
+extension StartWorkingViewController: CLLocationManagerDelegate {
+    
+    func setupCoreLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func startLocationUpdates() {
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+            
+        case .authorizedWhenInUse:
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+            break
+            
+        case .denied:
+            print(".Denied")
+            break
+            
+        default:
+            print("Undefined authorization status")
+            break
+        }
+    }
+    
+    func stopLocationUpdates() {
+        locationManager.delegate = nil
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        startLocationUpdates()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations[0] as CLLocation
+        
+        locationManager.stopUpdatingLocation()
+        
+        cordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
     }
 }

@@ -12,6 +12,7 @@
 		840BD8FA1FC02D78007965C9 /* CategoryService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */; };
 		840BD8FC1FC02F5B007965C9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */; };
 		840BD8FE1FC0300E007965C9 /* CategoryModelArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */; };
+		840BD9001FC03F10007965C9 /* PartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FF1FC03F10007965C9 /* PartnerModel.swift */; };
 		8421E19D1F9A1FA10039D49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E19B1F9A1FA10039D49E /* Main.storyboard */; };
 		8421E1A21F9A1FA10039D49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E1A01F9A1FA10039D49E /* LaunchScreen.storyboard */; };
 		8421E1DB1F9A20DF0039D49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E1AA1F9A20DF0039D49E /* AppDelegate.swift */; };
@@ -78,6 +79,7 @@
 		840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryService+GET.swift"; sourceTree = "<group>"; };
 		840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModelArray.swift; sourceTree = "<group>"; };
+		840BD8FF1FC03F10007965C9 /* PartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerModel.swift; sourceTree = "<group>"; };
 		8421E1941F9A1FA10039D49E /* MWM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421E19C1F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8421E1A11F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				84DDFEFC1FBC494F00DFCAD1 /* FootPrintModelArray.swift */,
 				840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */,
 				840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */,
+				840BD8FF1FC03F10007965C9 /* PartnerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				8421E1E81F9A20DF0039D49E /* ImageModel.swift in Sources */,
 				8421E1F71F9A20DF0039D49E /* RetryService+POST.swift in Sources */,
 				84C58B171FADC1F800B83DC9 /* StartWorkingService+POST.swift in Sources */,
+				840BD9001FC03F10007965C9 /* PartnerModel.swift in Sources */,
 				8421E1E71F9A20DF0039D49E /* ErrorModel.swift in Sources */,
 				8421E1EC1F9A20DF0039D49E /* SaveRestaurantModel.swift in Sources */,
 				840BD8FE1FC0300E007965C9 /* CategoryModelArray.swift in Sources */,

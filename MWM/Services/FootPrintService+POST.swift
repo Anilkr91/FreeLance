@@ -6,7 +6,7 @@
 //  Copyright © 2017 Techximum. All rights reserved.
 //
 
-/*import Alamofire
+import Alamofire
 import Gloss
 
 class FootPrintPostService {
@@ -46,4 +46,4 @@ class FootPrintPostService {
         }
         debugPrint(r)
     }
-}*/
+}

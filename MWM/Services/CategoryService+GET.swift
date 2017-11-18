@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class CategoryGetService {
-    static func executeRequest ( completionHandler: @escaping (BaseSucessModel) -> Void) {
+    static func executeRequest ( completionHandler: @escaping ([CategoryModel]) -> Void) {
         
         ProgressBarView.showHUD()
         
@@ -23,20 +23,22 @@ class CategoryGetService {
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
 
         
-        manager.request( BaseURL + "category", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+       let r =  manager.request( BaseURL + "category", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
                 
                 print(value)
                 
-                if let data = BaseSucessModel(json: value as! JSON) {
+                if let info = CategoryModelArray(json: value as! JSON) {
                     ProgressBarView.hideHUD()
-                    completionHandler(data)
+                    completionHandler(info.data)
                 } else {
+                   
                     ProgressBarView.hideHUD()
-                    let error = ErrorModel(json: value as! JSON)
-                    Alert.showAlertWithMessage("Error", message: error!.errorMessage)
+//                    let error = ErrorModel(json: value as! JSON)
+//                    
+//                    Alert.showAlertWithMessage("Error", message: error!.errorMessage)
                 }
                 
             case .failure(let error):
@@ -44,5 +46,7 @@ class CategoryGetService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        
+        debugPrint(r)
     }
 }

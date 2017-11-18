@@ -9,7 +9,7 @@
 import UIKit
 
 class PartnerListTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,17 +54,29 @@ class PartnerListTableViewController: UITableViewController {
         
         CategoryGetService.executeRequest { (response) in
             print(response)
+            
+            self.findCategoryId(categories: response)
         }
-        
     }
     
     
-    func getPartnerList() {
+    func findCategoryId(categories: [CategoryModel]) {
+        
+        for category in categories.enumerated() {
+            
+            if category.element.name == "MBKRestaurant" {
+                getPartnerList(categoryId: category.element.id)
+            }
+        }
+    }
+    
+    
+    func getPartnerList(categoryId: Int) {
          let user = LoginUtils.getCurrentUser()!
         
 //        let param = ["partnerName": "", "city": "", "categoryId": "", "brandName": ""]
         
-        let param = ["city": user.city!]
+        let param = ["pageNumber": 0, "pageSize" : 10, "city": user.city!, "categoryId": categoryId] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
             print(response)
             

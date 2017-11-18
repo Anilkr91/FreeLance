@@ -10,6 +10,8 @@
 		840BD8F61FC00443007965C9 /* PartnerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */; };
 		840BD8F81FC00451007965C9 /* AddPartnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */; };
 		840BD8FA1FC02D78007965C9 /* CategoryService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */; };
+		840BD8FC1FC02F5B007965C9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */; };
+		840BD8FE1FC0300E007965C9 /* CategoryModelArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */; };
 		8421E19D1F9A1FA10039D49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E19B1F9A1FA10039D49E /* Main.storyboard */; };
 		8421E1A21F9A1FA10039D49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E1A01F9A1FA10039D49E /* LaunchScreen.storyboard */; };
 		8421E1DB1F9A20DF0039D49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E1AA1F9A20DF0039D49E /* AppDelegate.swift */; };
@@ -74,6 +76,8 @@
 		840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerListTableViewController.swift; sourceTree = "<group>"; };
 		840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerTableViewController.swift; sourceTree = "<group>"; };
 		840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryService+GET.swift"; sourceTree = "<group>"; };
+		840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModelArray.swift; sourceTree = "<group>"; };
 		8421E1941F9A1FA10039D49E /* MWM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421E19C1F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8421E1A11F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				84C58B1A1FADC6BB00B83DC9 /* AttendenceModelResponse.swift */,
 				84DDFECC1FB78FAB00DFCAD1 /* FootPrintModel.swift */,
 				84DDFEFC1FBC494F00DFCAD1 /* FootPrintModelArray.swift */,
+				840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */,
+				840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 				84C58B171FADC1F800B83DC9 /* StartWorkingService+POST.swift in Sources */,
 				8421E1E71F9A20DF0039D49E /* ErrorModel.swift in Sources */,
 				8421E1EC1F9A20DF0039D49E /* SaveRestaurantModel.swift in Sources */,
+				840BD8FE1FC0300E007965C9 /* CategoryModelArray.swift in Sources */,
 				84DDFECD1FB78FAB00DFCAD1 /* FootPrintModel.swift in Sources */,
 				8421E1E21F9A20DF0039D49E /* HomeViewController.swift in Sources */,
 				8421E1E11F9A20DF0039D49E /* HomeTableViewController.swift in Sources */,
@@ -456,6 +463,7 @@
 				8421E1F21F9A20DF0039D49E /* ChangePasswordService+POST.swift in Sources */,
 				84C58B191FADC35B00B83DC9 /* AttendenceModel.swift in Sources */,
 				84D870071FADAD8300F47702 /* LogoutSucessModel.swift in Sources */,
+				840BD8FC1FC02F5B007965C9 /* CategoryModel.swift in Sources */,
 				8421E2041F9A20DF0039D49E /* UIImageView+Helper.swift in Sources */,
 				8421E1F51F9A20DF0039D49E /* LogoutService+PUT.swift in Sources */,
 				8421E1DB1F9A20DF0039D49E /* AppDelegate.swift in Sources */,

@@ -13,6 +13,7 @@
 		840BD8FC1FC02F5B007965C9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */; };
 		840BD8FE1FC0300E007965C9 /* CategoryModelArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */; };
 		840BD9001FC03F10007965C9 /* PartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8FF1FC03F10007965C9 /* PartnerModel.swift */; };
+		840BD9021FC0480C007965C9 /* PartnerModelArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD9011FC0480C007965C9 /* PartnerModelArray.swift */; };
 		8421E19D1F9A1FA10039D49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E19B1F9A1FA10039D49E /* Main.storyboard */; };
 		8421E1A21F9A1FA10039D49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E1A01F9A1FA10039D49E /* LaunchScreen.storyboard */; };
 		8421E1DB1F9A20DF0039D49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E1AA1F9A20DF0039D49E /* AppDelegate.swift */; };
@@ -80,6 +81,7 @@
 		840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModelArray.swift; sourceTree = "<group>"; };
 		840BD8FF1FC03F10007965C9 /* PartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerModel.swift; sourceTree = "<group>"; };
+		840BD9011FC0480C007965C9 /* PartnerModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerModelArray.swift; sourceTree = "<group>"; };
 		8421E1941F9A1FA10039D49E /* MWM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421E19C1F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8421E1A11F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */,
 				840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */,
 				840BD8FF1FC03F10007965C9 /* PartnerModel.swift */,
+				840BD9011FC0480C007965C9 /* PartnerModelArray.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				8421E1FD1F9A20DF0039D49E /* BaseViewController.swift in Sources */,
 				8421E1E61F9A20DF0039D49E /* ChangePasswordModel.swift in Sources */,
 				8421E1F11F9A20DF0039D49E /* VerifyOTPModel.swift in Sources */,
+				840BD9021FC0480C007965C9 /* PartnerModelArray.swift in Sources */,
 				8421E1F31F9A20DF0039D49E /* ForgotPasswordService+POST.swift in Sources */,
 				8421E1E01F9A20DF0039D49E /* ForgotPasswordTableViewController.swift in Sources */,
 				84C58B1D1FADCCD000B83DC9 /* EndWorkingService+POST.swift in Sources */,

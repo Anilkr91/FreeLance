@@ -13,42 +13,35 @@ struct PartnerModel: Gloss.Decodable {
     let address: String
     let area: String
     let brandName: String
-    let categoryId: Int
+    let categoryId: String
     let city: String
     let companyId: String
     let contactName: String
-    let contactNumber: Int
-    let createdDate: NSDate
+    let contactNumber: String
     let id: Int
-    let latitude: Double
-    let longitude: Double
-    let modifiedDate: NSDate
-    let partnerImageUrl: NSDate
+    let latitude: String
+    let longitude: String
+    let partnerImageUrl: String?
     let partnerName: String
-    let userName: Int
-    let visitingCardImageUrl: String
+    let userName: String
+    let visitingCardImageUrl: String?
     
     
     init?(json: JSON) {
         guard let address: String = "address" <~~ json,
             let area: String = "area" <~~ json,
             let brandName: String = "brandName" <~~ json,
-            let categoryId: Int = "categoryId" <~~ json,
+            let categoryId: String = "categoryId" <~~ json,
             let city: String = "city" <~~ json,
             let companyId: String = "companyId" <~~ json,
             let contactName: String = "contactName" <~~ json,
-            let contactNumber: Int = "contactNumber" <~~ json,
+            let contactNumber: String = "contactNumber" <~~ json,
             
-            let createdDate: NSDate = "createdDate" <~~ json,
             let id: Int = "id" <~~ json,
-            let latitude: Double = "latitude" <~~ json,
-            let longitude: Double = "longitude" <~~ json,
-            let modifiedDate: NSDate = "modifiedDate" <~~ json,
-            let partnerImageUrl: NSDate = "partnerImageUrl" <~~ json,
+            let latitude: String = "latitude" <~~ json,
+            let longitude: String = "longitude" <~~ json,
             let partnerName: String = "partnerName" <~~ json,
-            let userName: Int = "userName" <~~ json,
-            let visitingCardImageUrl: String = "visitingCardImageUrl" <~~ json else { return nil }
-        
+            let userName: String = "userName" <~~ json else { return nil }
         
         self.address = address
         self.area = area
@@ -58,15 +51,13 @@ struct PartnerModel: Gloss.Decodable {
         self.companyId = companyId
         self.contactName = contactName
         self.contactNumber = contactNumber
-        self.createdDate = createdDate
         self.id = id
         self.latitude = latitude
         self.longitude = longitude
-        self.modifiedDate = modifiedDate
-        self.partnerImageUrl = partnerImageUrl
+        self.partnerImageUrl = "partnerImageUrl" <~~ json
         self.partnerName = partnerName
         self.userName = userName
-        self.visitingCardImageUrl = visitingCardImageUrl
+        self.visitingCardImageUrl = "visitingCardImageUrl"
         
     }
     
@@ -81,12 +72,9 @@ struct PartnerModel: Gloss.Decodable {
             "companyId" ~~> self.companyId,
             "contactName" ~~> self.contactName,
             "contactNumber" ~~> self.contactNumber,
-            
-            "createdDate" ~~> self.createdDate,
             "id" ~~> self.id,
             "latitude" ~~> self.latitude,
             "longitude" ~~> self.longitude,
-            "modifiedDate" ~~> self.modifiedDate,
             "partnerImageUrl" ~~> self.partnerImageUrl,
             "partnerName" ~~> self.partnerName,
             "userName" ~~> self.userName,

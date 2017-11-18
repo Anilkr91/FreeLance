@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class PartnerGetService {
-    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (IsSuccessModel) -> Void) {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping ([PartnerModel]) -> Void) {
         
         
         let manager = Alamofire.SessionManager.default
@@ -26,14 +26,12 @@ class PartnerGetService {
             switch response.result {
             case .success(let value) :
                 
-                print(value)
-                
-                if let data = IsSuccessModel(json: value as! JSON) {
+                if let info = PartnerModelArray(json: value as! JSON) {
                     ProgressBarView.hideHUD()
-                    completionHandler(data)
+                    completionHandler(info.data)
                 } else {
-                    ProgressBarView.hideHUD()
                     
+                    ProgressBarView.hideHUD()
                     let error = ErrorModel(json: value as! JSON)
                     
                     if let error = error {

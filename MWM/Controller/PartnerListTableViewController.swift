@@ -10,6 +10,9 @@ import UIKit
 
 class PartnerListTableViewController: UITableViewController {
     
+    
+    var array: [PartnerModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,21 +36,21 @@ class PartnerListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return array.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PartnerTableViewCell
+        
+        cell.info = array[indexPath.row]
 
-        // Configure the cell...
-
-        return UITableViewCell()
+        return cell
     }
     
     func getCategory() {
@@ -70,17 +73,16 @@ class PartnerListTableViewController: UITableViewController {
         }
     }
     
-    
     func getPartnerList(categoryId: Int) {
          let user = LoginUtils.getCurrentUser()!
         
-//        let param = ["partnerName": "", "city": "", "categoryId": "", "brandName": ""]
-        
         let param = ["pageNumber": 0, "pageSize" : 10, "city": user.city!, "categoryId": categoryId] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
+
             print(response)
             
+            self.array = response
+            self.tableView.reloadData()
         }
-        
     }
 }

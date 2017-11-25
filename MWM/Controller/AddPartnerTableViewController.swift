@@ -17,20 +17,23 @@ class AddPartnerTableViewController: BaseTableViewController {
     @IBOutlet weak var areaTextField: UITextField!
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var customerNumberTextField: UITextField!
+    @IBOutlet weak var partnerImageView: UIImageView!
     
     let imagePickerController = UIImagePickerController()
     let user = LoginUtils.getCurrentUser()!
     var partnerModel: PartnerModel?
+    var partnerImageUrl: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customerRegionTextField.text = user.region!
+        tapGestureRecogniser()
+         tableView.separatorStyle = .none
         
+        customerRegionTextField.text = user.region!
         getAddress { (address, area) in
             self.addressTextField.text = address
             self.areaTextField.text = area
-
         }
     }
     
@@ -39,6 +42,17 @@ class AddPartnerTableViewController: BaseTableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tapGestureRecogniser() {
+       
+        partnerImageView.isUserInteractionEnabled = true
+        
+        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(AddPartnerTableViewController.displayImageViewTapped(_:)))
+        partnerImageView.addGestureRecognizer(tapGestureRecogniser)
+    }
+    
+    func displayImageViewTapped(_ sender: Any) {
+        handleImageTapGestureRecognizer()
+    }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         
@@ -73,8 +87,9 @@ class AddPartnerTableViewController: BaseTableViewController {
             
         } else {
             
-            let param = AddPartnerModel(address: address, area: area, brandName: "MBKRestaurant", categoryId: "7", region: user.region!, companyId: user.companyId, customerName: customerName, contactNumber: customerNumber, latitude: "28.587944", longitude: "77.072276", partnerImageUrl: "", partnerName: partnerName, userName: user.userName).toJSON()
+            let param = AddPartnerModel(address: address, area: area, brandName: "MBKRestaurant", categoryId: "7", region: user.region!, companyId: user.companyId, customerName: customerName, contactNumber: customerNumber, latitude: "28.587944", longitude: "77.072276", partnerImageUrl: partnerImageUrl, partnerName: partnerName, userName: user.userName).toJSON()
             
+            print(param)
             
             AddPartnerPostService.executeRequest(param!, completionHandler: { (response) in
                 self.partnerModel = response
@@ -88,6 +103,11 @@ class AddPartnerTableViewController: BaseTableViewController {
             let dvc = segue.destination as!  HomeViewController
             dvc.partnerModel = partnerModel
         }
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.clear
     }
     
     func getAddress(handler: @escaping (String, _ locality: String) -> Void) {
@@ -156,9 +176,15 @@ extension AddPartnerTableViewController: UIImagePickerControllerDelegate, UINavi
             self.presentImagePickerController()
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let galleryAction = UIAlertAction(title: "Choose from Library", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.imagePickerController.sourceType = .photoLibrary
+            self.presentImagePickerController()
+        })
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         imagePickerMenu.addAction(cameraAction)
+        imagePickerMenu.addAction(galleryAction)
         imagePickerMenu.addAction(cancelAction)
         self.present(imagePickerMenu, animated: true, completion: nil)
     }
@@ -171,20 +197,15 @@ extension AddPartnerTableViewController: UIImagePickerControllerDelegate, UINavi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         ProgressBarView.showHUD()
+       
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.imagePickerController.dismiss(animated: true, completion: nil)
         
         if let imageData = image?.jpeg(.medium) {
-            UploadImagePostService.executeRequest(imageData, completionHandler: { (response) in
-//                ProgressBarView.hideHUD()
-//                if self.imagePicked == 0 {
-//                    self.pvc?.visitingCardImageUrl = response.data
-//                    self.visitingCardImageView.image = image
-//                    
-//                } else {
-//                    self.pvc?.restaurantImageUrl = response.data
-//                    self.restaurantImageView.image = image
-//                }
+            UploadPartnerImagePostService.executeRequest(imageData, completionHandler: { (response) in
+                ProgressBarView.hideHUD()
+                self.partnerImageView.image = image
+                self.partnerImageUrl = response.data
             })
         }
     }
@@ -193,4 +214,3 @@ extension AddPartnerTableViewController: UIImagePickerControllerDelegate, UINavi
         picker.dismiss(animated: true, completion: nil)
     }
 }
-

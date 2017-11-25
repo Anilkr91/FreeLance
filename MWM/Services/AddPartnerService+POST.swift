@@ -28,8 +28,6 @@ class AddPartnerPostService {
             switch response.result {
             case .success(let value) :
             
-                print(value)
-                
                 if let result = AddPartnerResponse(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(result.data)

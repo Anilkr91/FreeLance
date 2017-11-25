@@ -58,14 +58,11 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PartnerTableViewCell
-        
         cell.info = array[indexPath.row]
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         partnerModel  = array[indexPath.row]
         performSegue(withIdentifier: "showFeedbackSegue", sender: self)
         
@@ -74,14 +71,12 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showFeedbackSegue" {
-            
             let dvc = segue.destination as!  HomeViewController
             dvc.partnerModel = partnerModel
         }
     }
     
     func getCategory() {
-        
         CategoryGetService.executeRequest { (response) in
             self.findCategoryId(categories: response)
         }
@@ -109,7 +104,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     }
     
     func searchPartnerList(searchString: String) {
-        let param = ["pageNumber": 0, "pageSize" : 10, "region": user.region!, "categoryId": categoryId!, "partnerName":searchString, "brandName": brandName] as [String : Any]
+        let param = ["pageNumber": 0, "pageSize" : 20, "region": user.region!, "categoryId": categoryId!, "partnerName":searchString, "brandName": brandName] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
             
             print(response)
@@ -137,7 +132,6 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         
         } else {
             getPartnerList()
-        
         }
     }
     

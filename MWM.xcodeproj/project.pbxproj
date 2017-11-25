@@ -16,6 +16,7 @@
 		840BD9021FC0480C007965C9 /* PartnerModelArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD9011FC0480C007965C9 /* PartnerModelArray.swift */; };
 		840BD9041FC056E4007965C9 /* AddPartnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD9031FC056E4007965C9 /* AddPartnerModel.swift */; };
 		840BD9061FC070BD007965C9 /* AddPartnerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD9051FC070BD007965C9 /* AddPartnerResponse.swift */; };
+		840BD9441FC9AFEA007965C9 /* UploadPartnerImageService+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD9431FC9AFEA007965C9 /* UploadPartnerImageService+POST.swift */; };
 		8421E19D1F9A1FA10039D49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E19B1F9A1FA10039D49E /* Main.storyboard */; };
 		8421E1A21F9A1FA10039D49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8421E1A01F9A1FA10039D49E /* LaunchScreen.storyboard */; };
 		8421E1DB1F9A20DF0039D49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E1AA1F9A20DF0039D49E /* AppDelegate.swift */; };
@@ -86,6 +87,7 @@
 		840BD9011FC0480C007965C9 /* PartnerModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerModelArray.swift; sourceTree = "<group>"; };
 		840BD9031FC056E4007965C9 /* AddPartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddPartnerModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		840BD9051FC070BD007965C9 /* AddPartnerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerResponse.swift; sourceTree = "<group>"; };
+		840BD9431FC9AFEA007965C9 /* UploadPartnerImageService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UploadPartnerImageService+POST.swift"; sourceTree = "<group>"; };
 		8421E1941F9A1FA10039D49E /* MWM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421E19C1F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8421E1A11F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				84DDFEC81FB72C2D00DFCAD1 /* AddPartnerService+POST.swift */,
 				84DDFECA1FB78F9C00DFCAD1 /* FootPrintService+POST.swift */,
 				840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */,
+				840BD9431FC9AFEA007965C9 /* UploadPartnerImageService+POST.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				8421E1EB1F9A20DF0039D49E /* RequestPasswordChangeModel.swift in Sources */,
 				8421E1F01F9A20DF0039D49E /* UserModelResponse.swift in Sources */,
 				8421E1FA1F9A20DF0039D49E /* ValidateTokenService+GET.swift in Sources */,
+				840BD9441FC9AFEA007965C9 /* UploadPartnerImageService+POST.swift in Sources */,
 				8421E2031F9A20DF0039D49E /* StringExtension+Helper.swift in Sources */,
 				84DDFECB1FB78F9C00DFCAD1 /* FootPrintService+POST.swift in Sources */,
 				840BD8F81FC00451007965C9 /* AddPartnerTableViewController.swift in Sources */,

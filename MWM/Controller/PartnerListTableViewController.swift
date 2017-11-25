@@ -21,12 +21,8 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        filteredArray = array
-        
-        let rightBarButton = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PartnerListTableViewController.addPartnerSegue))
-        self.navigationItem.rightBarButtonItem = rightBarButton
-        
         getCategory()
+        filteredArray = array
         setupSearchController()
     }
     
@@ -42,12 +38,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         tableView.tableHeaderView = searchController.searchBar
         
     }
-    
-    func addPartnerSegue() {
-        
-        performSegue(withIdentifier: "showAddPartnerSegue", sender: self)
-    }
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -129,7 +120,18 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         }
     }
     
-   
+    @IBAction func addPartnerButtonTapped(_ sender: Any) {
+        print("add partner")
+        performSegue(withIdentifier: "showAddPartnerSegue", sender: self)
+        
+    }
+    
+    
+    @IBAction func refreshButtonTapped(_ sender: Any) {
+        
+      print("refresh tapped")
+        
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         

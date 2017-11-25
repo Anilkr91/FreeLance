@@ -378,7 +378,45 @@
                             <outlet property="delegate" destination="TQE-6D-m9L" id="oVJ-ml-oCW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Partner Listing" id="zMS-6u-jYd"/>
+                    <navigationItem key="navigationItem" title="Partner Listing" id="zMS-6u-jYd">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="HJC-Xx-nUQ">
+                            <view key="customView" contentMode="scaleToFill" id="TKX-qf-TUa">
+                                <rect key="frame" x="276" y="5" width="83" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vh-3e-pak">
+                                        <rect key="frame" x="49" y="0.0" width="34" height="33"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="addPartnerButtonTapped:" destination="TQE-6D-m9L" eventType="touchUpInside" id="kjR-fF-Ie8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lR6-dJ-vz1">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="33"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R"/>
+                                        <connections>
+                                            <action selector="refreshButtonTapped:" destination="TQE-6D-m9L" eventType="touchUpInside" id="402-2D-VmQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0vh-3e-pak" secondAttribute="trailing" id="AWm-h4-Ga5"/>
+                                    <constraint firstAttribute="bottom" secondItem="lR6-dJ-vz1" secondAttribute="bottom" id="KN7-VR-zoz"/>
+                                    <constraint firstItem="0vh-3e-pak" firstAttribute="leading" secondItem="lR6-dJ-vz1" secondAttribute="trailing" constant="15" id="NkG-Sf-L3X"/>
+                                    <constraint firstItem="0vh-3e-pak" firstAttribute="width" secondItem="lR6-dJ-vz1" secondAttribute="width" id="PhT-b2-k8Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="0vh-3e-pak" secondAttribute="bottom" id="Twq-Uu-tki"/>
+                                    <constraint firstItem="lR6-dJ-vz1" firstAttribute="leading" secondItem="TKX-qf-TUa" secondAttribute="leading" id="a0p-cG-Eqb"/>
+                                    <constraint firstItem="lR6-dJ-vz1" firstAttribute="top" secondItem="TKX-qf-TUa" secondAttribute="top" id="jf8-lp-WxZ"/>
+                                    <constraint firstItem="0vh-3e-pak" firstAttribute="top" secondItem="TKX-qf-TUa" secondAttribute="top" id="lfB-aa-txh"/>
+                                    <constraint firstItem="0vh-3e-pak" firstAttribute="height" secondItem="lR6-dJ-vz1" secondAttribute="height" id="ltj-Fs-zT4"/>
+                                </constraints>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="SNz-vx-vT2" kind="show" identifier="showFeedbackSegue" id="fih-wP-ps1"/>
                         <segue destination="To1-8J-hgd" kind="show" identifier="showAddPartnerSegue" id="uEq-Od-2Qe"/>
@@ -685,7 +723,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mag-YU-MJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4370" y="-883"/>
+            <point key="canvasLocation" x="4137" y="-864"/>
         </scene>
         <!--Login-->
         <scene sceneID="r17-cN-Tm0">
@@ -1223,6 +1261,6 @@
         <image name="placeholder" width="128" height="92"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mGz-o9-hge"/>
+        <segue reference="uBk-9V-0PZ"/>
     </inferredMetricsTieBreakers>
 </document>

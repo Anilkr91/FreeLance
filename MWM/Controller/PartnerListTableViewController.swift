@@ -16,6 +16,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     var filteredArray = [PartnerModel]()
     var categoryId: Int?
     var brandName: String = ""
+    var searchString: String = ""
     var partnerModel: PartnerModel?
     
     override func viewDidLoad() {
@@ -27,7 +28,6 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     }
     
     func setupSearchController() {
-        
         searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -38,7 +38,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         tableView.tableHeaderView = searchController.searchBar
         
     }
-  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,7 +56,6 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         return array.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PartnerTableViewCell
         
@@ -69,7 +68,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         
         partnerModel  = array[indexPath.row]
         performSegue(withIdentifier: "showFeedbackSegue", sender: self)
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,47 +101,54 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     
     func getPartnerList() {
         
-        let param = ["pageNumber": 0, "pageSize" : 10, "city": user.city!, "categoryId": categoryId!] as [String : Any]
+        let param = ["pageNumber": 0, "pageSize" : 20, "city": user.city!, "categoryId": categoryId!] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
-            
-//            print(response)
             self.array = response
             self.tableView.reloadData()
         }
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-//         If we haven't typed anything into the search bar then do not filter the results
-        if searchController.searchBar.text! == "" {
-            getPartnerList()
-        } else {
-            return
-        }
-    }
-    
-    @IBAction func addPartnerButtonTapped(_ sender: Any) {
-        print("add partner")
-        performSegue(withIdentifier: "showAddPartnerSegue", sender: self)
-        
-    }
-    
-    
-    @IBAction func refreshButtonTapped(_ sender: Any) {
-        
-      print("refresh tapped")
-        
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        print("search from keyboard")
-        
-        let param = ["pageNumber": 0, "pageSize" : 10, "city": user.city!, "categoryId": categoryId!, "partnerName":searchBar.text!, "brandName": brandName] as [String : Any]
+    func searchPartnerList(searchString: String) {
+        let param = ["pageNumber": 0, "pageSize" : 10, "city": user.city!, "categoryId": categoryId!, "partnerName":searchString, "brandName": brandName] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
             
             print(response)
             self.array = response
             self.tableView.reloadData()
+        }
+    }
+    
+        func updateSearchResults(for searchController: UISearchController) {
+            searchString = searchController.searchBar.text!
+    }
+    
+    @IBAction func addPartnerButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "showAddPartnerSegue", sender: self)
+    }
+    
+    @IBAction func refreshButtonTapped(_ sender: Any) {
+        getPartnerList()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        if searchString.removeAllSpaces().isEmpty {
+            return
+        
+        } else {
+            getPartnerList()
+        
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        if searchString.removeAllSpaces().isEmpty {
+            return
+            
+        } else {
+            searchPartnerList(searchString: searchBar.text!)
+        
         }
     }
 }

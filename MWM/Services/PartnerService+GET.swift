@@ -12,7 +12,7 @@ import Gloss
 class PartnerGetService {
     static func executeRequest (_ params:[String: Any], completionHandler: @escaping ([PartnerModel]) -> Void) {
         
-        
+        ProgressBarView.showHUD()
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 60
         

@@ -13,7 +13,7 @@ struct UserModel: Gloss.Decodable {
     
     let accountManagerId: Int?
     let active: Bool
-    let city: String?
+    let region: String?
     let companyId: String
     let email: String?
     let featureList: String?
@@ -38,7 +38,7 @@ struct UserModel: Gloss.Decodable {
         
         self.accountManagerId = "accountManagerId" <~~ json
         self.active = active
-        self.city = "city" <~~ json
+        self.region = "region" <~~ json
         self.companyId = companyId
         self.email = "email" <~~ json
         self.featureList = "featureList" <~~ json
@@ -60,7 +60,7 @@ struct UserModel: Gloss.Decodable {
             
             "accountManagerId" ~~> self.accountManagerId,
             "active" ~~> self.active,
-            "city" ~~> self.city,
+            "region" ~~> self.region,
             "companyId" ~~> self.companyId,
             "email" ~~> self.email,
             "featureList" ~~> self.featureList,

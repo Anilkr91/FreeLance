@@ -10,17 +10,17 @@ import Foundation
 import Gloss
 
 struct UserModelResponse: Gloss.Decodable {
-    
-    let featureList: String
+
+    let permissionList: [String]
     let token: String
     let user: UserModel
     
     init?(json: JSON) {
-        guard let featureList: String = "featureList" <~~ json,
+        guard let permissionList: [String] = "permissionList" <~~ json,
             let token: String = "token" <~~ json,
             let user: UserModel  = "user" <~~ json else { return nil }
         
-        self.featureList = featureList
+        self.permissionList = permissionList
         self.token = token
         self.user = user
         
@@ -28,7 +28,7 @@ struct UserModelResponse: Gloss.Decodable {
     
     func toJSON() -> JSON? {
         return jsonify([
-            "featureList" ~~> self.featureList,
+            "permissionList" ~~> self.permissionList,
             "token" ~~> self.token,
             "user" ~~> self.user
             

@@ -16,8 +16,8 @@ struct UserModel: Gloss.Decodable {
     let region: String?
     let companyId: String
     let email: String?
-    let featureList: String?
     let id: Int
+    let invalidTokenMessage: String
     let latitude: Double?
     let longitude: Double?
     let mobileNo: String?
@@ -32,6 +32,7 @@ struct UserModel: Gloss.Decodable {
         guard let active: Bool = "active" <~~ json,
             let companyId: String  = "companyId" <~~ json,
             let id: Int  = "id" <~~ json,
+            let invalidTokenMessage: String = "invalidTokenMessage" <~~ json,
             let name: String  = "name" <~~ json,
             let userName: String  = "userName" <~~ json,
             let userRole: String  = "userRole" <~~ json else { return nil }
@@ -41,8 +42,8 @@ struct UserModel: Gloss.Decodable {
         self.region = "region" <~~ json
         self.companyId = companyId
         self.email = "email" <~~ json
-        self.featureList = "featureList" <~~ json
         self.id = id
+        self.invalidTokenMessage = invalidTokenMessage
         self.latitude = "latitude" <~~ json
         self.longitude = "longitude" <~~ json
         self.mobileNo = "mobileNo" <~~ json
@@ -63,8 +64,8 @@ struct UserModel: Gloss.Decodable {
             "region" ~~> self.region,
             "companyId" ~~> self.companyId,
             "email" ~~> self.email,
-            "featureList" ~~> self.featureList,
             "id" ~~> self.id,
+            "invalidTokenMessage" ~~> self.invalidTokenMessage,
             "latitude" ~~> self.latitude,
             "longitude" ~~> self.longitude,
             "mobileNo" ~~> self.mobileNo,

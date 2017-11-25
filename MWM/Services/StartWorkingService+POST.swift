@@ -23,7 +23,7 @@ class StartWorkingPostService {
         let token = LoginUtils.getCurrentUserLogin()
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
         
-         manager.request( BaseURL +  "user-attendance/start", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+       let r = manager.request( BaseURL +  "user-attendance/start", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -42,5 +42,6 @@ class StartWorkingPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        debugPrint(r)
     }
 }

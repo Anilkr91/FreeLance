@@ -21,19 +21,21 @@ class LoginUtils {
     
     class func setCurrentUserLogin(_ login: UserModelResponse?) {
         if let login = login {
-            
             Defaults[.token] = login.token
-            Defaults[.featureList] = login.featureList
+            Defaults[.permissionList] = login.permissionList
             Defaults[.user] = login.user.toJSON()
             Defaults[.isLaunched] = true
+            
         } else {
             Defaults.remove(.token)
-            Defaults.remove(.featureList)
+            Defaults.remove(.permissionList)
         }
     }
     
     class func getCurrentUser() -> UserModel? {
         if let json = Defaults[.user] {
+        print(json)
+            print(UserModel(json: json))
             return UserModel(json: json)
         }
         return nil
@@ -41,7 +43,6 @@ class LoginUtils {
     
     class func getCurrentUserLogin() -> String? {
         if let token = Defaults[.token] {
-            //            return UserModelResponse(json: json)
             return token
         }
         return nil
@@ -50,7 +51,6 @@ class LoginUtils {
     class func setCurrentUserAttendence(_ attendence: AttendenceModel?) {
         if let attendence = attendence {
             Defaults[.attendence] = attendence.toJSON()
-            
             
         } else {
             Defaults.remove(.attendence)
@@ -63,7 +63,6 @@ class LoginUtils {
         }
         return nil
     }
-    
     
     class func setCurrentUserSession(_ id: Int?) {
         if let id = id {

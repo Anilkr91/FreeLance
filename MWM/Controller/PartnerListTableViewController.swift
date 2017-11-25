@@ -101,7 +101,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     
     func getPartnerList() {
         
-        let param = ["pageNumber": 0, "pageSize" : 20, "city": user.city!, "categoryId": categoryId!] as [String : Any]
+        let param = ["pageNumber": 0, "pageSize" : 20, "city": user.region!, "categoryId": categoryId!] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
             self.array = response
             self.tableView.reloadData()
@@ -109,7 +109,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     }
     
     func searchPartnerList(searchString: String) {
-        let param = ["pageNumber": 0, "pageSize" : 10, "city": user.city!, "categoryId": categoryId!, "partnerName":searchString, "brandName": brandName] as [String : Any]
+        let param = ["pageNumber": 0, "pageSize" : 10, "city": user.region!, "categoryId": categoryId!, "partnerName":searchString, "brandName": brandName] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
             
             print(response)

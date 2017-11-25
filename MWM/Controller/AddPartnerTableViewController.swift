@@ -18,13 +18,13 @@ class AddPartnerTableViewController: BaseTableViewController {
     @IBOutlet weak var customerNameTextField: UITextField!
     @IBOutlet weak var customerNumberTextField: UITextField!
     
-    
+    let imagePickerController = UIImagePickerController()
     let user = LoginUtils.getCurrentUser()!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customerRegionTextField.text = user.city!
+        customerRegionTextField.text = user.region!
         
         getAddress { (address, area) in
             self.addressTextField.text = address
@@ -72,7 +72,7 @@ class AddPartnerTableViewController: BaseTableViewController {
             
         } else {
             
-            let param = AddPartnerModel(address: address, area: area, brandName: "MBKRestaurant", categoryId: "7", city: user.city!, companyId: user.companyId, customerName: customerName, contactNumber: customerNumber, latitude: "28.587944", longitude: "77.072276", partnerImageUrl: "", partnerName: partnerName, userName: user.userName).toJSON()
+            let param = AddPartnerModel(address: address, area: area, brandName: "MBKRestaurant", categoryId: "7", city: user.region!, companyId: user.companyId, customerName: customerName, contactNumber: customerNumber, latitude: "28.587944", longitude: "77.072276", partnerImageUrl: "", partnerName: partnerName, userName: user.userName).toJSON()
             
             
             AddPartnerPostService.executeRequest(param!, completionHandler: { (response) in
@@ -127,11 +127,62 @@ class AddPartnerTableViewController: BaseTableViewController {
             if let country = placeMark?.addressDictionary?["Country"] as? String {
                 address += country
             }
-            
             print(address)
-            
             // Passing address back
             handler(address, area)
         })
     }
 }
+
+extension AddPartnerTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func handleImageTapGestureRecognizer() {
+        
+        let imagePickerMenu = UIAlertController(title: "upload", message: nil, preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Take photo", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            self.imagePickerController.sourceType = .camera
+            self.imagePickerController.cameraDevice = .rear
+            self.presentImagePickerController()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        imagePickerMenu.addAction(cameraAction)
+        imagePickerMenu.addAction(cancelAction)
+        self.present(imagePickerMenu, animated: true, completion: nil)
+    }
+    
+    func presentImagePickerController() {
+        self.imagePickerController.delegate = self
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        ProgressBarView.showHUD()
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.imagePickerController.dismiss(animated: true, completion: nil)
+        
+        if let imageData = image?.jpeg(.medium) {
+            UploadImagePostService.executeRequest(imageData, completionHandler: { (response) in
+//                ProgressBarView.hideHUD()
+//                if self.imagePicked == 0 {
+//                    self.pvc?.visitingCardImageUrl = response.data
+//                    self.visitingCardImageView.image = image
+//                    
+//                } else {
+//                    self.pvc?.restaurantImageUrl = response.data
+//                    self.restaurantImageView.image = image
+//                }
+            })
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+

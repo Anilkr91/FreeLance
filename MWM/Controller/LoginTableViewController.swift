@@ -86,7 +86,6 @@ class LoginTableViewController: BaseTableViewController {
         let param = LoginModel(username: userName, password: password).toJSON()
         
         LoginPostService.executeRequest(param! as [String : AnyObject], completionHandler: { (response) in
-            
             LoginUtils.setCurrentUserLogin(response)
             LoginUtils.setCurrentUserSession(response.user.sessionId)
             let application = UIApplication.shared.delegate as! AppDelegate

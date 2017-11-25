@@ -1,3 +1,6 @@
+
+
+
 //
 //  ValidateTokenService+GET.swift
 //  Demo
@@ -12,18 +15,15 @@ import Gloss
 class ValidateTokenPostService {
     static func executeRequest (completionHandler: @escaping (IsSuccessModel) -> Void) {
         
-        
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 60
         
-        let user = LoginUtils.getCurrentUser()
-        
         let BaseURL = Constants.BASE_URL
+        let user = LoginUtils.getCurrentUser()
         let pathParam = user!.id
-        
         let token = LoginUtils.getCurrentUserLogin()
         
-        manager.request( BaseURL + "user/validate-token/\(pathParam)?token=\(token!)", method: .put, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+      let r = manager.request( BaseURL + "user/validate-token/\(pathParam)?token=\(token!)", method: .put, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -46,5 +46,6 @@ class ValidateTokenPostService {
                 Alert.showAlertWithMessage("Error", message: error.localizedDescription)
             }
         }
+        debugPrint(r)
     }
 }

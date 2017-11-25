@@ -77,14 +77,14 @@
 
 /* Begin PBXFileReference section */
 		47B5FC654CF90938F5FC2993 /* Pods-MWM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWM.release.xcconfig"; path = "Pods/Target Support Files/Pods-MWM/Pods-MWM.release.xcconfig"; sourceTree = "<group>"; };
-		840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerListTableViewController.swift; sourceTree = "<group>"; };
-		840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerTableViewController.swift; sourceTree = "<group>"; };
+		840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PartnerListTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddPartnerTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryService+GET.swift"; sourceTree = "<group>"; };
 		840BD8FB1FC02F5B007965C9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		840BD8FD1FC0300E007965C9 /* CategoryModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModelArray.swift; sourceTree = "<group>"; };
-		840BD8FF1FC03F10007965C9 /* PartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerModel.swift; sourceTree = "<group>"; };
+		840BD8FF1FC03F10007965C9 /* PartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PartnerModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		840BD9011FC0480C007965C9 /* PartnerModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerModelArray.swift; sourceTree = "<group>"; };
-		840BD9031FC056E4007965C9 /* AddPartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerModel.swift; sourceTree = "<group>"; };
+		840BD9031FC056E4007965C9 /* AddPartnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddPartnerModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		840BD9051FC070BD007965C9 /* AddPartnerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerResponse.swift; sourceTree = "<group>"; };
 		8421E1941F9A1FA10039D49E /* MWM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8421E19C1F9A1FA10039D49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		84C58B1A1FADC6BB00B83DC9 /* AttendenceModelResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendenceModelResponse.swift; sourceTree = "<group>"; };
 		84C58B1C1FADCCD000B83DC9 /* EndWorkingService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EndWorkingService+POST.swift"; sourceTree = "<group>"; };
 		84D870061FADAD8300F47702 /* LogoutSucessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutSucessModel.swift; sourceTree = "<group>"; };
-		84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnerTableViewCell.swift; sourceTree = "<group>"; };
-		84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PartnerService+GET.swift"; sourceTree = "<group>"; };
+		84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PartnerTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "PartnerService+GET.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		84DDFEC81FB72C2D00DFCAD1 /* AddPartnerService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AddPartnerService+POST.swift"; sourceTree = "<group>"; };
 		84DDFECA1FB78F9C00DFCAD1 /* FootPrintService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FootPrintService+POST.swift"; sourceTree = "<group>"; };
 		84DDFECC1FB78FAB00DFCAD1 /* FootPrintModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootPrintModel.swift; sourceTree = "<group>"; };

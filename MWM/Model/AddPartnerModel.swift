@@ -14,7 +14,7 @@ struct AddPartnerModel {
     let area: String
     let brandName: String
     let categoryId: String
-    let city: String
+    let region: String
     let companyId: String
     let customerName: String
     let contactNumber: String
@@ -24,14 +24,14 @@ struct AddPartnerModel {
     let partnerName: String
     let userName: String
     
-    init (address: String, area: String, brandName: String, categoryId: String, city: String, companyId: String, customerName: String, contactNumber: String, latitude: String, longitude: String, partnerImageUrl: String, partnerName: String, userName: String) {
+    init (address: String, area: String, brandName: String, categoryId: String, region: String, companyId: String, customerName: String, contactNumber: String, latitude: String, longitude: String, partnerImageUrl: String, partnerName: String, userName: String) {
         
         
         self.address = address
         self.area = area
         self.brandName = brandName
         self.categoryId = categoryId
-        self.city = city
+        self.region = region
         self.companyId = companyId
         self.customerName = customerName
         self.contactNumber = contactNumber
@@ -50,7 +50,7 @@ struct AddPartnerModel {
 //            let area: String = "area" <~~ json,
 //            let brandName: String = "brandName" <~~ json,
 //            let categoryId: String = "categoryId" <~~ json,
-//            let city: String = "city" <~~ json,
+//            let region: String = "region" <~~ json,
 //            let companyId: String = "companyId" <~~ json,
 //            let customerName: String = "contactName" <~~ json,
 //            let contactNumber: String = "contactNumber" <~~ json,
@@ -64,7 +64,7 @@ struct AddPartnerModel {
 //        self.area = area
 //        self.brandName = brandName
 //        self.categoryId = categoryId
-//        self.city = city
+//        self.region = region
 //        self.companyId = companyId
 //        self.customerName = customerName
 //        self.contactNumber = contactNumber
@@ -83,7 +83,7 @@ struct AddPartnerModel {
             "area" ~~> self.area,
             "brandName" ~~> self.brandName,
             "categoryId" ~~> self.categoryId,
-            "city" ~~> self.city,
+            "region" ~~> self.region,
             "companyId" ~~> self.companyId,
             "contactName" ~~> self.customerName,
             "contactNumber" ~~> self.contactNumber,

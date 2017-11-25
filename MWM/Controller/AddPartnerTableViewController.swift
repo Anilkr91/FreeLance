@@ -20,6 +20,7 @@ class AddPartnerTableViewController: BaseTableViewController {
     
     let imagePickerController = UIImagePickerController()
     let user = LoginUtils.getCurrentUser()!
+    var partnerModel: PartnerModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,15 +73,22 @@ class AddPartnerTableViewController: BaseTableViewController {
             
         } else {
             
-            let param = AddPartnerModel(address: address, area: area, brandName: "MBKRestaurant", categoryId: "7", city: user.region!, companyId: user.companyId, customerName: customerName, contactNumber: customerNumber, latitude: "28.587944", longitude: "77.072276", partnerImageUrl: "", partnerName: partnerName, userName: user.userName).toJSON()
+            let param = AddPartnerModel(address: address, area: area, brandName: "MBKRestaurant", categoryId: "7", region: user.region!, companyId: user.companyId, customerName: customerName, contactNumber: customerNumber, latitude: "28.587944", longitude: "77.072276", partnerImageUrl: "", partnerName: partnerName, userName: user.userName).toJSON()
             
             
             AddPartnerPostService.executeRequest(param!, completionHandler: { (response) in
-                print(response)
+                self.partnerModel = response
+                self.performSegue(withIdentifier: "showFeedbackSegue", sender: self)
             })
         }
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFeedbackSegue" {
+            let dvc = segue.destination as!  HomeViewController
+            dvc.partnerModel = partnerModel
+        }
+    }
     
     func getAddress(handler: @escaping (String, _ locality: String) -> Void) {
         var address: String = ""
@@ -108,9 +116,9 @@ class AddPartnerTableViewController: BaseTableViewController {
                 address += street + ", "
             }
             
-            // City
-            if let city = placeMark?.addressDictionary?["City"] as? String {
-                address += city + ", "
+            // region
+            if let region = placeMark?.addressDictionary?["City"] as? String {
+                address += region + ", "
             }
             
             // Locality

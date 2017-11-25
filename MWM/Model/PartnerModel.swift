@@ -14,7 +14,7 @@ struct PartnerModel: Gloss.Decodable {
     let area: String
     let brandName: String
     let categoryId: String
-    let city: String
+    let region: String
     let companyId: String
     let contactName: String
     let contactNumber: String
@@ -32,7 +32,7 @@ struct PartnerModel: Gloss.Decodable {
             let area: String = "area" <~~ json,
             let brandName: String = "brandName" <~~ json,
             let categoryId: String = "categoryId" <~~ json,
-            let city: String = "city" <~~ json,
+            let region: String = "region" <~~ json,
             let companyId: String = "companyId" <~~ json,
             let contactName: String = "contactName" <~~ json,
             let contactNumber: String = "contactNumber" <~~ json,
@@ -47,7 +47,7 @@ struct PartnerModel: Gloss.Decodable {
         self.area = area
         self.brandName = brandName
         self.categoryId = categoryId
-        self.city = city
+        self.region = region
         self.companyId = companyId
         self.contactName = contactName
         self.contactNumber = contactNumber
@@ -68,7 +68,7 @@ struct PartnerModel: Gloss.Decodable {
             "area" ~~> self.area,
             "brandName" ~~> self.brandName,
             "categoryId" ~~> self.categoryId,
-            "city" ~~> self.city,
+            "region" ~~> self.region,
             "companyId" ~~> self.companyId,
             "contactName" ~~> self.contactName,
             "contactNumber" ~~> self.contactNumber,

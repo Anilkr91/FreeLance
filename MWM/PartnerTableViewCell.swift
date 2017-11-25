@@ -53,7 +53,7 @@ extension PartnerTableViewCell {
         }
         partnerNameLabel.text = info.partnerName
         partnerLocalityLabel.text = info.area
-        partnerStateLabel.text = info.city
+        partnerStateLabel.text = info.region
         partnerAddressLabel.text = info.address
         
     }

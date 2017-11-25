@@ -34,8 +34,6 @@ class LoginUtils {
     
     class func getCurrentUser() -> UserModel? {
         if let json = Defaults[.user] {
-        print(json)
-            print(UserModel(json: json))
             return UserModel(json: json)
         }
         return nil

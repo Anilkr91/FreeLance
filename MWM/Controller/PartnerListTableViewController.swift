@@ -139,10 +139,9 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         
         if searchString.removeAllSpaces().isEmpty {
             return
-            
+
         } else {
             searchPartnerList(searchString: searchBar.text!)
-        
         }
     }
 }

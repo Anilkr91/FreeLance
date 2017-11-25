@@ -35,6 +35,8 @@ class PartnerGetService {
                     let error = ErrorModel(json: value as! JSON)
                     
                     if let error = error {
+                        print(error)
+                        
                         Alert.showAlertWithMessage("Error", message: error.errorMessage)
                     }
                 }

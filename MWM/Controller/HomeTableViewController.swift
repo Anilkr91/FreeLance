@@ -11,6 +11,7 @@ import UIKit
 class HomeTableViewController: BaseTableViewController {
     
     weak var pvc: HomeViewController?
+    var partnerModel: PartnerModel?
     
     @IBOutlet weak var restaurantNameTextField: UITextField!
     @IBOutlet weak var contactPersonName: UITextField!
@@ -29,6 +30,7 @@ class HomeTableViewController: BaseTableViewController {
     lazy var naturePicker = UIPickerView()
     lazy var statusPicker = UIPickerView()
     lazy var onboardPicker = UIPickerView()
+    
     let imagePickerController = UIImagePickerController()
     let restaurantTapGesture =  UITapGestureRecognizer()
     let visitingTapGesture =  UITapGestureRecognizer()
@@ -61,7 +63,17 @@ class HomeTableViewController: BaseTableViewController {
         
         visitingTapGesture.addTarget(self, action: #selector(HomeTableViewController.uploadVisitingImage(_:)))
         visitingCardImageView.addGestureRecognizer(visitingTapGesture)
-
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let partnerModel = partnerModel {
+            restaurantNameTextField.text = partnerModel.partnerName
+            contactPersonName.text = partnerModel.contactName
+            contactNumber.text = partnerModel.contactNumber
+            area.text = partnerModel.area
+        }
     }
     
     func uploadRestaurantImage(_ sender: UITapGestureRecognizer) {
@@ -105,7 +117,7 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-                cell.selectionStyle = .none
+        cell.selectionStyle = .none
     }
 }
 
@@ -187,7 +199,7 @@ extension HomeTableViewController: UIImagePickerControllerDelegate, UINavigation
             UploadImagePostService.executeRequest(imageData, completionHandler: { (response) in
                 ProgressBarView.hideHUD()
                 if self.imagePicked == 0 {
-                    self.pvc?.visitingCardImageUrl = response.data 
+                    self.pvc?.visitingCardImageUrl = response.data
                     self.visitingCardImageView.image = image
                     
                 } else {
@@ -196,7 +208,6 @@ extension HomeTableViewController: UIImagePickerControllerDelegate, UINavigation
                 }
             })
         }
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

@@ -16,6 +16,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     var filteredArray = [PartnerModel]()
     var categoryId: Int?
     var brandName: String = ""
+    var partnerModel: PartnerModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,27 +41,13 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
-        
-        
-        
-        
-        
-//        self.searchController.searchResultsUpdater = self
-//        
-//        self.searchController.hidesNavigationBarDuringPresentation = false
-//        self.searchController.dimsBackgroundDuringPresentation = true
-//        self.searchController.obscuresBackgroundDuringPresentation = false
-//        
-//        searchController.searchBar.sizeToFit()
-//        searchController.searchBar.becomeFirstResponder()
-//        self.navigationItem.titleView = searchController.searchBar
-        
     }
     
     func addPartnerSegue() {
         
         performSegue(withIdentifier: "showAddPartnerSegue", sender: self)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -87,15 +74,28 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         return cell
     }
     
-    func getCategory() {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        CategoryGetService.executeRequest { (response) in
-            print(response)
+        partnerModel  = array[indexPath.row]
+        performSegue(withIdentifier: "showFeedbackSegue", sender: self)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showFeedbackSegue" {
             
-            self.findCategoryId(categories: response)
+            let dvc = segue.destination as!  HomeViewController
+            dvc.partnerModel = partnerModel
         }
     }
     
+    func getCategory() {
+        
+        CategoryGetService.executeRequest { (response) in
+            self.findCategoryId(categories: response)
+        }
+    }
     
     func findCategoryId(categories: [CategoryModel]) {
         

@@ -14,6 +14,9 @@ class HomeViewController: BaseViewController {
     var cvc: HomeTableViewController!
     var visitingCardImageUrl: String = ""
     var restaurantImageUrl: String = ""
+    var partnerModel: PartnerModel?
+    
+    
     var cordinates = CLLocationCoordinate2D()
     
     lazy var locationManager = CLLocationManager()
@@ -23,6 +26,7 @@ class HomeViewController: BaseViewController {
         
 //        self.navigationItem.hidesBackButton = true 
         cvc = childViewControllers[0] as! HomeTableViewController
+        cvc.partnerModel = partnerModel
         cvc.pvc = self
         setupCoreLocation()
         setupBarButton()

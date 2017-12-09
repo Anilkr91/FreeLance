@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8400C3741FD2D3B6007C345E /* LoadMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400C3731FD2D3B6007C345E /* LoadMoreTableViewCell.swift */; };
+		8400C3E71FDB9219007C345E /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400C3E61FDB9219007C345E /* HostViewController.swift */; };
+		8400C3E91FDB9237007C345E /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400C3E81FDB9237007C345E /* NavigationMenuViewController.swift */; };
 		840BD8F61FC00443007965C9 /* PartnerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */; };
 		840BD8F81FC00451007965C9 /* AddPartnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */; };
 		840BD8FA1FC02D78007965C9 /* CategoryService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */; };
@@ -78,6 +81,9 @@
 
 /* Begin PBXFileReference section */
 		47B5FC654CF90938F5FC2993 /* Pods-MWM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWM.release.xcconfig"; path = "Pods/Target Support Files/Pods-MWM/Pods-MWM.release.xcconfig"; sourceTree = "<group>"; };
+		8400C3731FD2D3B6007C345E /* LoadMoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreTableViewCell.swift; sourceTree = "<group>"; };
+		8400C3E61FDB9219007C345E /* HostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
+		8400C3E81FDB9237007C345E /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
 		840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PartnerListTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddPartnerTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		840BD8F91FC02D78007965C9 /* CategoryService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryService+GET.swift"; sourceTree = "<group>"; };
@@ -237,6 +243,9 @@
 				84C58B141FADC09600B83DC9 /* StartWorkingViewController.swift */,
 				840BD8F51FC00443007965C9 /* PartnerListTableViewController.swift */,
 				840BD8F71FC00451007965C9 /* AddPartnerTableViewController.swift */,
+				8400C3731FD2D3B6007C345E /* LoadMoreTableViewCell.swift */,
+				8400C3E61FDB9219007C345E /* HostViewController.swift */,
+				8400C3E81FDB9237007C345E /* NavigationMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +412,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Gloss/Gloss.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
@@ -412,6 +422,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gloss.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InteractiveSideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
@@ -484,6 +495,7 @@
 				840BD8FC1FC02F5B007965C9 /* CategoryModel.swift in Sources */,
 				8421E2041F9A20DF0039D49E /* UIImageView+Helper.swift in Sources */,
 				840BD9041FC056E4007965C9 /* AddPartnerModel.swift in Sources */,
+				8400C3E71FDB9219007C345E /* HostViewController.swift in Sources */,
 				8421E1F51F9A20DF0039D49E /* LogoutService+PUT.swift in Sources */,
 				8421E1DB1F9A20DF0039D49E /* AppDelegate.swift in Sources */,
 				8421E1F81F9A20DF0039D49E /* SaveRestaurantService+POST.swift in Sources */,
@@ -497,6 +509,7 @@
 				8421E1EB1F9A20DF0039D49E /* RequestPasswordChangeModel.swift in Sources */,
 				8421E1F01F9A20DF0039D49E /* UserModelResponse.swift in Sources */,
 				8421E1FA1F9A20DF0039D49E /* ValidateTokenService+GET.swift in Sources */,
+				8400C3E91FDB9237007C345E /* NavigationMenuViewController.swift in Sources */,
 				840BD9441FC9AFEA007965C9 /* UploadPartnerImageService+POST.swift in Sources */,
 				8421E2031F9A20DF0039D49E /* StringExtension+Helper.swift in Sources */,
 				84DDFECB1FB78F9C00DFCAD1 /* FootPrintService+POST.swift in Sources */,
@@ -513,6 +526,7 @@
 				8421E1EF1F9A20DF0039D49E /* UserModel.swift in Sources */,
 				8421E2021F9A20DF0039D49E /* LoginUtils.swift in Sources */,
 				8421E1E51F9A20DF0039D49E /* VerifyOTPViewController.swift in Sources */,
+				8400C3741FD2D3B6007C345E /* LoadMoreTableViewCell.swift in Sources */,
 				840BD9061FC070BD007965C9 /* AddPartnerResponse.swift in Sources */,
 				84C58B1B1FADC6BB00B83DC9 /* AttendenceModelResponse.swift in Sources */,
 				8421E1F61F9A20DF0039D49E /* RequestChangePasswordService+PUT.swift in Sources */,

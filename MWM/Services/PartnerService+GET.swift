@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class PartnerGetService {
-    static func executeRequest (_ params:[String: Any], completionHandler: @escaping ([PartnerModel]) -> Void) {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (PartnerModelArray) -> Void) {
         
         ProgressBarView.showHUD()
         let manager = Alamofire.SessionManager.default
@@ -28,7 +28,7 @@ class PartnerGetService {
                 
                 if let info = PartnerModelArray(json: value as! JSON) {
                     ProgressBarView.hideHUD()
-                    completionHandler(info.data)
+                    completionHandler(info)
                 } else {
                     
                     ProgressBarView.hideHUD()

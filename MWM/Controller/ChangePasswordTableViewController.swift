@@ -8,8 +8,9 @@
 
 import UIKit
 import  Alamofire
+import InteractiveSideMenu
 
-class ChangePasswordTableViewController: BaseTableViewController {
+class ChangePasswordTableViewController: BaseTableViewController ,SideMenuItemContent{
     
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
@@ -19,10 +20,25 @@ class ChangePasswordTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       setupBackgroundImage()
+        setupBackgroundImage()
+        setupBarButton()
         tableView.separatorStyle = .none
     }
-
+    
+    func setupBarButton() {
+        
+        let rightBarButton = UIBarButtonItem(title: "Dismiss", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ChangePasswordTableViewController.dismissModally))
+        self.navigationItem.leftBarButtonItem = rightBarButton
+    }
+    
+    func dismissModally() {
+        
+        if let navigationViewController = self.navigationController as? SideMenuItemContent {
+            navigationViewController.showSideMenu()
+            
+        }
+    }
+    
     func setupBackgroundImage() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bg")
@@ -50,7 +66,7 @@ class ChangePasswordTableViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       
+        
         if UIDevice.current.userInterfaceIdiom == .pad {
             return 56
         } else {
@@ -74,7 +90,7 @@ class ChangePasswordTableViewController: BaseTableViewController {
         let confirmPassword = confirmPasswordTextField.text!
         
         if oldPassword.removeAllSpaces().isEmpty {
-             Alert.showAlertWithMessage("Error", message: "Old Password password is empty")
+            Alert.showAlertWithMessage("Error", message: "Old Password password is empty")
             
         } else if newPassword.removeAllSpaces().isEmpty {
             Alert.showAlertWithMessage("Error", message: "New password is empty")
@@ -83,13 +99,13 @@ class ChangePasswordTableViewController: BaseTableViewController {
             Alert.showAlertWithMessage("Error", message: "Confirm password is empty")
             
         } else if newPassword != confirmPassword {
-             Alert.showAlertWithMessage("Error", message: "Password not matched")
+            Alert.showAlertWithMessage("Error", message: "Password not matched")
             
         } else {
             let param = ChangePasswordModel(oldPassword: oldPassword, newPassword: newPassword).toJSON()
             ChangePasswordPostService.executeRequest(param! as [String: AnyObject], completionHandler: { (response) in
                 self.navigationController?.popToRootViewController(animated: true)
-                 Alert.showAlertWithMessage("Success", message: "Password Changed Successfully")
+                Alert.showAlertWithMessage("Success", message: "Password Changed Successfully")
             })
         }
     }

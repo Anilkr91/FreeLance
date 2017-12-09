@@ -12,5 +12,6 @@ target 'MWM' do
     pod 'SwiftyUserDefaults'
     pod 'MBProgressHUD'
     pod 'Kingfisher'
+    pod 'InteractiveSideMenu'
     
 end

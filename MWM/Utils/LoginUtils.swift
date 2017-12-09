@@ -39,6 +39,24 @@ class LoginUtils {
         return nil
     }
     
+    class func setCurrentUserPermission(_ permissionList: [String]?) {
+        
+        if let permissionList = permissionList {
+            Defaults[.userPermissionMenu] = permissionList
+            
+        } else {
+            Defaults.remove(.userPermissionMenu)
+        }
+    }
+    
+    class func getCurrentUserPermission() -> [String]? {
+        if let permissionList = Defaults[.userPermissionMenu] {
+            return permissionList
+        }
+        return nil
+    }
+    
+    
     class func getCurrentUserLogin() -> String? {
         if let token = Defaults[.token] {
             return token

@@ -11,7 +11,7 @@ import Gloss
 
 class FootPrintPostService {
     
-    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (AttendenceModelResponse) -> Void) {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (IsSuccessModel) -> Void) {
         
         ProgressBarView.showHUD()
         
@@ -23,14 +23,12 @@ class FootPrintPostService {
         let token = LoginUtils.getCurrentUserLogin()
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
         
-       let r = manager.request( BaseURL + "user-footprint/", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+       let r = manager.request( BaseURL + "user-footprint/ios", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
         
             switch response.result {
             case .success(let value) :
                 
-                print(value)
-                
-                if let data = AttendenceModelResponse(json: value as! JSON) {
+                if let data = IsSuccessModel(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(data)
                 } else {

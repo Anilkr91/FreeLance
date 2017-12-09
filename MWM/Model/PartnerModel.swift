@@ -19,8 +19,8 @@ struct PartnerModel: Gloss.Decodable {
     let contactName: String
     let contactNumber: String
     let id: Int
-    let latitude: String
-    let longitude: String
+    let latitude: String?
+    let longitude: String?
     let partnerImageUrl: String?
     let partnerName: String
     let userName: String
@@ -38,8 +38,6 @@ struct PartnerModel: Gloss.Decodable {
             let contactNumber: String = "contactNumber" <~~ json,
             
             let id: Int = "id" <~~ json,
-            let latitude: String = "latitude" <~~ json,
-            let longitude: String = "longitude" <~~ json,
             let partnerName: String = "partnerName" <~~ json,
             let userName: String = "userName" <~~ json else { return nil }
         
@@ -52,8 +50,8 @@ struct PartnerModel: Gloss.Decodable {
         self.contactName = contactName
         self.contactNumber = contactNumber
         self.id = id
-        self.latitude = latitude
-        self.longitude = longitude
+        self.latitude = "latitude" <~~ json
+        self.longitude = "longitude" <~~ json
         self.partnerImageUrl = "partnerImageUrl" <~~ json
         self.partnerName = partnerName
         self.userName = userName

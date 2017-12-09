@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class LoginPostService {
-    static func executeRequest (_ params:[String: AnyObject], completionHandler: @escaping (UserModelResponse) -> Void) {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (UserModelResponse) -> Void) {
         
         ProgressBarView.showHUD()
         let URL = Constants.BASE_URL

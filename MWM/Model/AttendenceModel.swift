@@ -10,7 +10,7 @@ import Gloss
 
 struct AttendenceModel: Gloss.Decodable {
     
-    let accountManagerId: Int
+    let accountManagerId: Int?
     let companyId: String
     let defaulter: Bool
     let id: Int
@@ -20,14 +20,13 @@ struct AttendenceModel: Gloss.Decodable {
     
     init?(json: JSON) {
         
-        guard  let accountManagerId: Int = "accountManagerId" <~~ json,
-            let companyId: String = "companyId" <~~ json,
+        guard let companyId: String = "companyId" <~~ json,
             let defaulter: Bool = "defaulter" <~~ json,
             let id: Int = "id" <~~ json,
             let userId: Int = "userId" <~~ json,
             let userName: String = "userName" <~~ json else { return nil }
         
-        self.accountManagerId = accountManagerId
+        self.accountManagerId = "accountManagerId" <~~ json
         self.companyId = companyId
         self.defaulter = defaulter
         self.id = id

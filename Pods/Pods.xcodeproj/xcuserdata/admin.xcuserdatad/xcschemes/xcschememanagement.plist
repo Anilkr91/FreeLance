@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>InteractiveSideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,7 +47,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>10190468FEB9D63814ED10D7F8ED4202</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>279AA6726F52A334C45E85774BD21A3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34B6FF1169130AA91C279BB8FA42C13B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,11 +72,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F694E18B27985E70F3A9A701722A5AF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6F712943B3C5592E82604940D11CE08A</key>
 		<dict>
 			<key>primary</key>
@@ -72,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6540B0CEF5AC2132547700CFBD98C6B</key>
+		<key>DA4CFEBC7883D4CE7E6AE34914B98587</key>
 		<dict>
 			<key>primary</key>
 			<true/>

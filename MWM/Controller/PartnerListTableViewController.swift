@@ -19,6 +19,10 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     var searchString: String = ""
     var partnerModel: PartnerModel?
     
+    var currentPage = 0
+    var totalElements = 0
+    var isLoadMore: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +43,37 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         
     }
     
+    func loadMoreFooterView(count: Int) {
+        
+        if totalElements == count {
+            let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 40)
+            let footerView = UIView(frame: frame)
+            footerView.backgroundColor = UIColor.purple
+            
+            let label:UILabel = UILabel()
+            label.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 40)
+            label.text = "No More Partners to Show"
+            label.textColor = UIColor.white
+            label.textAlignment =  .center
+            footerView.addSubview(label)
+            self.tableView.tableFooterView = footerView
+            
+        } else {
+                
+            let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 40)
+            let footerView = UIView(frame: frame)
+            let button = UIButton(type: .roundedRect)
+            button.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 40)
+            button.setTitle("Load More", for: .normal)
+            button.backgroundColor =  UIColor.purple
+            button.tintColor =  UIColor.white
+            button.addTarget(self, action: #selector(self.loadMorePartners), for: .touchUpInside)
+            footerView.addSubview(button)
+            self.tableView.tableFooterView = footerView
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,8 +92,17 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PartnerTableViewCell
+        cell.index = indexPath.row
         cell.info = array[indexPath.row]
+        
+        if cell.index == array.count - 1 {
+            if totalElements >= array.count {
+                
+                loadMoreFooterView(count: array.count)
+            }
+        }
         return cell
     }
     
@@ -76,6 +120,15 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         }
     }
     
+    
+    func loadMorePartners(_ sender: LoadMoreTableViewCell) {
+        print("load more tapped")
+        //        isLoadMore = true
+        
+        self.currentPage = currentPage+1
+        getPartnerList(pageNumber: currentPage)
+        
+    }
     func getCategory() {
         CategoryGetService.executeRequest { (response) in
             self.findCategoryId(categories: response)
@@ -89,16 +142,23 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
             if category.element.name == "MBKRestaurant" {
                 brandName = category.element.name
                 categoryId = category.element.id
-                getPartnerList()
+                getPartnerList(pageNumber: currentPage)
             }
         }
     }
     
-    func getPartnerList() {
+    func getPartnerList(pageNumber: Int) {
         
-        let param = ["pageNumber": 0, "pageSize" : 20, "region": user.region!, "categoryId": categoryId!] as [String : Any]
+        let param = ["pageNumber": pageNumber, "pageSize" : 20, "region": user.region!, "categoryId": categoryId!] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
-            self.array = response
+            
+            self.totalElements =  response.totalElements
+            
+            if pageNumber == 0 {
+                self.array = response.data
+            } else {
+                self.array += response.data
+            }
             self.tableView.reloadData()
         }
     }
@@ -108,13 +168,13 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         PartnerGetService.executeRequest(param) { (response) in
             
             print(response)
-            self.array = response
+            self.array = response.data
             self.tableView.reloadData()
         }
     }
     
-        func updateSearchResults(for searchController: UISearchController) {
-            searchString = searchController.searchBar.text!
+    func updateSearchResults(for searchController: UISearchController) {
+        searchString = searchController.searchBar.text!
     }
     
     @IBAction func addPartnerButtonTapped(_ sender: Any) {
@@ -122,16 +182,16 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     }
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
-        getPartnerList()
+        getPartnerList(pageNumber: currentPage)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         if searchString.removeAllSpaces().isEmpty {
             return
-        
+            
         } else {
-            getPartnerList()
+            getPartnerList(pageNumber: currentPage)
         }
     }
     
@@ -139,7 +199,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
         
         if searchString.removeAllSpaces().isEmpty {
             return
-
+            
         } else {
             searchPartnerList(searchString: searchBar.text!)
         }

@@ -14,14 +14,14 @@ class LoginTableViewController: BaseTableViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     let imagePickerController = UIImagePickerController()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-         setupBackgroundImage()
+        
+        setupBackgroundImage()
         tableView.separatorStyle = .none
     }
-   
+    
     func setupBackgroundImage() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bg")
@@ -29,7 +29,7 @@ class LoginTableViewController: BaseTableViewController {
         self.view.backgroundColor = UIColor(hex: "df6a2d")
         self.tableView.backgroundView = backgroundImage
     }
-
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -60,7 +60,7 @@ class LoginTableViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
@@ -75,7 +75,7 @@ class LoginTableViewController: BaseTableViewController {
             Alert.showAlertWithMessage("Error", message: "User name is empty")
             
         } else if password.removeAllSpaces().isEmpty {
-             Alert.showAlertWithMessage("Error", message: "Password is empty")
+            Alert.showAlertWithMessage("Error", message: "Password is empty")
             
         } else {
             loginApiService(userName: username, password: password)
@@ -85,11 +85,79 @@ class LoginTableViewController: BaseTableViewController {
     func loginApiService(userName: String, password: String) {
         let param = LoginModel(username: userName, password: password).toJSON()
         
-        LoginPostService.executeRequest(param! as [String : AnyObject], completionHandler: { (response) in
+        LoginPostService.executeRequest(param!, completionHandler: { (response) in
             LoginUtils.setCurrentUserLogin(response)
+            self.createPermissionArray(permisssionList: response.permissionList)
             LoginUtils.setCurrentUserSession(response.user.sessionId)
             let application = UIApplication.shared.delegate as! AppDelegate
             application.setHomeUserAsRVC()
         })
+    }
+    
+    
+    func createPermissionArray(permisssionList: [String]) {
+        
+        var sideMenuArray: [String] = []
+        for permission in permisssionList.enumerated(){
+            
+            if permission.element == "MBKAutoMobileEmployee" || permission.element == "MBKRestaurantEmployee" || permission.element == "MBKHealthcareEmployee" || permission.element == "MBKPetrolPumpEmployee" {
+                
+                sideMenuArray.append("Dashboard")
+                sideMenuArray.append("Today's Summary")
+            }
+            
+            if permission.element == "MBKHealthcareManager" || permission.element == "MBKPetrolPumpManager" || permission.element == "MBKRestaurantManager" || permission.element == "MBKAutoMobileManager" {
+                sideMenuArray.append("Admin Panel")
+            }
+            
+            if permission.element == "ManageOwnTask" || permission.element == "ManageAllTask" {
+                sideMenuArray.append("My Task")
+            }
+            
+            if permission.element == "ManageUser" || permission.element == "ViewAllUser" || permission.element == "ViewRegionUser" {
+                sideMenuArray.append("Users")
+            }
+            
+            if permission.element == "ViewAttendance" {
+                
+                if permission.element == "UpdateCompany" {
+                    sideMenuArray.append("My Attendence")
+                }
+            }
+            
+            if permission.element == "MBKPetrolPumpManager" || permission.element == "MBKPetrolPumpEmployee" {
+                
+                if permission.element == "UpdateCompany" {
+                    sideMenuArray.append("MBKPetrolPump")
+                }
+            }
+            
+            if permission.element == "MBKAutoMobileEmployee" || permission.element == "MBKAutoMobileManager" {
+                
+                if permission.element == "UpdateCompany" {
+                    sideMenuArray.append("MBKAutoMobile")
+                }
+            }
+            
+            if permission.element == "MBKHealthcareEmployee" || permission.element == "MBKHealthcareManager" {
+                
+                if permission.element == "UpdateCompany" {
+                    sideMenuArray.append("MBKHealthCare")
+                }
+            }
+            
+            if permission.element == "MBKRestaurantEmployee" || permission.element == "MBKRestaurantManager" {
+                
+                if permission.element == "UpdateCompany" {
+                    sideMenuArray.append("MBKRestaurant")
+                }
+            }
+            
+            sideMenuArray.append("ChangePassword")
+            sideMenuArray.append("Logout")
+            sideMenuArray.append("About app")
+        }
+        
+        LoginUtils.setCurrentUserPermission(Array(Set(sideMenuArray)))
     }
 }

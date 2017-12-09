@@ -26,7 +26,7 @@ struct UserModel: Gloss.Decodable {
     let sessionActive: Bool?
     let sessionId: Int?
     let userName: String
-    let userRole: String
+    let permissionGroup: String
     
     init?(json: JSON) {
         guard let active: Bool = "active" <~~ json,
@@ -35,7 +35,7 @@ struct UserModel: Gloss.Decodable {
             let invalidTokenMessage: String = "invalidTokenMessage" <~~ json,
             let name: String  = "name" <~~ json,
             let userName: String  = "userName" <~~ json,
-            let userRole: String  = "userRole" <~~ json else { return nil }
+            let permissionGroup: String  = "permissionGroup" <~~ json else { return nil }
         
         self.accountManagerId = "accountManagerId" <~~ json
         self.active = active
@@ -52,7 +52,7 @@ struct UserModel: Gloss.Decodable {
         self.sessionActive = "sessionActive" <~~ json
         self.sessionId = "sessionId" <~~ json
         self.userName = userName
-        self.userRole = userRole
+        self.permissionGroup = permissionGroup
         
     }
     
@@ -74,7 +74,7 @@ struct UserModel: Gloss.Decodable {
             "sessionActive" ~~> self.sessionActive,
             "sessionId" ~~> self.sessionId,
             "userName" ~~> self.userName,
-            "userRole" ~~> self.userRole,
+            "permissionGroup" ~~> self.permissionGroup,
             
             ])
     }

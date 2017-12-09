@@ -25,7 +25,7 @@ class StartWorkingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonTitle()
-        setupBarButton()
+//        setupBarButton()
         startWorkingButton.addTarget(self, action: #selector(StartWorkingViewController.startWorking), for: .touchUpInside)
         newEntryButton.addTarget(self, action: #selector(StartWorkingViewController.startNewEntry), for: .touchUpInside)
     }
@@ -73,7 +73,7 @@ class StartWorkingViewController: BaseViewController {
             
             print(response.data)
             // sending user location to server
-//            self.sendUserFootPrint(sessionId: response.data.id, userId: response.data.userId)
+            self.sendUserFootPrint(sessionId: response.data.id, userId: response.data.userId)
             
             // saving user object to userdefaults
             LoginUtils.setCurrentUserAttendence(response.data)
@@ -88,58 +88,59 @@ class StartWorkingViewController: BaseViewController {
     
     func sendUserFootPrint(sessionId: Int, userId: Int) {
 
-//        let param = ["userFootprints": [FootPrintModel(latitude: "\(cordinates.latitude)" , longitude: "\(cordinates.longitude)", sessionId: sessionId, userId: userId).toJSON()]]
-//        
-//        for (k,v) in param.enumerated() {
-//            print(k)
-//            print(v.key)
-//        }
-//        FootPrintPostService.executeRequest(param) { (response) in
-//            print(response)
-//        }
+        let param = ["userFootprints": [FootPrintModel(/*date: "",*/ latitude: "\(28.585100)" , longitude: "\(77.071214)", sessionId: sessionId, userId: userId).toJSON()]]
+        print(param)
+        
+        for (k,v) in param.enumerated() {
+            print(k)
+            print(v.key)
+        }
+        FootPrintPostService.executeRequest(param) { (response) in
+            print(response)
+        }
     }
 }
 
-extension StartWorkingViewController {
-    
-    func setupBarButton() {
-        let barButton = UIBarButtonItem()
-        barButton.tintColor = UIColor.darkGray
-        barButton.image = UIImage(named: "SettingIcon")
-        barButton.target = self
-        barButton.action = #selector(self.logout(_:))
-        self.navigationItem.rightBarButtonItem = barButton
-    }
-    
-    func logout(_ sender: Any) {
-        
-        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        // create an action
-        let firstAction: UIAlertAction = UIAlertAction(title: "Logout", style: .default) { action -> Void in
-            
-            LogoutGetService.executeRequest { (data) in
-                Alert.showAlertWithMessage("Success", message: "User logged out Successfully")
-            }
-            LoginUtils.setCurrentUserLogin(nil)
-            let application = UIApplication.shared.delegate as! AppDelegate
-            application.setHomeGuestAsRVC()
-        }
-        
-        let secondAction: UIAlertAction = UIAlertAction(title: "Change Password", style: .default) { action -> Void in
-            self.performSegue(withIdentifier: "showChangePasswordSegue", sender: self)
-        }
-        
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
-        // add actions
-        actionSheetController.addAction(firstAction)
-        actionSheetController.addAction(secondAction)
-        actionSheetController.addAction(cancelAction)
-        
-        // present an actionSheet...
-        actionSheetController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-        present(actionSheetController, animated: true, completion: nil)
-    }
-}
+//extension StartWorkingViewController {
+//    
+//    func setupBarButton() {
+//        let barButton = UIBarButtonItem()
+//        barButton.tintColor = UIColor.darkGray
+//        barButton.image = UIImage(named: "SettingIcon")
+//        barButton.target = self
+//        barButton.action = #selector(self.logout(_:))
+//        self.navigationItem.rightBarButtonItem = barButton
+//    }
+//    
+//    func logout(_ sender: Any) {
+//        
+//        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        // create an action
+//        let firstAction: UIAlertAction = UIAlertAction(title: "Logout", style: .default) { action -> Void in
+//            
+//            LogoutGetService.executeRequest { (data) in
+//                Alert.showAlertWithMessage("Success", message: "User logged out Successfully")
+//            }
+//            LoginUtils.setCurrentUserLogin(nil)
+//            let application = UIApplication.shared.delegate as! AppDelegate
+//            application.setHomeGuestAsRVC()
+//        }
+//        
+//        let secondAction: UIAlertAction = UIAlertAction(title: "Change Password", style: .default) { action -> Void in
+//            self.performSegue(withIdentifier: "showChangePasswordSegue", sender: self)
+//        }
+//        
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
+//        // add actions
+//        actionSheetController.addAction(firstAction)
+//        actionSheetController.addAction(secondAction)
+//        actionSheetController.addAction(cancelAction)
+//        
+//        // present an actionSheet...
+//        actionSheetController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+//        present(actionSheetController, animated: true, completion: nil)
+//    }
+//}
 
 
 extension StartWorkingViewController: CLLocationManagerDelegate {

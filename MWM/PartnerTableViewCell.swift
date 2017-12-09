@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 class PartnerTableViewCell: UITableViewCell {
-    
+    var index: Int!
     @IBOutlet weak var partnerImageView: UIImageView!
     @IBOutlet weak var partnerNameLabel: UILabel!
     @IBOutlet weak var partnerLocalityLabel: UILabel!

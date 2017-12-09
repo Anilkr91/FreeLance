@@ -16,5 +16,6 @@ extension DefaultsKeys {
     static let attendence = DefaultsKey<[String: Any]?>("attendence")
     static let isLaunched = DefaultsKey<Bool>("launch")
     static let sessionId = DefaultsKey<Int?>("sessionId")
+    static let userPermissionMenu = DefaultsKey<[String]?>("userPermissionMenu")
    
 }

@@ -30,5 +30,4 @@ class ProgressBarView {
             hud.hide(animated: true)
         }
     }
-    
 }

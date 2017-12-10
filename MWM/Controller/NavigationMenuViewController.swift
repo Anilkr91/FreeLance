@@ -27,10 +27,11 @@ class NavigationMenuViewController: MenuViewController {
         super.viewDidLoad()
         
         setupSideMenu()
+        tableView.dataSource = self
+        tableView.delegate = self
         // Select the initial row
-        tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+//        tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
     }
-    
     
     func setupSideMenu() {
         
@@ -63,6 +64,23 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = Bundle.main.loadNibNamed("SideBarHeaderView", owner: self, options: nil)?[0] as! SideBarHeaderView
+        view.userEmailLabel.text = LoginUtils.getCurrentUser()?.email
+        view.userNameLabel.text =  LoginUtils.getCurrentUser()?.userName
+        return view
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if menuItems[indexPath.row] == "Logout" {
@@ -85,6 +103,11 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
         } else if menuItems[indexPath.row] == "About app" {
             
             print("About app")
+        
+        } else if menuItems[indexPath.row] == "My Task"{
+            
+        self.performSegue(withIdentifier: "showMyTask", sender: self)
+            
         }
         
         

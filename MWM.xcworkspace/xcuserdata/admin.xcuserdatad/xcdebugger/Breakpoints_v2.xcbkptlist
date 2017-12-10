@@ -106,7 +106,7 @@
                   moduleName = "MWM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/MWM/MWM/Controller/StartWorkingViewController.swift"
-                  timestampString = "534512783.171621"
+                  timestampString = "534575898.382924"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "98"
@@ -121,7 +121,7 @@
                   moduleName = "MWM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Desktop/MWM/MWM/Controller/StartWorkingViewController.swift"
-                  timestampString = "534512783.172847"
+                  timestampString = "534575898.384275"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
@@ -129,6 +129,38 @@
                   offsetFromSymbolStart = "1081">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MWM/Services/MyTaskByDurationService+GET.swift"
+            timestampString = "534520706.229095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "executeRequest(_:duration:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MWM/Controller/MyTaskByDurationTableViewController.swift"
+            timestampString = "534575801.435722"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getTaskByDurationCount()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

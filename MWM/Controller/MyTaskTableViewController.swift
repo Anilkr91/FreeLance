@@ -21,6 +21,19 @@ class MyTaskTableViewController: UITableViewController {
         super.viewDidLoad()
 
        getTaskCount()
+        setupBarButton()
+    }
+    
+    func setupBarButton() {
+        
+        let rightBarButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTaskTableViewController.dismissModally))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    func dismissModally() {
+        
+        self.performSegue(withIdentifier: "showCreateTaskSegue", sender: self)
+//        self.dismiss(animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

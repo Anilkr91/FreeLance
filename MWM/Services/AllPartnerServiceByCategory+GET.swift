@@ -1,16 +1,16 @@
 //
-//  MyTaskByDurationService+GET.swift
+//  AllPartnerServiceByCategory+GET.swift
 //  MWM
 //
-//  Created by admin on 09/12/17.
+//  Created by admin on 16/12/17.
 //  Copyright © 2017 Techximum. All rights reserved.
 //
 
 import Alamofire
 import Gloss
 
-class MyTaskByDurationGetService {
-    static func executeRequest (_ params:[String: Any], duration: String , completionHandler: @escaping ([MyTaskWithDurationModel]) -> Void) {
+class AllPartnerGetService {
+    static func executeRequest ( _ params:[String: Any], completionHandler: @escaping ([PartnerModel]) -> Void) {
         
         ProgressBarView.showHUD()
         
@@ -22,15 +22,14 @@ class MyTaskByDurationGetService {
         let token = LoginUtils.getCurrentUserLogin()
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
         
-        
-        let r =  manager.request( BaseURL + "task/duration/\(duration)", method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+        let r =  manager.request( BaseURL + "partner/city-and-category", method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
                 
                 print(value)
                 
-                if let info = MyTaskWithDurationArrayModel(json: value as! JSON) {
+                if let info = PartnerModelArray(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(info.data)
                 } else {

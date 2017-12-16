@@ -23,6 +23,7 @@ class LoginUtils {
         if let login = login {
             Defaults[.token] = login.token
             Defaults[.permissionList] = login.permissionList
+//             Defaults[.categoryList] = login.categoryList
             Defaults[.user] = login.user.toJSON()
             Defaults[.isLaunched] = true
             
@@ -56,6 +57,22 @@ class LoginUtils {
         return nil
     }
     
+//    class func setCurrentUserCategoryList(_ categoryList: [CategoryModel]?) {
+//        
+//        if let categoryList = categoryList {
+//            Defaults[.categoryList] = categoryList
+//            
+//        } else {
+//            Defaults.remove(.categoryList)
+//        }
+//    }
+//    
+//    class func getCurrentUserCategoryList() -> [CategoryModel]? {
+//        if let categoryList = Defaults[.categoryList] {
+//            return categoryList
+//        }
+//        return nil
+//    }
     
     class func getCurrentUserLogin() -> String? {
         if let token = Defaults[.token] {

@@ -11,7 +11,7 @@ import Gloss
 
 class FootPrintPostService {
     
-    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (IsSuccessModel) -> Void) {
+    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (SucessModel) -> Void) {
         
         ProgressBarView.showHUD()
         
@@ -28,7 +28,7 @@ class FootPrintPostService {
             switch response.result {
             case .success(let value) :
                 
-                if let data = IsSuccessModel(json: value as! JSON) {
+                if let data = SucessModel(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(data)
                 } else {

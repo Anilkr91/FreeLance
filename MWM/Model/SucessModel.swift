@@ -11,6 +11,7 @@ struct SucessModel {
     
     let status: Bool
     let data: String
+    let message: String?
     
     init?(json: JSON) {
         guard let  status: Bool  = "status" <~~ json,
@@ -18,12 +19,15 @@ struct SucessModel {
         
         self.status = status
         self.data = data
+        self.message = "errorMessage" <~~ json
     }
     
     func toJSON() -> JSON? {
         return jsonify([
             "status" ~~> self.status,
-            "data" ~~> self.data
+            "data" ~~> self.data,
+            "errorMessage" ~~> self.message
+            
             ])
     }
 }

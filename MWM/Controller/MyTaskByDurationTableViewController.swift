@@ -22,7 +22,7 @@ class MyTaskByDurationTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func getTaskByDurationCount() {
         
         let param = ["pageNumber": 0, "pageSize" : 20] as [String : Any]

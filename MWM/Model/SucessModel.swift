@@ -10,15 +10,14 @@ import Gloss
 struct SucessModel {
     
     let status: Bool
-    let data: String
+    let data: String?
     let message: String?
     
     init?(json: JSON) {
-        guard let  status: Bool  = "status" <~~ json,
-            let data: String = "data" <~~ json else { return nil }
+        guard let  status: Bool  = "status" <~~ json else { return nil }
         
         self.status = status
-        self.data = data
+        self.data = "data" <~~ json
         self.message = "errorMessage" <~~ json
     }
     

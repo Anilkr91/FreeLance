@@ -37,12 +37,27 @@ class CreateTaskTableViewController: UITableViewController {
         assignedtoTextField.addTarget(self, action: #selector(CreateTaskTableViewController.showUsersList(_:)), for: .editingDidBegin)
         
         partnerTextField.addTarget(self, action: #selector(CreateTaskTableViewController.showPartnersList(_:)), for: .editingDidBegin)
+        
+        setupBarButton()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setupBarButton() {
+        
+        let rightBarButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(UsersListTableViewController.done))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    func done() {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUserListSegue" {
@@ -153,7 +168,8 @@ class CreateTaskTableViewController: UITableViewController {
             CreateTaskPostService.executeRequest(param!, completionHandler: { (response) in
                 print(response)
                 
-                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+//                self.navigationController?.popViewController(animated: true)
             })
         }
     }

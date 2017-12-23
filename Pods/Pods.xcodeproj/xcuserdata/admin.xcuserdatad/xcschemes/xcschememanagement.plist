@@ -34,6 +34,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MZAppearance.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MZFormSheetPresentationController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MWM.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +57,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>10190468FEB9D63814ED10D7F8ED4202</key>
+		<key>10A66C4AF81A3E1DCA3DCC7119727AE8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34B6FF1169130AA91C279BB8FA42C13B</key>
+		<key>3CB17C6B6D5F08F6B3350CCEC6B1E0F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6C4F952A9B4FD37B3FDD120158F9A0D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6F712943B3C5592E82604940D11CE08A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70D462634F7BD6635A7C8AC01780C67F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

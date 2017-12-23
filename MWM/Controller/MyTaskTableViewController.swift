@@ -9,18 +9,18 @@
 import UIKit
 
 class MyTaskTableViewController: UITableViewController {
-
-//    let taskArray = ["Today's Task", "Pending Task", "Upcoming Task", "Completed Task"]
-//    let adminTaskArray = ["Today's Task", "Pending Task", "Upcoming Task", "Completed Task", "View All Task"]
+    
+    //    let taskArray = ["Today's Task", "Pending Task", "Upcoming Task", "Completed Task"]
+    //    let adminTaskArray = ["Today's Task", "Pending Task", "Upcoming Task", "Completed Task", "View All Task"]
     
     var taskCount: MyTaskModel?
-    
+    var taskType: String?
     var taskArray: [MyTaskWithCountModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       getTaskCount()
+        
+        getTaskCount()
         setupBarButton()
     }
     
@@ -33,9 +33,9 @@ class MyTaskTableViewController: UITableViewController {
     func dismissModally() {
         
         self.performSegue(withIdentifier: "showCreateTaskSegue", sender: self)
-//        self.dismiss(animated: true, completion: nil)
+        //        self.dismiss(animated: true, completion: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,7 +49,7 @@ class MyTaskTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     func createTaskArray(taskCount: MyTaskModel) {
         taskArray.append(MyTaskWithCountModel(taskName: "Today's Task", taskCount: taskCount.todayTaskCount))
         taskArray.append(MyTaskWithCountModel(taskName: "Pending Task", taskCount: taskCount.pendingTaskCount))
@@ -59,28 +59,56 @@ class MyTaskTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         
         return taskArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyTaskTableViewCell
         
+        cell.selectionStyle = .none
         cell.info = taskArray[indexPath.section]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if taskArray[indexPath.section].taskName == "Today's Task" {
+            taskType = "Today"
         performSegue(withIdentifier: "showTaskByDurationSegue", sender: self)
+        
+        
+        } else if taskArray[indexPath.section].taskName == "Pending Task" {
+             taskType = "Pending"
+          performSegue(withIdentifier: "showTaskByDurationSegue", sender: self)
+        
+       
+        } else if taskArray[indexPath.section].taskName == "Upcoming Task" {
+             taskType = "Upcoming"
+          performSegue(withIdentifier: "showTaskByDurationSegue", sender: self)
+        
+        
+        } else if taskArray[indexPath.section].taskName == "Completed Task" {
+             taskType = "Completed"
+          performSegue(withIdentifier: "showTaskByDurationSegue", sender: self)
+        
+        
+        } else if taskArray[indexPath.section].taskName == "View All Task" {
+             taskType = "All"
+          performSegue(withIdentifier: "showTaskByDurationSegue", sender: self)
+        
+        } else {
+            return
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -92,10 +120,20 @@ class MyTaskTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return 80
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showTaskByDurationSegue" {
+            
+            let dvc = segue.destination as! MyTaskByDurationTableViewController
+            dvc.taskType = taskType
+        }
     }
 }

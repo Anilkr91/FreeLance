@@ -38,7 +38,15 @@ extension MyTaskTableViewCell {
     func didSetCategory(_ info: MyTaskWithCountModel) {
         
         taskCountLabel.text = "\(info.taskCount)"
+        
+        taskCountLabel.backgroundColor = UIColor(red: .random(), green: .random(), blue: .random(), alpha: 1.0)
         taskNameLabel.text = info.taskName
         
+    }
+}
+
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
 }

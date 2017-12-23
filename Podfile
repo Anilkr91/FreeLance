@@ -13,5 +13,6 @@ target 'MWM' do
     pod 'MBProgressHUD'
     pod 'Kingfisher'
     pod 'InteractiveSideMenu'
+    pod 'MZFormSheetPresentationController'
     
 end

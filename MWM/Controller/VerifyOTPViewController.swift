@@ -66,7 +66,7 @@ class VerifyOTPViewController: BaseViewController {
         
         let param = ["mobileNumber": mobileNumber!]
         RetryPostService.executeRequest(param as [String : AnyObject], completionHandler: { (response) in
-            Alert.showAlertWithMessage("Sucess", message: response.data)
+            Alert.showAlertWithMessage("Sucess", message: response.data!)
             self.timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(VerifyOTPViewController.updateCounter), userInfo: nil, repeats: true)
         })
     }

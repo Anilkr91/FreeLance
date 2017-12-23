@@ -18,7 +18,6 @@ class PartnerTableViewCell: UITableViewCell {
     @IBOutlet weak var partnerAddressLabel: UILabel!
     @IBOutlet weak var checkInButton: UIButton!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

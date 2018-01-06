@@ -68,7 +68,7 @@ class AllPartnersListTableViewController: BaseTableViewController {
         
         AllPartnerGetService.executeRequest(param) { (response) in
             print(response)
-            self.array = response
+            self.array = response.data
             self.tableView.reloadData()
             
         }

@@ -88,7 +88,7 @@ class SideMenuOptionsTableViewController: UITableViewController {
             
         } else if array[indexPath.row] == "My Task"{
         
-            dvc = storyboard.instantiateViewController(withIdentifier: "MyTaskTableViewController")
+            dvc = storyboard.instantiateViewController(withIdentifier: "MyTaskOptionsTableViewController")
             sideMenuController()?.setContentViewController(dvc)
 //            self.performSegue(withIdentifier: "showMyTask", sender: self)
         }

@@ -12,10 +12,11 @@ import UIKit
 
 class TaskByDurationTableViewCell: UITableViewCell {
     
+    var index: Int!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var partnerLabel: UILabel!
     @IBOutlet weak var taskStatusLabel: UILabel!
-    @IBOutlet weak var localityLabel: UILabel!
+    @IBOutlet weak var assignedToLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,10 +42,10 @@ extension TaskByDurationTableViewCell {
     
     func didSetCategory(_ info: MyTaskWithDurationModel) {
         
-        titleLabel.text = info.name
-        partnerLabel.text = info.partnerName
-         taskStatusLabel.text = info.status
-        localityLabel.text = info.area
+        titleLabel.text = "Title: \(info.name)"
+        partnerLabel.text = "Partner: \(info.partnerName)"
+        taskStatusLabel.text = "Assigned To: \(info.status)"
+        assignedToLabel.text = "Task Status: \(info.assignedTo)"
         
     }
 }

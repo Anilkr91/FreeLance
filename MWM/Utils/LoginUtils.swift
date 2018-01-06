@@ -21,14 +21,16 @@ class LoginUtils {
     
     class func setCurrentUserLogin(_ login: UserModelResponse?) {
         if let login = login {
+            
+            var categoryIds:[Int] = []
             Defaults[.token] = login.token
             Defaults[.permissionList] = login.permissionList
-            
+            print(login.categoryList)
             for category in login.categoryList.enumerated() {
-                
-              Defaults[.categoryListIds]?.append(category.element.id)
+                categoryIds.append(category.element.id)
             }
             
+            Defaults[.categoryListIds] = categoryIds
             Defaults[.user] = login.user.toJSON()
             Defaults[.isLaunched] = true
             

@@ -106,6 +106,9 @@
 		84DDFEFD1FBC494F00DFCAD1 /* FootPrintModelArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEFC1FBC494F00DFCAD1 /* FootPrintModelArray.swift */; };
 		84E09DE61FFEB35700D8D66B /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E09DE41FFEB35700D8D66B /* MyNavigationController.swift */; };
 		84E09DF62000A53C00D8D66B /* SideMenuOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E09DF52000A53C00D8D66B /* SideMenuOptionsTableViewController.swift */; };
+		84E09DF82000B25800D8D66B /* MyTaskOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E09DF72000B25800D8D66B /* MyTaskOptionsTableViewController.swift */; };
+		84E09DFA2000B59600D8D66B /* MyPartnerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E09DF92000B59600D8D66B /* MyPartnerListTableViewController.swift */; };
+		84E09DFC2000CA3300D8D66B /* MyPartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E09DFB2000CA3300D8D66B /* MyPartnerTableViewCell.swift */; };
 		D974AAF45F414F3B10BE5C75 /* Pods_MWM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +215,9 @@
 		84DDFEFC1FBC494F00DFCAD1 /* FootPrintModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootPrintModelArray.swift; sourceTree = "<group>"; };
 		84E09DE41FFEB35700D8D66B /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		84E09DF52000A53C00D8D66B /* SideMenuOptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuOptionsTableViewController.swift; sourceTree = "<group>"; };
+		84E09DF72000B25800D8D66B /* MyTaskOptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTaskOptionsTableViewController.swift; sourceTree = "<group>"; };
+		84E09DF92000B59600D8D66B /* MyPartnerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPartnerListTableViewController.swift; sourceTree = "<group>"; };
+		84E09DFB2000CA3300D8D66B /* MyPartnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPartnerTableViewCell.swift; sourceTree = "<group>"; };
 		B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E2AC5CB5AC7A69AF5F2F6A /* Pods-MWM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MWM/Pods-MWM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,6 +285,8 @@
 				84B2C8D21FEE5BEE00B09D44 /* RoundLabel.swift */,
 				84B2C8D41FEE80DB00B09D44 /* BaseTextField.swift */,
 				84E09DF52000A53C00D8D66B /* SideMenuOptionsTableViewController.swift */,
+				84E09DF92000B59600D8D66B /* MyPartnerListTableViewController.swift */,
+				84E09DFB2000CA3300D8D66B /* MyPartnerTableViewCell.swift */,
 			);
 			path = MWM;
 			sourceTree = "<group>";
@@ -322,6 +330,7 @@
 				844B5C3C1FE55C0600329C7B /* UsersListTableViewController.swift */,
 				844B5C3E1FE55C1C00329C7B /* AllPartnersListTableViewController.swift */,
 				844B5C441FE5732800329C7B /* TaskDetailAlert.swift */,
+				84E09DF72000B25800D8D66B /* MyTaskOptionsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -572,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8421E1FB1F9A20DF0039D49E /* VerifyOTPService+POST.swift in Sources */,
+				84E09DF82000B25800D8D66B /* MyTaskOptionsTableViewController.swift in Sources */,
 				8421E1F41F9A20DF0039D49E /* LoginService+POST.swift in Sources */,
 				844B5C311FE51DB300329C7B /* CreateTaskRequestModel.swift in Sources */,
 				84DDFEC31FB6E23F00DFCAD1 /* PartnerTableViewCell.swift in Sources */,
@@ -660,7 +670,9 @@
 				8421E2081F9A27ED0039D49E /* ProgressBarView.swift in Sources */,
 				840BD8FA1FC02D78007965C9 /* CategoryService+GET.swift in Sources */,
 				84DDFEFD1FBC494F00DFCAD1 /* FootPrintModelArray.swift in Sources */,
+				84E09DFA2000B59600D8D66B /* MyPartnerListTableViewController.swift in Sources */,
 				84DDFEC51FB6E86800DFCAD1 /* PartnerService+GET.swift in Sources */,
+				84E09DFC2000CA3300D8D66B /* MyPartnerTableViewCell.swift in Sources */,
 				8400C3F51FDC197F007C345E /* MyTaskModel.swift in Sources */,
 				8421E1FF1F9A20DF0039D49E /* DefaultsKeys.swift in Sources */,
 				8400C3FF1FDC25A3007C345E /* TaskByDurationTableViewCell.swift in Sources */,

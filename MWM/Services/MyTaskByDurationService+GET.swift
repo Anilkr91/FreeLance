@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class MyTaskByDurationGetService {
-    static func executeRequest (_ params:[String: Any], duration: String , completionHandler: @escaping ([MyTaskWithDurationModel]) -> Void) {
+    static func executeRequest (_ params:[String: Any], duration: String , completionHandler: @escaping (MyTaskWithDurationArrayModel) -> Void) {
         
         ProgressBarView.showHUD()
         
@@ -32,7 +32,7 @@ class MyTaskByDurationGetService {
                 
                 if let info = MyTaskWithDurationArrayModel(json: value as! JSON) {
                     ProgressBarView.hideHUD()
-                    completionHandler(info.data)
+                    completionHandler(info)
                 } else {
                     
                     ProgressBarView.hideHUD()

@@ -6,6 +6,7 @@
 //  Copyright © 2017 Techximum. All rights reserved.
 //
 
+/*
 import UIKit
 import InteractiveSideMenu
 
@@ -85,3 +86,4 @@ class HostViewController: MenuContainerViewController {
         return contentList
     }
 }
+ */

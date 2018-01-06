@@ -23,7 +23,12 @@ class LoginUtils {
         if let login = login {
             Defaults[.token] = login.token
             Defaults[.permissionList] = login.permissionList
-//             Defaults[.categoryList] = login.categoryList
+            
+            for category in login.categoryList.enumerated() {
+                
+              Defaults[.categoryListIds]?.append(category.element.id)
+            }
+            
             Defaults[.user] = login.user.toJSON()
             Defaults[.isLaunched] = true
             
@@ -57,22 +62,22 @@ class LoginUtils {
         return nil
     }
     
-//    class func setCurrentUserCategoryList(_ categoryList: [CategoryModel]?) {
-//        
-//        if let categoryList = categoryList {
-//            Defaults[.categoryList] = categoryList
-//            
-//        } else {
-//            Defaults.remove(.categoryList)
-//        }
-//    }
-//    
-//    class func getCurrentUserCategoryList() -> [CategoryModel]? {
-//        if let categoryList = Defaults[.categoryList] {
-//            return categoryList
-//        }
-//        return nil
-//    }
+    class func setCurrentUserCategoryList(_ categoryList: [Int]?) {
+        
+        if let categoryList = categoryList {
+            Defaults[.categoryListIds] = categoryList
+            
+        } else {
+            Defaults.remove(.categoryListIds)
+        }
+    }
+    
+    class func getCurrentUserCategoryList() -> [Int]? {
+        if let categoryList = Defaults[.categoryListIds] {
+            return categoryList
+        }
+        return nil
+    }
     
     class func getCurrentUserLogin() -> String? {
         if let token = Defaults[.token] {

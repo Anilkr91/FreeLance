@@ -12,8 +12,6 @@ protocol PartnerDelegte {
     func sendPartnerDelegate(partner: PartnerModel)
 }
 
-
-
 class AllPartnersListTableViewController: BaseTableViewController {
     
     
@@ -43,6 +41,12 @@ class AllPartnersListTableViewController: BaseTableViewController {
         CategoryGetService.executeRequest { (response) in
             self.findCategoryId(categories: response)
         }
+        
+        
+        let categories = LoginUtils.getCurrentUserCategoryList()!
+        
+        print(categories)
+        
     }
     
     func findCategoryId(categories: [CategoryModel]) {

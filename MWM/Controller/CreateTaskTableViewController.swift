@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDate
 
 class CreateTaskTableViewController: UITableViewController {
     
@@ -21,13 +22,24 @@ class CreateTaskTableViewController: UITableViewController {
      let user = LoginUtils.getCurrentUser()!
      var userModel: UserListResponseModel?
     var partnerModel: PartnerModel?
+    var selectedDate: Date?
+    
+     lazy var dateOfBirthDatePicker = UIDatePicker()
     
     
     lazy var picker = UIPickerView()
+    let dateFormatter = "dd-MM-YYYY"
     let array = ["", "HIGH", "MEDIUM","LOW"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        dateOfBirthDatePicker.datePickerMode = .date
+        dueDateTextField.inputView = dateOfBirthDatePicker
+        
+         dateOfBirthDatePicker.addTarget(self, action: #selector(CreateTaskTableViewController.getDate(sender:)), for: UIControlEvents.valueChanged)
+
         
         assignedbyTextField.text = user.userName
         
@@ -44,6 +56,13 @@ class CreateTaskTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func getDate(sender: Any) {
+        self.selectedDate =  dateOfBirthDatePicker.date
+        let dateString =  selectedDate?.string(custom: dateFormatter)
+        dueDateTextField.text = dateString
     }
     
     func setupBarButton() {
@@ -147,11 +166,10 @@ class CreateTaskTableViewController: UITableViewController {
         } else {
             
             print("ALL Done")
-            let date: Double = NSDate().timeIntervalSince1970.rounded(toPlaces: 0)*1000
+            let date: Double = selectedDate!.timeIntervalSince1970.rounded(toPlaces: 0)*1000
             
             var selecteduserName: String = ""
             var selectedPartnerId: Int?
-            
             
             if let userModel =  userModel {
                 
@@ -165,11 +183,9 @@ class CreateTaskTableViewController: UITableViewController {
             
             let param = CreateTaskRequestModel(name: task, description: description, assignedBy: assignedby, assignedTo: selecteduserName, partnerIdList: [selectedPartnerId!], dueDate: Int(date), priority: priority).toJSON()
             
-            CreateTaskPostService.executeRequest(param!, completionHandler: { (response) in
-                print(response)
-                
+            CreateTaskPostService.executeRequest(param!, completionHandler: { (response) in                
                 self.dismiss(animated: true, completion: nil)
-//                self.navigationController?.popViewController(animated: true)
+
             })
         }
     }

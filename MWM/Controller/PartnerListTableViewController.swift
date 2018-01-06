@@ -149,7 +149,7 @@ class PartnerListTableViewController: BaseTableViewController, UISearchResultsUp
     
     func getPartnerList(pageNumber: Int) {
         
-        let param = ["pageNumber": pageNumber, "pageSize" : 20, "region": user.region!, "categoryId": categoryId!] as [String : Any]
+        let param = ["pageNumber": pageNumber, "pageSize" : 20, "city": user.region!, "categoryId": categoryId!] as [String : Any]
         PartnerGetService.executeRequest(param) { (response) in
             
             self.totalElements =  response.totalElements

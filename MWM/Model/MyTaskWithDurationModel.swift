@@ -20,7 +20,7 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
     let companyId: String
     let description: String
     let deviceType: String
-//    let dueDate: NSDate
+    let dueDate: Double
     let id: Int
     let latitude: String?
     let longitude: String?
@@ -29,8 +29,9 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
     let partnerAddress: String
     let partnerId: Int
     let partnerName: String
+    let partnerPhoneNumber: String
     let priority: String
-//    let rescheduledDate: NSDate?
+    let rescheduledDate: Double?
     let signature: String?
     let status: String
     let taskImage: String?
@@ -48,12 +49,13 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
             let companyId: String = "companyId" <~~ json,
             let description: String = "description" <~~ json,
             let deviceType: String = "deviceType" <~~ json,
-//            let dueDate: NSDate = "dueDate" <~~ json,
+            let dueDate: Double = "dueDate" <~~ json,
             let id: Int = "id" <~~ json,
             let name: String = "name" <~~ json,
             let partnerAddress: String = "partnerAddress" <~~ json,
             let partnerId: Int = "partnerId" <~~ json,
             let partnerName: String = "partnerName" <~~ json,
+            let partnerPhoneNumber: String = "partnerPhoneNumber" <~~ json,
             let priority: String = "priority" <~~ json,
             let status: String = "status" <~~ json,
             let timeOfDay: String = "timeOfDay" <~~ json else { return nil }
@@ -68,7 +70,7 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
         self.companyId = companyId
         self.description = description
         self.deviceType = deviceType
-//        self.dueDate =  dueDate
+        self.dueDate =  dueDate
         self.id = id
         self.latitude = "latitude" <~~ json
         self.longitude = "longitude" <~~ json
@@ -77,8 +79,9 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
         self.partnerAddress = partnerAddress
         self.partnerId = partnerId
         self.partnerName = partnerName
+        self.partnerPhoneNumber = partnerPhoneNumber
         self.priority = priority
-//        self.rescheduledDate = "rescheduledDate" <~~ json
+        self.rescheduledDate = "rescheduledDate" <~~ json
         self.signature = "signature" <~~ json
         self.status = status
         self.taskImage = "taskImage" <~~ json
@@ -99,7 +102,7 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
             "companyId" ~~> self.companyId,
             "description" ~~> self.description,
             "deviceType" ~~> self.deviceType,
-//            "dueDate" ~~> self.dueDate,
+            "dueDate" ~~> self.dueDate,
             "id" ~~> self.id,
             "latitude" ~~> self.latitude,
             "longitude" ~~> self.longitude,
@@ -108,8 +111,9 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
             "partnerAddress" ~~> self.partnerAddress,
             "partnerId" ~~> self.partnerId,
             "partnerName" ~~> self.partnerName,
+            "partnerPhoneNumber" ~~> self.partnerPhoneNumber,
             "priority" ~~> self.priority,
-//            "rescheduledDate" ~~> self.rescheduledDate,
+            "rescheduledDate" ~~> self.rescheduledDate,
             "signature" ~~> self.signature,
             "status" ~~> self.status,
             "taskImage" ~~> self.taskImage,

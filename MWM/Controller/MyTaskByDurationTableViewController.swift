@@ -37,8 +37,6 @@ class MyTaskByDurationTableViewController: UITableViewController {
         
         let param = ["pageNumber": 0, "pageSize" : 20] as [String : Any]
         MyTaskByDurationGetService.executeRequest(param, duration: duration) { (response) in
-            print(response)
-            
             self.taskArray = response
             self.tableView.reloadData()
         }
@@ -61,6 +59,8 @@ class MyTaskByDurationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TaskByDurationTableViewCell
         
+        cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         cell.info = taskArray[indexPath.section]
         return cell
     }
@@ -85,7 +85,6 @@ class MyTaskByDurationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         taskDetailObject = taskArray[indexPath.section]
-        print(taskDetailObject)
         performSegue(withIdentifier: "showDetailTaskSegue", sender: self)
     }
     
@@ -96,12 +95,12 @@ class MyTaskByDurationTableViewController: UITableViewController {
             let presentationSegue = segue as! MZFormSheetPresentationViewControllerSegue
             let navigationController = presentationSegue.formSheetPresentationController.contentViewController as! TaskDetailAlert
             let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
-            formSheetController.presentationController?.contentViewSize = CGSize(width: 280, height: 350)
+            formSheetController.presentationController?.contentViewSize = CGSize(width: 350, height: 480)
             formSheetController.presentationController?.shouldCenterVertically = true
             formSheetController.contentViewControllerTransitionStyle = .bounce
             formSheetController.presentationController?.shouldDismissOnBackgroundViewTap = true
             self.present(formSheetController, animated: true, completion: nil)
-            //            navigationController.titleLabel.text = "update session"
+            navigationController.title = "Task Detail"
             navigationController.taskDetailObject = taskDetailObject
         }
     }

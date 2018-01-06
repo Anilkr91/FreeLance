@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ENSwiftSideMenu
 import CoreLocation
 import SwiftyUserDefaults
 import Alamofire
@@ -24,10 +25,19 @@ class StartWorkingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         self.sideMenuController()?.sideMenu?.delegate = self
+        
         setButtonTitle()
 //        setupBarButton()
         startWorkingButton.addTarget(self, action: #selector(StartWorkingViewController.startWorking), for: .touchUpInside)
         newEntryButton.addTarget(self, action: #selector(StartWorkingViewController.startNewEntry), for: .touchUpInside)
+    }
+    
+    
+    
+    @IBAction func toggleSideMenuBtn(_ sender: UIBarButtonItem) {
+        toggleSideMenuView()
     }
     
     func startNewEntry() {
@@ -187,4 +197,31 @@ extension StartWorkingViewController: CLLocationManagerDelegate {
         
         cordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
     }
+}
+
+
+extension StartWorkingViewController: ENSideMenuDelegate {
+   
+    
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        print("sideMenuShouldOpenSideMenu")
+        return true
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+    
 }

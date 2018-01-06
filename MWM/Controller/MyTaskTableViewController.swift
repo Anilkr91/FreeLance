@@ -24,6 +24,12 @@ class MyTaskTableViewController: UITableViewController {
         setupBarButton()
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        getTaskCount()
+//        
+//    }
+    
     func setupBarButton() {
         
         let rightBarButton = UIBarButtonItem(title: "+", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTaskTableViewController.dismissModally))
@@ -33,12 +39,6 @@ class MyTaskTableViewController: UITableViewController {
     func dismissModally() {
         
         self.performSegue(withIdentifier: "showCreateTaskSegue", sender: self)
-        //        self.dismiss(animated: true, completion: nil)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getTaskCount() {
@@ -76,6 +76,7 @@ class MyTaskTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyTaskTableViewCell
         
         cell.selectionStyle = .none
+        cell.accessoryType = .disclosureIndicator
         cell.info = taskArray[indexPath.section]
         return cell
     }

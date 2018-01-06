@@ -14,5 +14,7 @@ target 'MWM' do
     pod 'Kingfisher'
     pod 'InteractiveSideMenu'
     pod 'MZFormSheetPresentationController'
+    pod 'SwiftDate', '~> 4.3.0'
+    pod 'ENSwiftSideMenu'
     
 end

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ENSwiftSideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Gloss.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftDate.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyUserDefaults.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,11 +67,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>10A66C4AF81A3E1DCA3DCC7119727AE8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>279AA6726F52A334C45E85774BD21A3D</key>
 		<dict>
 			<key>primary</key>
@@ -82,11 +87,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C4F952A9B4FD37B3FDD120158F9A0D8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6F712943B3C5592E82604940D11CE08A</key>
 		<dict>
 			<key>primary</key>
@@ -102,7 +102,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B6955A5DE193584AAB16238E15E9D127</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1677DCEB7559789D87D1DAA569C9986</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DA4CFEBC7883D4CE7E6AE34914B98587</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1C1806B93D7F3F64ADC36CCFBBD7D87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC3ABBA0F5373E591D3B548F40EB4211</key>
 		<dict>
 			<key>primary</key>
 			<true/>

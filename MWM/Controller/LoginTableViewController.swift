@@ -11,7 +11,8 @@ import  Alamofire
 
 class LoginTableViewController: BaseTableViewController {
     
-    @IBOutlet weak var userNameTextField: UITextField!
+    var userName: String?
+    var companyId: String?
     @IBOutlet weak var passwordTextField: UITextField!
     let imagePickerController = UIImagePickerController()
 
@@ -68,22 +69,18 @@ class LoginTableViewController: BaseTableViewController {
     
     @IBAction func LoginTapped(_ sender: Any) {
         
-        let username = userNameTextField.text!
         let password = passwordTextField.text!
         
-        if username.removeAllSpaces().isEmpty {
-            Alert.showAlertWithMessage("Error", message: "User name is empty")
-            
-        } else if password.removeAllSpaces().isEmpty {
+        if password.removeAllSpaces().isEmpty {
             Alert.showAlertWithMessage("Error", message: "Password is empty")
             
         } else {
-            loginApiService(userName: username, password: password)
+            loginApiService(userName: userName!, password: password)
         }
     }
     
     func loginApiService(userName: String, password: String) {
-        let param = LoginModel(username: userName, password: password).toJSON()
+        let param = LoginModel(username: userName, password: password, companyId: companyId!).toJSON()
         
         LoginPostService.executeRequest(param!, completionHandler: { (response) in
             LoginUtils.setCurrentUserLogin(response)
@@ -156,6 +153,7 @@ class LoginTableViewController: BaseTableViewController {
             sideMenuArray.append("ChangePassword")
             sideMenuArray.append("Logout")
             sideMenuArray.append("About app")
+            sideMenuArray.append("Users")
         }
         
         LoginUtils.setCurrentUserPermission(Array(Set(sideMenuArray)))

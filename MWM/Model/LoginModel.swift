@@ -12,8 +12,11 @@ struct LoginModel {
     
     let username: String
     let password: String
+    let companyId: String
     
-    init( username: String, password: String ) {
+    init( username: String, password: String, companyId: String) {
+        
+        self.companyId = companyId
         self.username = username
         self.password = password
     }
@@ -21,7 +24,9 @@ struct LoginModel {
     func toJSON() -> JSON? {
         return jsonify([
             "userName" ~~> self.username,
-            "password" ~~> self.password
+            "password" ~~> self.password,
+            "companyId" ~~> self.companyId
+            
             ])
     }
 }

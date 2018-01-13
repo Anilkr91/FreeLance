@@ -49,7 +49,6 @@ class SideMenuOptionsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = array[indexPath.row]
         
-        // Configure the cell...
         return cell
     }
     
@@ -78,9 +77,7 @@ class SideMenuOptionsTableViewController: UITableViewController {
             print("ChangePassword")
             
             dvc = storyboard.instantiateViewController(withIdentifier: "ChangePasswordTableViewController")
-            sideMenuController()?.setContentViewController(dvc)
-//            self.performSegue(withIdentifier: "showChangePasswordSegue", sender: self)
-            
+            sideMenuController()?.setContentViewController(dvc)            
             
         } else if array[indexPath.row] == "About app" {
             
@@ -90,7 +87,12 @@ class SideMenuOptionsTableViewController: UITableViewController {
         
             dvc = storyboard.instantiateViewController(withIdentifier: "MyTaskOptionsTableViewController")
             sideMenuController()?.setContentViewController(dvc)
-//            self.performSegue(withIdentifier: "showMyTask", sender: self)
+
+        } else if array[indexPath.row] == "Users" {
+            
+            dvc = storyboard.instantiateViewController(withIdentifier: "MyUsersListTableViewController")
+            sideMenuController()?.setContentViewController(dvc)
+            
         }
     }
     

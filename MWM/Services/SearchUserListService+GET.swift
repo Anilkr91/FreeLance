@@ -1,15 +1,15 @@
 //
-//  UserListService+GET.swift
+//  SearchUserListService+GET.swift
 //  MWM
 //
-//  Created by admin on 16/12/17.
-//  Copyright © 2017 Techximum. All rights reserved.
+//  Created by admin on 06/01/18.
+//  Copyright © 2018 Techximum. All rights reserved.
 //
 
 import Alamofire
 import Gloss
 
-class UserListGetService {
+class SearchUserListGetService {
     static func executeRequest ( _ params:[String: Any], completionHandler: @escaping (UserListResponseArrayModel) -> Void) {
         
         ProgressBarView.showHUD()
@@ -21,8 +21,8 @@ class UserListGetService {
         
         let token = LoginUtils.getCurrentUserLogin()
         let headers: HTTPHeaders = ["AUTH-TOKEN": token!]
-
-        let r =  manager.request( BaseURL + "dashboard/user-list", method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+        
+        let r =  manager.request( BaseURL + "dashboard/search-user", method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :
@@ -35,9 +35,9 @@ class UserListGetService {
                 } else {
                     
                     ProgressBarView.hideHUD()
-                    let error = ErrorModel(json: value as! JSON)
-                    
-                    Alert.showAlertWithMessage("Error", message: error!.errorMessage)
+                    //                    let error = ErrorModel(json: value as! JSON)
+                    //
+                    //                    Alert.showAlertWithMessage("Error", message: error!.errorMessage)
                 }
                 
             case .failure(let error):

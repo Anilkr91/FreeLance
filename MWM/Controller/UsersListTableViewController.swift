@@ -36,7 +36,7 @@ class UsersListTableViewController: BaseTableViewController {
         
         let param = ["pageNumber" : 0, "pageSize": 10]
         UserListGetService.executeRequest(param) { (response) in
-            self.array = response
+            self.array = response.data
             self.tableView.reloadData()
         }
     }

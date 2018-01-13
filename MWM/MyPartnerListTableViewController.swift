@@ -23,7 +23,7 @@ class MyPartnerListTableViewController: BaseTableViewController, UISearchResults
     
         var currentPage = 0
         var totalElements = 0
-        var isLoadMore: Bool = false
+//        var isLoadMore: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +82,6 @@ class MyPartnerListTableViewController: BaseTableViewController, UISearchResults
         }
     }
     
-    
     func findCategoryId() {
         
         let categories = LoginUtils.getCurrentUserCategoryList()!
@@ -110,7 +109,6 @@ class MyPartnerListTableViewController: BaseTableViewController, UISearchResults
             self.tableView.reloadData()
         }
     }
-    
     
     func searchPartnerList(searchString: String) {
         let param = ["pageNumber": 0, "pageSize" : 20, "region": user.region!, "categoryId": categoryIds, "partnerName":searchString, "brandName": brandName] as [String : Any]
@@ -222,6 +220,4 @@ class MyPartnerListTableViewController: BaseTableViewController, UISearchResults
             searchPartnerList(searchString: searchBar.text!)
         }
     }
-    
-    
 }

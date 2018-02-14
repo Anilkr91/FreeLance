@@ -32,6 +32,7 @@ class UsersListTableViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBarButton()
         filteredArray = array
         
         let param = ["pageNumber" : 0, "pageSize": 10]

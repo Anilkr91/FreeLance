@@ -13,9 +13,9 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
     let active: Bool
     let area: String
     let assignedBy: String
-    let assignedByName: String
+    let assignedByName: String?
     let assignedTo: String
-    let assignedToName: String
+    let assignedToName: String?
     let cancelationReason: String?
     let companyId: String
     let description: String
@@ -43,9 +43,7 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
         guard let active: Bool = "active" <~~ json,
             let area: String = "area" <~~ json,
             let assignedBy: String = "assignedBy" <~~ json,
-            let assignedByName: String = "assignedByName" <~~ json,
             let assignedTo: String = "assignedTo" <~~ json,
-            let assignedToName: String = "assignedToName" <~~ json,
             let companyId: String = "companyId" <~~ json,
             let description: String = "description" <~~ json,
             let deviceType: String = "deviceType" <~~ json,
@@ -63,9 +61,9 @@ struct MyTaskWithDurationModel: Gloss.Decodable {
         self.active = active
         self.area = area
         self.assignedBy = assignedBy
-        self.assignedByName = assignedByName
+        self.assignedByName = "assignedByName" <~~ json
         self.assignedTo = assignedTo
-        self.assignedToName = assignedToName
+        self.assignedToName = "assignedToName" <~~ json
         self.cancelationReason = "cancelationReason" <~~ json
         self.companyId = companyId
         self.description = description

@@ -12,16 +12,19 @@ struct VerifyOTPModel {
     
     let contactNo: String
     let otp: String
+    let companyId: String
     
-    init( contactNo: String, otp: String) {
+    init( contactNo: String, otp: String,companyId: String ) {
         self.contactNo = contactNo
         self.otp = otp
+        self.companyId = companyId
     }
     
     func toJSON() -> JSON? {
         return jsonify([
             "mobileNumber" ~~> self.contactNo,
-            "otpToken" ~~> self.otp
+            "otpToken" ~~> self.otp,
+            "companyId" ~~> self.companyId
             ])
     }
 }

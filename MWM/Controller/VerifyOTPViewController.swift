@@ -12,6 +12,8 @@ class VerifyOTPViewController: BaseViewController {
     
     @IBOutlet weak var retryOTPButton: UIButton!
     @IBOutlet weak var otpTextField: UITextField!
+    var companyId: String = ""
+    
     var mobileNumber: String?
     var timer = Timer()
     var seconds = 60
@@ -28,7 +30,9 @@ class VerifyOTPViewController: BaseViewController {
             Alert.showAlertWithMessage("Error", message: "Field is empty")
         } else {
             
-            let paramOTP = VerifyOTPModel(contactNo: mobileNumber!, otp: otpTextField.text!).toJSON()
+            let paramOTP = VerifyOTPModel(contactNo: mobileNumber!, otp: otpTextField.text!, companyId: companyId).toJSON()
+            
+            
             VerifyOTPPostService.executeRequest(paramOTP! as [String : AnyObject]) { (data) in
                 self.timer.invalidate()
                 self.retryOTPButton.setTitle("Resend OTP", for: .normal)
@@ -43,6 +47,7 @@ class VerifyOTPViewController: BaseViewController {
             
             let dvc = segue.destination as! ForgotPasswordTableViewController
             dvc.mobileNumber = mobileNumber
+            dvc.companyId = companyId
             dvc.otp = otpTextField.text!
         }
     }

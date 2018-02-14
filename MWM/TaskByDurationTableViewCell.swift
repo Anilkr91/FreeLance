@@ -17,6 +17,7 @@ class TaskByDurationTableViewCell: UITableViewCell {
     @IBOutlet weak var partnerLabel: UILabel!
     @IBOutlet weak var taskStatusLabel: UILabel!
     @IBOutlet weak var assignedToLabel: UILabel!
+    @IBOutlet weak var statusImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,6 +47,17 @@ extension TaskByDurationTableViewCell {
         partnerLabel.text = "Partner: \(info.partnerName)"
         taskStatusLabel.text = "Assigned To: \(info.status)"
         assignedToLabel.text = "Task Status: \(info.assignedTo)"
+        
+        if info.priority == "MEDIUM" {
+           statusImageView.image = UIImage(named: "ribbon_medium")
+        
+        } else if info.priority == "HIGH" {
+            statusImageView.image = UIImage(named: "ribbon_high")
+            
+        } else if info.priority == "LOW" {
+            statusImageView.image = UIImage(named: "ribbon_low")
+            
+        }
         
     }
 }

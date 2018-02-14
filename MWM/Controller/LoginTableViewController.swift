@@ -13,9 +13,19 @@ class LoginTableViewController: BaseTableViewController {
     
     var userName: String?
     var companyId: String?
+    
+    let allPermission = [
+        
+        "AttendanceWithCamera","AttendanceWithoutCamera","Footprint","ViewAttendance","ManageUser","UpdateProfile",
+        "ViewAllUser","ViewRegionUser","ManageOwnTask","ManageAllTask","MBKAutoMobileEmployee","MBKAutoMobileManager",
+        "MBKRestaurantEmployee","MBKRestaurantManager","MBKHealthcareEmployee","MBKHealthcareManager","MBKPetrolPumpEmployee",
+        "MBKPetrolPumpManager","ManageCompany","UpdateCompany","OfflineSubmit","EditRole","ManagePartner","ViewAllPartner"
+        
+    ]
+    
     @IBOutlet weak var passwordTextField: UITextField!
     let imagePickerController = UIImagePickerController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,70 +102,144 @@ class LoginTableViewController: BaseTableViewController {
     }
     
     
-    func createPermissionArray(permisssionList: [String]) {
-        
-        var sideMenuArray: [String] = []
-        for permission in permisssionList.enumerated(){
-            
-            if permission.element == "MBKAutoMobileEmployee" || permission.element == "MBKRestaurantEmployee" || permission.element == "MBKHealthcareEmployee" || permission.element == "MBKPetrolPumpEmployee" {
-                
-                sideMenuArray.append("Dashboard")
-                sideMenuArray.append("Today's Summary")
-            }
-            
-            if permission.element == "MBKHealthcareManager" || permission.element == "MBKPetrolPumpManager" || permission.element == "MBKRestaurantManager" || permission.element == "MBKAutoMobileManager" {
-                sideMenuArray.append("Admin Panel")
-            }
-            
-            if permission.element == "ManageOwnTask" || permission.element == "ManageAllTask" {
-                sideMenuArray.append("My Task")
-            }
-            
-            if permission.element == "ManageUser" || permission.element == "ViewAllUser" || permission.element == "ViewRegionUser" {
-                sideMenuArray.append("Users")
-            }
-            
-            if permission.element == "ViewAttendance" {
-                
-                if permission.element == "UpdateCompany" {
-                    sideMenuArray.append("My Attendence")
+        func createPermissionArray(permisssionList: [String]) {
+    
+            var sideMenuArray: [String] = []
+            for permission in permisssionList.enumerated(){
+    
+                if permission.element == "MBKAutoMobileEmployee" || permission.element == "MBKRestaurantEmployee" || permission.element == "MBKHealthcareEmployee" || permission.element == "MBKPetrolPumpEmployee" {
+    
+                    sideMenuArray.append("Dashboard")
+                    sideMenuArray.append("Today's Summary")
                 }
-            }
-            
-            if permission.element == "MBKPetrolPumpManager" || permission.element == "MBKPetrolPumpEmployee" {
-                
-                if permission.element == "UpdateCompany" {
-                    sideMenuArray.append("MBKPetrolPump")
+    
+                if permission.element == "MBKHealthcareManager" || permission.element == "MBKPetrolPumpManager" || permission.element == "MBKRestaurantManager" || permission.element == "MBKAutoMobileManager" {
+                    sideMenuArray.append("Admin Panel")
                 }
-            }
-            
-            if permission.element == "MBKAutoMobileEmployee" || permission.element == "MBKAutoMobileManager" {
-                
-                if permission.element == "UpdateCompany" {
-                    sideMenuArray.append("MBKAutoMobile")
+    
+                if permission.element == "ManageOwnTask" || permission.element == "ManageAllTask" {
+                    sideMenuArray.append("My Task")
                 }
-            }
-            
-            if permission.element == "MBKHealthcareEmployee" || permission.element == "MBKHealthcareManager" {
-                
-                if permission.element == "UpdateCompany" {
-                    sideMenuArray.append("MBKHealthCare")
+    
+                if permission.element == "ManageUser" || permission.element == "ViewAllUser" || permission.element == "ViewRegionUser" {
+                    sideMenuArray.append("Users")
                 }
-            }
-            
-            if permission.element == "MBKRestaurantEmployee" || permission.element == "MBKRestaurantManager" {
-                
-                if permission.element == "UpdateCompany" {
-                    sideMenuArray.append("MBKRestaurant")
+    
+                if permission.element == "ViewAttendance" {
+    
+                    if permission.element == "UpdateCompany" {
+                        sideMenuArray.append("My Attendence")
+                    }
                 }
+    
+                if permission.element == "MBKPetrolPumpManager" || permission.element == "MBKPetrolPumpEmployee"  && permission.element != "UpdateCompany"{
+    
+//                    if  {
+                        sideMenuArray.append("MBKPetrolPump")
+//                    }
+                }
+    
+                if permission.element == "MBKAutoMobileEmployee" || permission.element == "MBKAutoMobileManager" {
+    
+                    if permission.element != "UpdateCompany" {
+                        sideMenuArray.append("MBKAutoMobile")
+                    }
+                }
+    
+                if permission.element == "MBKHealthcareEmployee" || permission.element == "MBKHealthcareManager" {
+    
+                    if permission.element != "UpdateCompany" {
+                        sideMenuArray.append("MBKHealthCare")
+                    }
+                }
+    
+                if permission.element == "MBKRestaurantEmployee" || permission.element == "MBKRestaurantManager" {
+    
+                    if permission.element != "UpdateCompany" {
+                        sideMenuArray.append("MBKRestaurant")
+                    }
+                }
+    
+                sideMenuArray.append("ChangePassword")
+                sideMenuArray.append("Logout")
+                sideMenuArray.append("About app")
+//                sideMenuArray.append("Users")
             }
-            
-            sideMenuArray.append("ChangePassword")
-            sideMenuArray.append("Logout")
-            sideMenuArray.append("About app")
-            sideMenuArray.append("Users")
+    
+            LoginUtils.setCurrentUserPermission(Array(Set(sideMenuArray)))
         }
-        
-        LoginUtils.setCurrentUserPermission(Array(Set(sideMenuArray)))
-    }
+    
+    
+    
+//    func createPermissionArray(permisssionList: [String]) {
+//        
+//        var sideMenuArray: [String] = []
+//        for permission in permisssionList.enumerated(){
+//            
+//            for allpermission in allPermission.enumerated() {
+//                
+//                if permission.element == allpermission.element || permission.element == allpermission.element || permission.element == allpermission.element || permission.element == allpermission.element {
+//                    
+//                    sideMenuArray.append("Dashboard")
+//                    sideMenuArray.append("Today's Summary")
+//                }
+//                
+//                if permission.element == allpermission.element || permission.element == allpermission.element || permission.element == allpermission.element || permission.element == allpermission.element {
+//                    sideMenuArray.append("Admin Panel")
+//                }
+//                
+//                if permission.element == allpermission.element || permission.element == allpermission.element {
+//                    sideMenuArray.append("My Task")
+//                }
+//                
+//                if permission.element == allpermission.element || permission.element == allpermission.element || permission.element == allpermission.element {
+//                    sideMenuArray.append("Users")
+//                }
+//                
+//                if permission.element == allpermission.element {
+//                    
+//                    if permission.element == "UpdateCompany" {
+//                        sideMenuArray.append("My Attendence")
+//                    }
+//                }
+//                
+//                if permission.element == allpermission.element || permission.element == allpermission.element {
+//                    
+//                    if permission.element == "UpdateCompany" {
+//                        sideMenuArray.append("MBKPetrolPump")
+//                    }
+//                }
+//                
+//                if permission.element == allpermission.element || permission.element == allpermission.element {
+//                    
+//                    if permission.element != "UpdateCompany" {
+//                        sideMenuArray.append("MBKAutoMobile")
+//                    }
+//                }
+//                
+//                if permission.element == allpermission.element || permission.element == allpermission.element {
+//                    
+//                    if permission.element != "UpdateCompany" {
+//                        sideMenuArray.append("MBKHealthCare")
+//                    }
+//                }
+//                
+//                if permission.element == allpermission.element || permission.element == allpermission.element {
+//                    
+//                    if permission.element != "UpdateCompany" {
+//                        sideMenuArray.append("MBKRestaurant")
+//                    }
+//                }
+//                
+//                sideMenuArray.append("ChangePassword")
+//                sideMenuArray.append("Logout")
+//                sideMenuArray.append("About app")
+//                sideMenuArray.append("Users")
+//            }
+//        }
+//        
+//        LoginUtils.setCurrentUserPermission(Array(Set(sideMenuArray)))
+//    }
+    
 }
+

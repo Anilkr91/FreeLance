@@ -23,13 +23,18 @@ class LoginUtils {
         if let login = login {
             
             var categoryIds:[Int] = []
-            Defaults[.token] = login.token
-            Defaults[.permissionList] = login.permissionList
-            print(login.categoryList)
+            var permissionList: [String] = []
+        
+            for permission in login.permissionList.enumerated() {
+                permissionList.append(permission.element)
+            }
+            
             for category in login.categoryList.enumerated() {
                 categoryIds.append(category.element.id)
             }
             
+            Defaults[.permissionList] = permissionList
+            Defaults[.token] = login.token
             Defaults[.categoryListIds] = categoryIds
             Defaults[.user] = login.user.toJSON()
             Defaults[.isLaunched] = true
@@ -59,6 +64,14 @@ class LoginUtils {
     
     class func getCurrentUserPermission() -> [String]? {
         if let permissionList = Defaults[.userPermissionMenu] {
+            return permissionList
+        }
+        return nil
+    }
+    
+    
+    class func getCurrentUserPermissionList() -> [String]? {
+        if let permissionList = Defaults[.permissionList] {
             return permissionList
         }
         return nil

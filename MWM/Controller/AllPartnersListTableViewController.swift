@@ -34,6 +34,7 @@ class AllPartnersListTableViewController: BaseTableViewController {
         super.viewDidLoad()
         
         getCategory()
+        setupBarButton()
 
     }
     

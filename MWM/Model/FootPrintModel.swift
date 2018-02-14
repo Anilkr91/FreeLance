@@ -10,15 +10,15 @@ import Gloss
 
 struct FootPrintModel {
     
-//    let date: NSDate
+    let date: Int
     let latitude: String
     let longitude: String
     let sessionId: Int
     let userId: Int
     
-    init(/*date: NSDate,*/ latitude: String, longitude: String, sessionId: Int, userId: Int) {
+    init(date: Int, latitude: String, longitude: String, sessionId: Int, userId: Int) {
        
-//        self.date = date
+        self.date = date
         self.latitude = latitude
         self.longitude = longitude
         self.sessionId = sessionId
@@ -28,7 +28,7 @@ struct FootPrintModel {
     func toJSON() -> JSON? {
         return jsonify([
             
-//            "createdDate" ~~> self.date,
+            "createdDate" ~~> self.date,
             "latitude" ~~> self.latitude,
             "longitude" ~~> self.longitude,
             "sessionId" ~~> self.sessionId,

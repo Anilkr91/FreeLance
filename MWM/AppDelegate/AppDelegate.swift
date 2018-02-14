@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        LocationSingleton.sharedInstance.delegate = self
+        LocationSingleton.sharedInstance.startUpdatingLocation()
+        
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -148,3 +151,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
+
+ 
+ extension AppDelegate: LocationServiceDelegate {
+    
+    // MARK: LocationService Delegate
+    func tracingLocation(currentLocation: CLLocation) {
+        let latitude = currentLocation.coordinate.latitude
+        let longitude = currentLocation.coordinate.longitude
+        
+        print("lat : \(latitude)")
+        print( "lon : \(longitude)")
+    
+    
+        if let user = LoginUtils.getCurrentUser() {
+            
+            let date: Double = NSDate().timeIntervalSince1970.rounded(toPlaces: 0)*1000
+            
+            let param = ["userFootprints": [FootPrintModel(date: Int(date), latitude: "\(latitude)" , longitude: "\(longitude)", sessionId: user.sessionId!, userId: user.id).toJSON()]]
+            
+            
+            FootPrintPostService.executeRequest(param) { (response) in
+                            print(response)
+                        }
+            
+        }
+    
+    }
+        
+    
+    func tracingLocationDidFailWithError(error: NSError) {
+        print("tracing Location Error : \(error.description)")
+    }
+ }

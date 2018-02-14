@@ -19,6 +19,7 @@ class StartWorkingViewController: BaseViewController {
     
     var cordinates = CLLocationCoordinate2D()
     lazy var locationManager = CLLocationManager()
+    let imagePickerController = UIImagePickerController()
     
     let user = LoginUtils.getCurrentUser()
     var footPrints = [FootPrintModel]()
@@ -26,10 +27,12 @@ class StartWorkingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         self.sideMenuController()?.sideMenu?.delegate = self
+        LocationSingleton.sharedInstance.delegate = self
+        LocationSingleton.sharedInstance.startUpdatingLocation()
+        
+        self.sideMenuController()?.sideMenu?.delegate = self
         
         setButtonTitle()
-//        setupBarButton()
         startWorkingButton.addTarget(self, action: #selector(StartWorkingViewController.startWorking), for: .touchUpInside)
         newEntryButton.addTarget(self, action: #selector(StartWorkingViewController.startNewEntry), for: .touchUpInside)
     }
@@ -37,7 +40,25 @@ class StartWorkingViewController: BaseViewController {
     
     
     @IBAction func toggleSideMenuBtn(_ sender: UIBarButtonItem) {
-        toggleSideMenuView()
+        
+        let session = LoginUtils.getCurrentUserSession()
+            
+            if session == nil {
+                showAlert(title: "Mark Attendence First", message: "")
+                
+            } else {
+               toggleSideMenuView() 
+                
+            }
+    }
+    
+    func showAlert(title: String, message: String) {
+        
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OK = UIAlertAction(title: "OK", style: .default, handler: nil )
+        
+        alertView.addAction(OK)
+        self.present(alertView, animated: true, completion: nil)
     }
     
     func startNewEntry() {
@@ -60,7 +81,20 @@ class StartWorkingViewController: BaseViewController {
     func startWorking() {
         
         if LoginUtils.getCurrentUserSession() == nil {
-            startWork()
+            
+            for permission in LoginUtils.getCurrentUserPermissionList()!.enumerated() {
+                
+                if permission.element == "AttendanceWithCamera" {
+                    handleImageTapGestureRecognizer()
+                    return
+                    
+                } else if permission.element == "AttendanceWithoutCamera" {
+                    startWork()
+                    
+                } else {
+                    continue
+                }
+            }
             
         } else {
             endWork()
@@ -75,6 +109,23 @@ class StartWorkingViewController: BaseViewController {
             self.startWorkingButton.setTitle("Start Working", for: .normal)
             self.newEntryButton.isHidden = true
         })
+    }
+    
+    func startWithAttendence(attendenceImageUrl: String) {
+        
+        StartWorkAttendenceWithCameraPostService.executeRequest(attendenceImageUrl) { (response) in
+            
+            print(response.data)
+            // sending user location to server
+            self.sendUserFootPrint(sessionId: response.data.id, userId: response.data.userId)
+            
+            // saving user object to userdefaults
+            LoginUtils.setCurrentUserAttendence(response.data)
+            LoginUtils.setCurrentUserSession(response.data.id)
+            self.startWorkingButton.setTitle("End Working", for: .normal)
+            self.newEntryButton.isHidden = false
+            
+        }
     }
     
     func startWork() {
@@ -97,111 +148,85 @@ class StartWorkingViewController: BaseViewController {
     }
     
     func sendUserFootPrint(sessionId: Int, userId: Int) {
-
-        let param = ["userFootprints": [FootPrintModel(/*date: "",*/ latitude: "\(28.585100)" , longitude: "\(77.071214)", sessionId: sessionId, userId: userId).toJSON()]]
-        print(param)
         
-        for (k,v) in param.enumerated() {
-            print(k)
-            print(v.key)
-        }
+        let date: Double = NSDate().timeIntervalSince1970.rounded(toPlaces: 0)*1000
+        
+        let param = ["userFootprints": [FootPrintModel(date: Int(date), latitude: "\(cordinates.latitude)" , longitude: "\(cordinates.longitude)", sessionId: sessionId, userId: userId).toJSON()]]
+        
         FootPrintPostService.executeRequest(param) { (response) in
             print(response)
         }
     }
 }
 
-//extension StartWorkingViewController {
-//    
-//    func setupBarButton() {
-//        let barButton = UIBarButtonItem()
-//        barButton.tintColor = UIColor.darkGray
-//        barButton.image = UIImage(named: "SettingIcon")
-//        barButton.target = self
-//        barButton.action = #selector(self.logout(_:))
-//        self.navigationItem.rightBarButtonItem = barButton
-//    }
-//    
-//    func logout(_ sender: Any) {
-//        
-//        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        // create an action
-//        let firstAction: UIAlertAction = UIAlertAction(title: "Logout", style: .default) { action -> Void in
-//            
-//            LogoutGetService.executeRequest { (data) in
-//                Alert.showAlertWithMessage("Success", message: "User logged out Successfully")
-//            }
-//            LoginUtils.setCurrentUserLogin(nil)
-//            let application = UIApplication.shared.delegate as! AppDelegate
-//            application.setHomeGuestAsRVC()
-//        }
-//        
-//        let secondAction: UIAlertAction = UIAlertAction(title: "Change Password", style: .default) { action -> Void in
-//            self.performSegue(withIdentifier: "showChangePasswordSegue", sender: self)
-//        }
-//        
-//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
-//        // add actions
-//        actionSheetController.addAction(firstAction)
-//        actionSheetController.addAction(secondAction)
-//        actionSheetController.addAction(cancelAction)
-//        
-//        // present an actionSheet...
-//        actionSheetController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-//        present(actionSheetController, animated: true, completion: nil)
-//    }
-//}
-
-
-extension StartWorkingViewController: CLLocationManagerDelegate {
+extension StartWorkingViewController: LocationServiceDelegate {
     
-    func setupCoreLocation() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    }
-    
-    func startLocationUpdates() {
-        switch CLLocationManager.authorizationStatus() {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-            break
-            
-        case .authorizedWhenInUse:
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-            break
-            
-        case .denied:
-            print(".Denied")
-            break
-            
-        default:
-            print("Undefined authorization status")
-            break
-        }
-    }
-    
-    func stopLocationUpdates() {
-        locationManager.delegate = nil
-        locationManager.stopUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        startLocationUpdates()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation = locations[0] as CLLocation
+    // MARK: LocationService Delegate
+    func tracingLocation(currentLocation: CLLocation) {
+        let lat = currentLocation.coordinate.latitude
+        let lon = currentLocation.coordinate.longitude
         
-        locationManager.stopUpdatingLocation()
-        
-        cordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+        print("lat : \(lat)")
+        print( "lon : \(lon)")
+        cordinates = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude,longitude: currentLocation.coordinate.longitude)
+        LocationSingleton.sharedInstance.delegate = nil
+        LocationSingleton.sharedInstance.stopUpdatingLocation()
+    }
+    
+    func tracingLocationDidFailWithError(error: NSError) {
+        print("tracing Location Error : \(error.description)")
     }
 }
 
 
+
+//extension StartWorkingViewController: CLLocationManagerDelegate {
+//
+//    func setupCoreLocation() {
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//    }
+//
+//    func startLocationUpdates() {
+//        switch CLLocationManager.authorizationStatus() {
+//        case .notDetermined:
+//            locationManager.requestWhenInUseAuthorization()
+//            break
+//
+//        case .authorizedWhenInUse:
+//            locationManager.delegate = self
+//            locationManager.startUpdatingLocation()
+//            break
+//
+//        case .denied:
+//            print(".Denied")
+//            break
+//
+//        default:
+//            print("Undefined authorization status")
+//            break
+//        }
+//    }
+//
+//    func stopLocationUpdates() {
+//        locationManager.delegate = nil
+//        locationManager.stopUpdatingLocation()
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        startLocationUpdates()
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let userLocation = locations[0] as CLLocation
+//
+//        locationManager.stopUpdatingLocation()
+//
+//        cordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+//    }
+//}
+
 extension StartWorkingViewController: ENSideMenuDelegate {
-   
     
     func sideMenuWillOpen() {
         print("sideMenuWillOpen")
@@ -223,5 +248,37 @@ extension StartWorkingViewController: ENSideMenuDelegate {
     func sideMenuDidOpen() {
         print("sideMenuDidOpen")
     }
+}
+
+extension StartWorkingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    func handleImageTapGestureRecognizer() {
+        self.imagePickerController.sourceType = .camera
+        self.imagePickerController.cameraDevice = .rear
+        self.presentImagePickerController()
+    }
+    
+    func presentImagePickerController() {
+        self.imagePickerController.delegate = self
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        ProgressBarView.showHUD()
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.imagePickerController.dismiss(animated: true, completion: nil)
+        
+        if let imageData = image?.jpeg(.medium) {
+            UploadImagePostService.executeRequest(imageData, completionHandler: { (response) in
+                ProgressBarView.hideHUD()
+                
+                self.startWithAttendence(attendenceImageUrl: response.data)
+            })
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

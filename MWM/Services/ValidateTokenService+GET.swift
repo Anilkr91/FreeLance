@@ -16,7 +16,7 @@ class ValidateTokenPostService {
     static func executeRequest (completionHandler: @escaping (IsSuccessModel) -> Void) {
         
         let manager = Alamofire.SessionManager.default
-        manager.session.configuration.timeoutIntervalForRequest = 60
+        manager.session.configuration.timeoutIntervalForRequest = 2
         
         let BaseURL = Constants.BASE_URL
         let user = LoginUtils.getCurrentUser()

@@ -77,6 +77,9 @@
 		8421E2041F9A20DF0039D49E /* UIImageView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E1DA1F9A20DF0039D49E /* UIImageView+Helper.swift */; };
 		8421E2061F9A21110039D49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8421E2051F9A21110039D49E /* Assets.xcassets */; };
 		8421E2081F9A27ED0039D49E /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E2071F9A27ED0039D49E /* ProgressBarView.swift */; };
+		8430ACA4201339F3002650EB /* ValidateOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430ACA3201339F3002650EB /* ValidateOTPViewController.swift */; };
+		8430ACA620135914002650EB /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430ACA520135914002650EB /* SideMenuModel.swift */; };
+		8430ACA820136AB6002650EB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430ACA720136AB6002650EB /* AboutViewController.swift */; };
 		844B5C2D1FE5191A00329C7B /* CreateTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5C2C1FE5191A00329C7B /* CreateTaskTableViewController.swift */; };
 		844B5C2F1FE51C1D00329C7B /* CreateTaskServices+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5C2E1FE51C1D00329C7B /* CreateTaskServices+POST.swift */; };
 		844B5C311FE51DB300329C7B /* CreateTaskRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5C301FE51DB300329C7B /* CreateTaskRequestModel.swift */; };
@@ -101,6 +104,7 @@
 		84CD8C97200A014F0047A57E /* ValidateUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8C96200A014F0047A57E /* ValidateUserTableViewController.swift */; };
 		84CD8C99200A05C00047A57E /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8C98200A05C00047A57E /* CompanyModel.swift */; };
 		84CD8C9B200A06930047A57E /* CompanyModelArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8C9A200A06930047A57E /* CompanyModelArray.swift */; };
+		84CD8C9D200A26A20047A57E /* StartWorkAttendenceWithCameraService+POST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8C9C200A26A20047A57E /* StartWorkAttendenceWithCameraService+POST.swift */; };
 		84D870071FADAD8300F47702 /* LogoutSucessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870061FADAD8300F47702 /* LogoutSucessModel.swift */; };
 		84DDFEC31FB6E23F00DFCAD1 /* PartnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */; };
 		84DDFEC51FB6E86800DFCAD1 /* PartnerService+GET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */; };
@@ -124,6 +128,8 @@
 		84E09E0E20010C9600D8D66B /* EditUserService+PUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E09E0D20010C9600D8D66B /* EditUserService+PUT.swift */; };
 		84E09E102001102100D8D66B /* PasswordResetService+PUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E09E0F2001102100D8D66B /* PasswordResetService+PUT.swift */; };
 		84E09E12200111A200D8D66B /* ToggleUserStatusService+PUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E09E11200111A200D8D66B /* ToggleUserStatusService+PUT.swift */; };
+		84FC8F982012E05B00B45541 /* DoubleExtension+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC8F972012E05B00B45541 /* DoubleExtension+Helper.swift */; };
+		84FC8F9A2013037F00B45541 /* LocationService+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC8F992013037F00B45541 /* LocationService+Helper.swift */; };
 		D974AAF45F414F3B10BE5C75 /* Pods_MWM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */; };
 /* End PBXBuildFile section */
 
@@ -201,6 +207,9 @@
 		8421E1DA1F9A20DF0039D49E /* UIImageView+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Helper.swift"; sourceTree = "<group>"; };
 		8421E2051F9A21110039D49E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8421E2071F9A27ED0039D49E /* ProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		8430ACA3201339F3002650EB /* ValidateOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateOTPViewController.swift; sourceTree = "<group>"; };
+		8430ACA520135914002650EB /* SideMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
+		8430ACA720136AB6002650EB /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		844B5C2C1FE5191A00329C7B /* CreateTaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskTableViewController.swift; sourceTree = "<group>"; };
 		844B5C2E1FE51C1D00329C7B /* CreateTaskServices+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateTaskServices+POST.swift"; sourceTree = "<group>"; };
 		844B5C301FE51DB300329C7B /* CreateTaskRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskRequestModel.swift; sourceTree = "<group>"; };
@@ -225,6 +234,7 @@
 		84CD8C96200A014F0047A57E /* ValidateUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateUserTableViewController.swift; sourceTree = "<group>"; };
 		84CD8C98200A05C00047A57E /* CompanyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 		84CD8C9A200A06930047A57E /* CompanyModelArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModelArray.swift; sourceTree = "<group>"; };
+		84CD8C9C200A26A20047A57E /* StartWorkAttendenceWithCameraService+POST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StartWorkAttendenceWithCameraService+POST.swift"; sourceTree = "<group>"; };
 		84D870061FADAD8300F47702 /* LogoutSucessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutSucessModel.swift; sourceTree = "<group>"; };
 		84DDFEC21FB6E23F00DFCAD1 /* PartnerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PartnerTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		84DDFEC41FB6E86800DFCAD1 /* PartnerService+GET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "PartnerService+GET.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -248,6 +258,8 @@
 		84E09E0D20010C9600D8D66B /* EditUserService+PUT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditUserService+PUT.swift"; sourceTree = "<group>"; };
 		84E09E0F2001102100D8D66B /* PasswordResetService+PUT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PasswordResetService+PUT.swift"; sourceTree = "<group>"; };
 		84E09E11200111A200D8D66B /* ToggleUserStatusService+PUT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToggleUserStatusService+PUT.swift"; sourceTree = "<group>"; };
+		84FC8F972012E05B00B45541 /* DoubleExtension+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DoubleExtension+Helper.swift"; sourceTree = "<group>"; };
+		84FC8F992013037F00B45541 /* LocationService+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocationService+Helper.swift"; sourceTree = "<group>"; };
 		B30F5D7FC6735093ADFE217C /* Pods_MWM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E2AC5CB5AC7A69AF5F2F6A /* Pods-MWM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MWM/Pods-MWM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -365,6 +377,8 @@
 				84E09DF72000B25800D8D66B /* MyTaskOptionsTableViewController.swift */,
 				84E09DFD2000E1CA00D8D66B /* MyUsersListTableViewController.swift */,
 				84CD8C96200A014F0047A57E /* ValidateUserTableViewController.swift */,
+				8430ACA3201339F3002650EB /* ValidateOTPViewController.swift */,
+				8430ACA720136AB6002650EB /* AboutViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,6 +422,7 @@
 				84E09E0B20010AA400D8D66B /* EditUserModel.swift */,
 				84CD8C98200A05C00047A57E /* CompanyModel.swift */,
 				84CD8C9A200A06930047A57E /* CompanyModelArray.swift */,
+				8430ACA520135914002650EB /* SideMenuModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,6 +458,7 @@
 				84E09E0F2001102100D8D66B /* PasswordResetService+PUT.swift */,
 				84E09E11200111A200D8D66B /* ToggleUserStatusService+PUT.swift */,
 				84CD8C942009FFB70047A57E /* ValidateCredentialsService+GET.swift */,
+				84CD8C9C200A26A20047A57E /* StartWorkAttendenceWithCameraService+POST.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -459,6 +475,8 @@
 				8421E1D81F9A20DF0039D49E /* LoginUtils.swift */,
 				8421E1D91F9A20DF0039D49E /* StringExtension+Helper.swift */,
 				8421E1DA1F9A20DF0039D49E /* UIImageView+Helper.swift */,
+				84FC8F972012E05B00B45541 /* DoubleExtension+Helper.swift */,
+				84FC8F992013037F00B45541 /* LocationService+Helper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -509,6 +527,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = VZC96B7N35;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -638,6 +661,7 @@
 				84C58B171FADC1F800B83DC9 /* StartWorkingService+POST.swift in Sources */,
 				840BD9001FC03F10007965C9 /* PartnerModel.swift in Sources */,
 				84E09E0C20010AA400D8D66B /* EditUserModel.swift in Sources */,
+				84CD8C9D200A26A20047A57E /* StartWorkAttendenceWithCameraService+POST.swift in Sources */,
 				8421E1E71F9A20DF0039D49E /* ErrorModel.swift in Sources */,
 				844B5C451FE5732800329C7B /* TaskDetailAlert.swift in Sources */,
 				8421E1EC1F9A20DF0039D49E /* SaveRestaurantModel.swift in Sources */,
@@ -652,6 +676,7 @@
 				8400C3ED1FDC0940007C345E /* SideBarHeaderView.swift in Sources */,
 				8421E1F21F9A20DF0039D49E /* ChangePasswordService+POST.swift in Sources */,
 				84CD8C9B200A06930047A57E /* CompanyModelArray.swift in Sources */,
+				8430ACA4201339F3002650EB /* ValidateOTPViewController.swift in Sources */,
 				8400C4031FDC29F0007C345E /* MyTaskWithDurationModel.swift in Sources */,
 				84C58B191FADC35B00B83DC9 /* AttendenceModel.swift in Sources */,
 				84D870071FADAD8300F47702 /* LogoutSucessModel.swift in Sources */,
@@ -668,6 +693,7 @@
 				8421E1F81F9A20DF0039D49E /* SaveRestaurantService+POST.swift in Sources */,
 				8421E1FD1F9A20DF0039D49E /* BaseViewController.swift in Sources */,
 				8421E1E61F9A20DF0039D49E /* ChangePasswordModel.swift in Sources */,
+				8430ACA620135914002650EB /* SideMenuModel.swift in Sources */,
 				844B5C3D1FE55C0600329C7B /* UsersListTableViewController.swift in Sources */,
 				84E09E0A2001000200D8D66B /* CustomRoleModelArray.swift in Sources */,
 				8421E1F11F9A20DF0039D49E /* VerifyOTPModel.swift in Sources */,
@@ -710,6 +736,7 @@
 				8421E1E31F9A20DF0039D49E /* LoginTableViewController.swift in Sources */,
 				8421E1ED1F9A20DF0039D49E /* SaveRestaurantResponse.swift in Sources */,
 				84C58B151FADC09600B83DC9 /* StartWorkingViewController.swift in Sources */,
+				84FC8F9A2013037F00B45541 /* LocationService+Helper.swift in Sources */,
 				8421E1EF1F9A20DF0039D49E /* UserModel.swift in Sources */,
 				84B2C8D31FEE5BEE00B09D44 /* RoundLabel.swift in Sources */,
 				84E09E042000F9CA00D8D66B /* EditUserTableViewController.swift in Sources */,
@@ -723,12 +750,14 @@
 				8400C3741FD2D3B6007C345E /* LoadMoreTableViewCell.swift in Sources */,
 				840BD9061FC070BD007965C9 /* AddPartnerResponse.swift in Sources */,
 				8400C3FD1FDC2355007C345E /* MyTaskByDurationService+GET.swift in Sources */,
+				8430ACA820136AB6002650EB /* AboutViewController.swift in Sources */,
 				84C58B1B1FADC6BB00B83DC9 /* AttendenceModelResponse.swift in Sources */,
 				8421E1F61F9A20DF0039D49E /* RequestChangePasswordService+PUT.swift in Sources */,
 				8421E1FC1F9A20DF0039D49E /* AlertView+Helper.swift in Sources */,
 				8421E2081F9A27ED0039D49E /* ProgressBarView.swift in Sources */,
 				84CD8C952009FFB70047A57E /* ValidateCredentialsService+GET.swift in Sources */,
 				840BD8FA1FC02D78007965C9 /* CategoryService+GET.swift in Sources */,
+				84FC8F982012E05B00B45541 /* DoubleExtension+Helper.swift in Sources */,
 				84DDFEFD1FBC494F00DFCAD1 /* FootPrintModelArray.swift in Sources */,
 				84E09DFA2000B59600D8D66B /* MyPartnerListTableViewController.swift in Sources */,
 				84DDFEC51FB6E86800DFCAD1 /* PartnerService+GET.swift in Sources */,

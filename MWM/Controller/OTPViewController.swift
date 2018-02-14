@@ -11,9 +11,13 @@ import UIKit
 class OTPViewController: BaseViewController {
     
     @IBOutlet weak var mobileNumberTextField: UITextField!
+     var companyId: String = ""
+    var mobile: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mobileNumberTextField.text = mobile
         // Do any additional setup after loading the view.
     }
     
@@ -24,7 +28,7 @@ class OTPViewController: BaseViewController {
             
         } else {
             
-            let param = ["mobileNumber": mobileNumberTextField.text!]
+            let param = ["mobileNumber": mobileNumberTextField.text!, "companyId":companyId ]
             ForgotPasswordPostService.executeRequest(param as [String : AnyObject], completionHandler: { (response) in
                 self.performSegue(withIdentifier: "showVerifyOTP", sender: self)
                  Alert.showAlertWithMessage("Success", message: "OTP sent to your registered Mobile Number")
@@ -37,6 +41,7 @@ class OTPViewController: BaseViewController {
         if segue.identifier == "showVerifyOTP" {
             
             let dvc = segue.destination as! VerifyOTPViewController
+            dvc.companyId = companyId
             dvc.mobileNumber = mobileNumberTextField.text!
         }
     }

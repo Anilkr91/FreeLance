@@ -16,6 +16,8 @@ class ChangePasswordTableViewController: BaseTableViewController ,SideMenuItemCo
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     let imagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -23,21 +25,19 @@ class ChangePasswordTableViewController: BaseTableViewController ,SideMenuItemCo
         setupBackgroundImage()
         setupBarButton()
         tableView.separatorStyle = .none
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        hideSideMenuView()
     }
     
     func setupBarButton() {
-        
-        let rightBarButton = UIBarButtonItem(title: "Dismiss", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ChangePasswordTableViewController.dismissModally))
-        self.navigationItem.leftBarButtonItem = rightBarButton
+        menuButton.target = self
+        menuButton.action = #selector(toggleSideMenuView)
     }
-    
-    func dismissModally() {
-        
-        if let navigationViewController = self.navigationController as? SideMenuItemContent {
-            navigationViewController.showSideMenu()
-            
-        }
-    }
+
     
     func setupBackgroundImage() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)

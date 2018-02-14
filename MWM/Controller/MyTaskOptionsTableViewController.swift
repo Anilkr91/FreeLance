@@ -11,11 +11,26 @@ import UIKit
 class MyTaskOptionsTableViewController: BaseTableViewController {
     
     let array = ["My Work", "My Partner"]
+    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+         setupBarButton()
 
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        hideSideMenuView()
+    }
+    
+    func setupBarButton() {
+        menuButton.target = self
+        menuButton.action = #selector(toggleSideMenuView)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

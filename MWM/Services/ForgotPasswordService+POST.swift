@@ -25,6 +25,8 @@ class ForgotPasswordPostService {
             switch response.result {
             case .success(let value) :
                 
+                print(value)
+                
                 let data = SucessModel(json: value as! JSON)
                 if data != nil {
                     ProgressBarView.hideHUD()

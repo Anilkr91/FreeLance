@@ -17,7 +17,6 @@ struct AttendenceModel: Gloss.Decodable {
     let userId: Int
     let userName: String
     
-    
     init?(json: JSON) {
         
         guard let companyId: String = "companyId" <~~ json,

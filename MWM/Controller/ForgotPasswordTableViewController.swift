@@ -15,6 +15,7 @@ class ForgotPasswordTableViewController: BaseTableViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     
     var mobileNumber: String?
+    var companyId: String = ""
     var otp: String?
     
     override func viewDidLoad() {
@@ -85,7 +86,7 @@ func setupBackgroundImage() {
             
             let param = RequestPasswordChangeModel(password: newPassword, mobileNo: mobileNumber!, otpToken: otp!).toJSON()
             
-            RequestChangePasswordPostService.executeRequest(param!, completionHandler: { (data) in
+            RequestChangePasswordPostService.executeRequest(param!, id: companyId, completionHandler: { (data) in
                 self.navigationController?.popToRootViewController(animated: true)
                 Alert.showAlertWithMessage("Success", message: "Password reset Successfully")
             })

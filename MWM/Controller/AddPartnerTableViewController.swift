@@ -24,16 +24,24 @@ class AddPartnerTableViewController: BaseTableViewController {
     var partnerModel: PartnerModel?
     var partnerImageUrl: String = ""
     
+    var cordinates = CLLocationCoordinate2D()
+    lazy var locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tapGestureRecogniser()
-         tableView.separatorStyle = .none
-        
         customerRegionTextField.text = user.region!
-        getAddress { (address, area) in
-            self.addressTextField.text = address
-            self.areaTextField.text = area
+        tapGestureRecogniser()
+        tableView.separatorStyle = .none
+        
+        LocationSingleton.sharedInstance.delegate = self
+        LocationSingleton.sharedInstance.startUpdatingLocation()
+    }
+    
+    func isAuthorizedtoGetUserLocation() {
+        
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
+            locationManager.requestWhenInUseAuthorization()
         }
     }
     
@@ -43,7 +51,7 @@ class AddPartnerTableViewController: BaseTableViewController {
     }
     
     func tapGestureRecogniser() {
-       
+        
         partnerImageView.isUserInteractionEnabled = true
         
         let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(AddPartnerTableViewController.displayImageViewTapped(_:)))
@@ -97,14 +105,14 @@ class AddPartnerTableViewController: BaseTableViewController {
             })
         }
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showFeedbackSegue" {
             let dvc = segue.destination as!  HomeViewController
             dvc.partnerModel = partnerModel
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
@@ -114,7 +122,7 @@ class AddPartnerTableViewController: BaseTableViewController {
         var address: String = ""
         var area: String = ""
         let geoCoder = CLGeocoder()
-        let location = CLLocation(latitude: 28.585100, longitude: 77.071214)
+        let location = CLLocation(latitude: cordinates.latitude, longitude: cordinates.longitude)
         //selectedLat and selectedLon are double values set by the app in a previous process
         
         geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
@@ -145,7 +153,7 @@ class AddPartnerTableViewController: BaseTableViewController {
             if let locality = placeMark?.subLocality {
                 area = locality
             }
-
+            
             // Zip code
             if let zip = placeMark?.addressDictionary?["ZIP"] as? String {
                 address += zip + ", "
@@ -197,7 +205,7 @@ extension AddPartnerTableViewController: UIImagePickerControllerDelegate, UINavi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         ProgressBarView.showHUD()
-       
+        
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.imagePickerController.dismiss(animated: true, completion: nil)
         
@@ -212,5 +220,94 @@ extension AddPartnerTableViewController: UIImagePickerControllerDelegate, UINavi
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+//extension AddPartnerTableViewController: CLLocationManagerDelegate{
+//
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        print("Did location updates is called")
+//        //store the user location here to firebase or somewhere
+//
+//        lat = locations[0].coordinate.latitude
+//        long = locations[0].coordinate.longitude
+//
+//        getAddress { (address, area) in
+//            self.addressTextField.text = address
+//            self.areaTextField.text = area
+//        }
+//    }
+//}
+
+//extension AddPartnerTableViewController: CLLocationManagerDelegate {
+//
+//    func setupCoreLocation() {
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//    }
+//
+//    func startLocationUpdates() {
+//        switch CLLocationManager.authorizationStatus() {
+//        case .notDetermined:
+//            locationManager.requestWhenInUseAuthorization()
+//            break
+//
+//        case .authorizedWhenInUse:
+//            locationManager.delegate = self
+//            locationManager.startUpdatingLocation()
+//            break
+//
+//        case .denied:
+//            print(".Denied")
+//            break
+//
+//        default:
+//            print("Undefined authorization status")
+//            break
+//        }
+//    }
+//
+//    func stopLocationUpdates() {
+//        locationManager.delegate = nil
+//        locationManager.stopUpdatingLocation()
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//        startLocationUpdates()
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let userLocation = locations[0] as CLLocation
+//
+//        locationManager.stopUpdatingLocation()
+//
+//        cordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+//        getAddress { (address, area) in
+//                        self.addressTextField.text = address
+//                        self.areaTextField.text = area
+//                    }
+//    }
+//}
+
+extension AddPartnerTableViewController: LocationServiceDelegate {
+    
+    // MARK: LocationService Delegate
+    func tracingLocation(currentLocation: CLLocation) {
+        let lat = currentLocation.coordinate.latitude
+        let lon = currentLocation.coordinate.longitude
+        
+        print("lat : \(lat)")
+        print( "lon : \(lon)")
+        cordinates = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude,longitude: currentLocation.coordinate.longitude)
+        LocationSingleton.sharedInstance.stopUpdatingLocation()
+        getAddress { (address, area) in
+            self.addressTextField.text = address
+            self.areaTextField.text = area
+        }
+    }
+    
+    func tracingLocationDidFailWithError(error: NSError) {
+        print("tracing Location Error : \(error.description)")
     }
 }

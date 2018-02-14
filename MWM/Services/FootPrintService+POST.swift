@@ -13,7 +13,7 @@ class FootPrintPostService {
     
     static func executeRequest (_ params:[String: Any], completionHandler: @escaping (SucessModel) -> Void) {
         
-        ProgressBarView.showHUD()
+        
         
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 60
@@ -28,6 +28,7 @@ class FootPrintPostService {
             switch response.result {
             case .success(let value) :
                 
+                print(value)
                 if let data = SucessModel(json: value as! JSON) {
                     ProgressBarView.hideHUD()
                     completionHandler(data)

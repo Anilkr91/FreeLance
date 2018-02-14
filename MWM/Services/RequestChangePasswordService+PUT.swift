@@ -10,7 +10,7 @@ import Alamofire
 import Gloss
 
 class RequestChangePasswordPostService {
-    static func executeRequest (_ params:[String: Any], completionHandler: @escaping (BaseSucessModel) -> Void) {
+    static func executeRequest (_ params:[String: Any], id: String, completionHandler: @escaping (BaseSucessModel) -> Void) {
         
         ProgressBarView.showHUD()
         let BaseURL = Constants.BASE_URL
@@ -20,7 +20,7 @@ class RequestChangePasswordPostService {
         
         let headers: HTTPHeaders = ["Device-Type": "iOS"]
     
-       manager.request( BaseURL + "user/request-password-reset", method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+       manager.request( BaseURL + "user/request-password-reset?companyId=\(id)", method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             switch response.result {
             case .success(let value) :

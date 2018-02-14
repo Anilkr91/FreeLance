@@ -51,6 +51,8 @@ class CreateTaskTableViewController: UITableViewController {
         partnerTextField.addTarget(self, action: #selector(CreateTaskTableViewController.showPartnersList(_:)), for: .editingDidBegin)
         
         setupBarButton()
+        
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,7 +99,17 @@ class CreateTaskTableViewController: UITableViewController {
     
     func showUsersList(_ sender: UITextField)  {
         
-        self.performSegue(withIdentifier: "showUserListSegue", sender: self)
+        for permission in LoginUtils.getCurrentUserPermissionList()!.enumerated() {
+            
+            if permission.element == "ManageOwnTask" {
+                assignedtoTextField.text = user.userName
+                
+                return
+            
+            }
+        }
+        
+            self.performSegue(withIdentifier: "showUserListSegue", sender: self)
     }
     
     func showPartnersList(_ sender: UITextField) {
@@ -168,7 +180,7 @@ class CreateTaskTableViewController: UITableViewController {
             print("ALL Done")
             let date: Double = selectedDate!.timeIntervalSince1970.rounded(toPlaces: 0)*1000
             
-            var selecteduserName: String = ""
+            var selecteduserName: String = assignedto
             var selectedPartnerId: Int?
             
             if let userModel =  userModel {
@@ -224,20 +236,7 @@ extension CreateTaskTableViewController: UIPickerViewDelegate {
     }
 }
 
-extension Double {
-    //    / Rounds the double to decimal places value
-    func rounded(toPlaces places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
-    
-    
-    func truncate(places : Int)-> Double
-    {
-        return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
-    }
-    
-}
+
 
 extension CreateTaskTableViewController:  UserDelegte {
     func sendUserDelegate(user: UserListResponseModel) {
